@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Certis_base_App</string>
+    <string name="text_registration_step">Registration Step</string>
+    <string name="text_current_registration_step">1</string>
+    <string name="text_max_registration_step">/ 4</string>
+    <string name="text_registration_instruction">Please enter the fields below:</string>
+    <string name="hint_staff_id">Staff ID</string>
+</resources>

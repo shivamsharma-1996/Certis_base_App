@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="registration_views_vertical_margin">40dp</dimen>
+
+    <dimen name="dimens_8">8dp</dimen>
+    <dimen name="dimens_16">16dp</dimen>
+
+    <dimen name="textSizeMedium">16sp</dimen>
+    <dimen name="textSizeNormal">14sp</dimen>
+    <dimen name="dimens_4">4dp</dimen>
+
+
+</resources>
