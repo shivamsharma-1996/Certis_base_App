@@ -28,15 +28,28 @@
         android:textStyle="bold"
         android:drawablePadding="@dimen/dimens_10"
         android:padding="@dimen/dimens_4"
-        android:drawableStart="@drawable/flag_india"
+        android:drawableStart="@drawable/register_flag_india"
         app:layout_constraintStart_toEndOf="@id/tv_otp_instruction_text"
         android:layout_marginStart="@dimen/dimens_16"/>
+
+
+    <View
+        android:id="@+id/view_otp_success"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="1dp"
+        android:foregroundGravity="top"
+        app:layout_constraintStart_toStartOf="@id/et_otp_1"
+        app:layout_constraintEnd_toEndOf="@id/et_otp_6"
+        app:layout_constraintTop_toTopOf="@id/et_otp_1"
+        app:layout_constraintBottom_toBottomOf="@id/et_otp_1" />
 
     <EditText
         android:id="@+id/et_otp_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/OtpEditTextStyle"
+        android:focusedByDefault="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/et_otp_2"
         app:layout_constraintTop_toBottomOf="@+id/tv_otp_instruction_text"
@@ -108,7 +121,6 @@
         android:text="@string/text_otp_recieve_label"
         android:textColor="@color/textNormal"
         android:gravity="center"
-        android:letterSpacing="1.2"
         android:paddingStart="@dimen/dimens_5"
         android:paddingEnd="@dimen/dimens_5"
         app:layout_constraintStart_toStartOf="@id/et_otp_1"
@@ -129,4 +141,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <ImageView
+        android:id="@+id/iv_success_check"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/otp_validation_success_green"
+        android:layout_marginTop="@dimen/dimens_15"
+        app:layout_constraintStart_toStartOf="@id/et_otp_1"
+        app:layout_constraintEnd_toStartOf="@id/tv_success_message"
+        app:layout_constraintTop_toBottomOf="@id/et_otp_1"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_success_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/otp_verification_successful"
+        android:textColor="@color/greenMixedSuccess"
+        android:textSize="@dimen/textSizeXLarge"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:layout_marginStart="@dimen/dimens_8"
+        app:layout_constraintStart_toEndOf="@id/iv_success_check"
+        app:layout_constraintEnd_toEndOf="@id/et_otp_6"
+        app:layout_constraintTop_toBottomOf="@id/et_otp_1"/>
+
+    <android.support.constraint.Group
+        android:id="@+id/group_default_otp_botttom_ui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_otp_recieve_text,tv_resend_code "/>
+
+    <android.support.constraint.Group
+        android:id="@+id/group_otp_success_ui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="iv_success_check,tv_success_message "/>
 </android.support.constraint.ConstraintLayout>

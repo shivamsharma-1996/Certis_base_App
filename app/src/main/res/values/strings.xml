@@ -20,4 +20,8 @@
     <string name="text_otp_hint">0</string>
     <string name="text_otp_recieve_label">You will receive a verification code via SMS within 10 minutes. Please enter the code above.</string>
     <string name="otp_resend_code">Resend Code</string>
+    <string name="otp_verification_successful">Verification successful!</string>
+    <string name="otp_snackbar_failed_message_text">Verification failed. Please Retry.</string>
+    <string name="otp_snackbar_action_text">DISMISS</string>
+
 </resources>
