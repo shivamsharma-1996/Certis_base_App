@@ -2,9 +2,14 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#FFFF9400</color>
 
+    <color name="white">@android:color/white</color>
     <color name="greyDark">#FFB0B0B0</color>
+    <color name="greyLightShadow">#FFF0F0F0</color>
+    <color name="greyTranslucent">#FFE5E5EA</color>
+
     <color name="textPrimary">#FF4A4A4A</color>
     <color name="textNormal">@android:color/black</color>
+
 </resources>

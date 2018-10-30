@@ -1,8 +1,23 @@
 <resources>
     <string name="app_name">Certis_base_App</string>
+
     <string name="text_registration_step">Registration Step</string>
-    <string name="text_current_registration_step">1</string>
+    <string name="text_registration_step_1">1</string>
+    <string name="text_registration_step_2">2</string>
+    <string name="text_registration_step_3">3</string>
+    <string name="text_registration_step_4">4</string>
+
     <string name="text_max_registration_step">/ 4</string>
     <string name="text_registration_instruction">Please enter the fields below:</string>
     <string name="hint_staff_id">Staff ID</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_phone_no">Phone Number</string>
+    <string name="next">next</string>
+    <string name="text_otp_instruction">Confirmation code has been sent to:</string>
+    <string name="otp_phone_no_text">+882 496 5636</string>
+    <string name="registration_step_1">step1</string>
+    <string name="text_otp_hint">0</string>
+    <string name="text_otp_recieve_label">You will receive a verification code via SMS within 10 minutes. Please enter the code above.</string>
+    <string name="otp_resend_code">Resend Code</string>
 </resources>

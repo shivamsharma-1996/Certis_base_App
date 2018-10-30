@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_otp_instruction_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_otp_instruction"
+        android:textSize="@dimen/textSizeMedium"
+        android:textColor="@color/textNormal"
+        android:paddingTop="@dimen/dimens_5"
+        android:paddingBottom="@dimen/dimens_5"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_phone_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_semi_round_gray"
+        android:text="@string/otp_phone_no_text"
+        android:textSize="@dimen/textSizeLarge"
+        android:textColor="@color/textNormal"
+        android:textStyle="bold"
+        android:drawablePadding="@dimen/dimens_10"
+        android:padding="@dimen/dimens_4"
+        android:drawableStart="@drawable/flag_india"
+        app:layout_constraintStart_toEndOf="@id/tv_otp_instruction_text"
+        android:layout_marginStart="@dimen/dimens_16"/>
+
+    <EditText
+        android:id="@+id/et_otp_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/OtpEditTextStyle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/et_otp_2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_otp_instruction_text"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:imeOptions="actionNext"/>
+
+    <EditText
+        android:id="@+id/et_otp_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/OtpEditTextStyle"
+        android:hint="@string/text_otp_hint"
+        android:layout_marginStart="@dimen/dimens_8"
+        app:layout_constraintStart_toEndOf="@id/et_otp_1"
+        app:layout_constraintEnd_toStartOf="@id/et_otp_3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_otp_instruction_text"
+        android:imeOptions="actionNext"/>
+
+    <EditText
+        android:id="@+id/et_otp_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/OtpEditTextStyle"
+        android:layout_marginStart="@dimen/dimens_8"
+        app:layout_constraintStart_toEndOf="@id/et_otp_2"
+        app:layout_constraintEnd_toStartOf="@id/et_otp_4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_otp_instruction_text"
+        android:imeOptions="actionNext"/>
+
+    <EditText
+        android:id="@+id/et_otp_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/OtpEditTextStyle"
+        android:layout_marginStart="@dimen/dimens_8"
+        app:layout_constraintStart_toEndOf="@id/et_otp_3"
+        app:layout_constraintEnd_toStartOf="@id/et_otp_5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_otp_instruction_text"
+        android:imeOptions="actionNext"/>
+
+
+    <EditText
+        android:id="@+id/et_otp_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/OtpEditTextStyle"
+        android:layout_marginStart="@dimen/dimens_8"
+        app:layout_constraintStart_toEndOf="@id/et_otp_4"
+        app:layout_constraintEnd_toStartOf="@id/et_otp_6"
+        app:layout_constraintTop_toBottomOf="@+id/tv_otp_instruction_text"
+        android:imeOptions="actionNext"/>
+
+    <EditText
+        android:id="@+id/et_otp_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/OtpEditTextStyle"
+        android:layout_marginStart="@dimen/dimens_8"
+        app:layout_constraintStart_toEndOf="@id/et_otp_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_otp_instruction_text"
+        android:imeOptions="actionDone"/>
+
+
+    <TextView
+        android:id="@+id/tv_otp_recieve_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text_otp_recieve_label"
+        android:textColor="@color/textNormal"
+        android:gravity="center"
+        android:letterSpacing="1.2"
+        android:paddingStart="@dimen/dimens_5"
+        android:paddingEnd="@dimen/dimens_5"
+        app:layout_constraintStart_toStartOf="@id/et_otp_1"
+        app:layout_constraintEnd_toEndOf="@id/et_otp_6"
+        app:layout_constraintTop_toBottomOf="@id/et_otp_1"
+        android:layout_marginTop="@dimen/dimens_30" />
+
+    <TextView
+        android:id="@+id/tv_resend_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/otp_resend_code"
+        android:textSize="@dimen/textSizeMedium"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/dimens_10"
+        app:layout_constraintTop_toBottomOf="@+id/tv_otp_recieve_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

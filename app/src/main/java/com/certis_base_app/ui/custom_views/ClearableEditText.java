@@ -1,4 +1,4 @@
-package com.certis_base_app.cusom;
+package com.certis_base_app.ui.custom_views;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -95,7 +95,7 @@ public class ClearableEditText extends AppCompatEditText implements View.OnTouch
 
 
     private void init(final Context context) {
-        final Drawable drawable = ContextCompat.getDrawable(context, R.drawable.ic_close_black_24dp);
+        final Drawable drawable = ContextCompat.getDrawable(context, R.drawable.ic_close_black);
         final Drawable wrappedDrawable = DrawableCompat.wrap(drawable); //Wrap the drawable so that it can be tinted pre Lollipop
         DrawableCompat.setTint(wrappedDrawable, getCurrentHintTextColor());
         mClearTextIcon = wrappedDrawable;
