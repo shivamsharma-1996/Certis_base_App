@@ -1,9 +1,16 @@
 package com.certis_base_app.ui.onboarding;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.constraint.Group;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -34,6 +41,8 @@ import static com.certis_base_app.utills.Constants.PROGRESS_EACH_STEP_VALUE;
 
 @EActivity(R.layout.activity_main)
 public class RegisterActivity extends BaseActivity {
+
+    private static final int REUEST_CODE_CAMERA_PERMISSION = 200;
 
     @ViewById(R.id.vf_registration)
     ViewFlipper mRegistrationViewFlipper;
@@ -107,10 +116,10 @@ public class RegisterActivity extends BaseActivity {
         }
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setActionBarTitle(getString(R.string.title_account_registration));
     }
 
     @AfterViews
@@ -123,9 +132,9 @@ public class RegisterActivity extends BaseActivity {
             countrySelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             mCountrySelector.setAdapter(countrySelectorAdapter);
         }
-        if(otpSelectedEdittextBackground == null)
+        if (otpSelectedEdittextBackground == null)
             otpSelectedEdittextBackground = getResources().getDrawable(R.drawable.bg_otp_semi_round_color_primary_selected);
-        if(otpUnSelectedEdittextBackground == null)
+        if (otpUnSelectedEdittextBackground == null)
             otpUnSelectedEdittextBackground = getResources().getDrawable(R.drawable.bg_otp_semi_round_gray_unselected);
 
         mCountrySelector.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -144,8 +153,11 @@ public class RegisterActivity extends BaseActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
-            public void onTextChanged(CharSequence s, int start, int count, int after) {}
+            public void onTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
             public void afterTextChanged(Editable editable) {
                 if (mOtpEdittext1.getText().toString().length() == 1) {
@@ -161,6 +173,7 @@ public class RegisterActivity extends BaseActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int count, int after) {
                 if (mOtpEdittext2.getText().toString().length() == 0 && count == 1) {
@@ -169,6 +182,7 @@ public class RegisterActivity extends BaseActivity {
                     //mOtpEdittext1.setBackground(otpSelectedEdittextBackground);
                 }
             }
+
             @Override
             public void afterTextChanged(Editable editable) {
                 if (mOtpEdittext2.getText().toString().length() == 1) {
@@ -182,7 +196,9 @@ public class RegisterActivity extends BaseActivity {
 
         mOtpEdittext3.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int count, int after) {
                 if (mOtpEdittext3.getText().toString().length() == 0 && count == 1) {
@@ -191,6 +207,7 @@ public class RegisterActivity extends BaseActivity {
                     //mOtpEdittext2.setBackground(otpSelectedEdittextBackground);
                 }
             }
+
             @Override
             public void afterTextChanged(Editable editable) {
                 if (mOtpEdittext3.getText().toString().length() == 1) {
@@ -204,7 +221,9 @@ public class RegisterActivity extends BaseActivity {
 
         mOtpEdittext4.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int count, int after) {
                 if (mOtpEdittext4.getText().toString().length() == 0 && count == 1) {
@@ -213,6 +232,7 @@ public class RegisterActivity extends BaseActivity {
                     //mOtpEdittext3.setBackground(otpSelectedEdittextBackground);
                 }
             }
+
             @Override
             public void afterTextChanged(Editable editable) {
                 if (mOtpEdittext4.getText().toString().length() == 1) {
@@ -226,7 +246,9 @@ public class RegisterActivity extends BaseActivity {
 
         mOtpEdittext5.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int count, int after) {
                 if (mOtpEdittext5.getText().toString().length() == 0 && count == 1) {
@@ -235,6 +257,7 @@ public class RegisterActivity extends BaseActivity {
                     // mOtpEdittext4.setBackground(otpSelectedEdittextBackground);
                 }
             }
+
             @Override
             public void afterTextChanged(Editable editable) {
                 if (mOtpEdittext5.getText().toString().length() == 1) {
@@ -249,7 +272,9 @@ public class RegisterActivity extends BaseActivity {
 
         mOtpEdittext6.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int count, int after) {
                 if (mOtpEdittext6.getText().toString().length() == 0 && count == 1) {
@@ -258,6 +283,7 @@ public class RegisterActivity extends BaseActivity {
                     //  mOtpEdittext5.setBackground(otpSelectedEdittextBackground);
                 }
             }
+
             @Override
             public void afterTextChanged(Editable editable) {
                 if (mOtpEdittext6.getText().toString().length() == 1) {
@@ -265,36 +291,6 @@ public class RegisterActivity extends BaseActivity {
                 }
             }
         });
-    }
-
-    private void verifyOtp() {
-
-        otpUserInput = mOtpEdittext1.getText().toString() + mOtpEdittext2.getText().toString() +
-                mOtpEdittext3.getText().toString() + mOtpEdittext4.getText().toString() +
-                mOtpEdittext5.getText().toString() + mOtpEdittext6.getText().toString();
-
-        if(otpUserInput.length() == 6)
-        {
-            if (otpResponse.equals(otpUserInput))
-            {
-                Singleton.hideKeyboard(RegisterActivity.this);
-
-                setOtpUIVerified();
-                resetOtpUnSelectedEdittextBackground();
-                this.mOtpEdittext1.setEnabled(false);
-                this.mOtpEdittext2.setEnabled(false);
-                this.mOtpEdittext3.setEnabled(false);
-                this.mOtpEdittext4.setEnabled(false);
-                this.mOtpEdittext5.setEnabled(false);
-                this.mOtpEdittext6.setEnabled(false);
-            }
-            else
-            {
-                Singleton.hideKeyboard(RegisterActivity.this);
-                Singleton.showSnackbar(RegisterActivity.this,  findViewById(R.id.container_scrollview),
-                        R.drawable.snackbar_error_red, R.string.otp_snackbar_failed_message_text, R.string.otp_snackbar_action_text, R.color.snackBarActionColor );
-            }
-        }
     }
 
     @Override
@@ -307,7 +303,76 @@ public class RegisterActivity extends BaseActivity {
         resetOtpView();
     }
 
-    private void setOtpUIVerified() {
+    @Click(R.id.btn_next)
+    public void nextButtonClick() {
+        setActionBarTitle(getString(R.string.title_mobile_verification));
+
+        String staffID = staffIdInputLayout.getEditText().getText().toString();
+        String phoneNo = phoneNoInputLayout.getEditText().getText().toString();
+
+        if (TextUtils.isEmpty(staffID)) {
+            staffIdInputLayout.setError("Please enter a valid email");
+            return;
+        }
+        if (TextUtils.isEmpty(phoneNo)) {
+            phoneNoInputLayout.setError("Please enter a valid phone number");
+            staffIdInputLayout.setError(null);
+            return;
+        }
+        staffIdInputLayout.setError(null);
+        staffIdInputLayout.setError(null);
+
+        resetOtpView();
+        mRegistrationViewFlipper.showNext();  //changing view
+        updateProgressBar();
+    }
+
+    @Override
+    public void onBackPressed() {
+        switch (mRegistrationViewFlipper.getCurrentView().getId()) {
+            case R.id.layout_registration_step_1:
+                super.onBackPressed();
+                break;
+            case R.id.layout_registration_step_2:
+                setActionBarTitle(getString(R.string.title_account_registration));
+                mRegistrationViewFlipper.showPrevious();
+                updateProgressBar();
+                break;
+            default:
+                super.onBackPressed();
+        }
+    }
+
+    private void verifyOtp() {
+
+        otpUserInput = mOtpEdittext1.getText().toString() + mOtpEdittext2.getText().toString() +
+                mOtpEdittext3.getText().toString() + mOtpEdittext4.getText().toString() +
+                mOtpEdittext5.getText().toString() + mOtpEdittext6.getText().toString();
+
+        if (otpUserInput.length() == 6) {
+            if (otpResponse.equals(otpUserInput)) {
+                Singleton.hideKeyboard(RegisterActivity.this);
+
+                setOtpUIVerifiedSuccess();
+                resetOtpUnSelectedEdittextBackground();
+                this.mOtpEdittext1.setEnabled(false);
+                this.mOtpEdittext2.setEnabled(false);
+                this.mOtpEdittext3.setEnabled(false);
+                this.mOtpEdittext4.setEnabled(false);
+                this.mOtpEdittext5.setEnabled(false);
+                this.mOtpEdittext6.setEnabled(false);
+
+                getCameraPermission();
+
+            } else {
+                Singleton.hideKeyboard(RegisterActivity.this);
+                Singleton.showSnackbar(RegisterActivity.this, findViewById(R.id.container_scrollview),
+                        R.drawable.snackbar_error_red, R.string.otp_snackbar_failed_message_text, R.string.otp_snackbar_action_text, R.color.snackBarActionColor);
+            }
+        }
+    }
+
+    private void setOtpUIVerifiedSuccess() {
         int otpBoxTextColorVerified = getResources().getColor(R.color.greenMixedSuccess);
         this.mOtpEdittext1.setTextColor(otpBoxTextColorVerified);
         this.mOtpEdittext2.setTextColor(otpBoxTextColorVerified);
@@ -320,7 +385,7 @@ public class RegisterActivity extends BaseActivity {
         mOtpdefaultBottomUI.setVisibility(View.GONE);
     }
 
-    public void resetOtpUnSelectedEdittextBackground(){
+    public void resetOtpUnSelectedEdittextBackground() {
         mOtpEdittext1.setBackground(otpUnSelectedEdittextBackground);
         mOtpEdittext2.setBackground(otpUnSelectedEdittextBackground);
         mOtpEdittext3.setBackground(otpUnSelectedEdittextBackground);
@@ -357,31 +422,8 @@ public class RegisterActivity extends BaseActivity {
         Singleton.openKeyboard(this);
     }
 
-    @Click(R.id.btn_next)
-    public void nextButtonClick() {
-        String staffID = staffIdInputLayout.getEditText().getText().toString();
-        String phoneNo = phoneNoInputLayout.getEditText().getText().toString();
-
-        if (TextUtils.isEmpty(staffID)) {
-            staffIdInputLayout.setError("Please enter a valid email");
-            return;
-        }
-        if (TextUtils.isEmpty(phoneNo)) {
-            phoneNoInputLayout.setError("Please enter a valid phone number");
-            staffIdInputLayout.setError(null);
-            return;
-        }
-        staffIdInputLayout.setError(null);
-        staffIdInputLayout.setError(null);
-
-        resetOtpView();
-        mRegistrationViewFlipper.showNext();  //changing view
-        updateProgressBar();
-    }
-
-
     private void updateProgressBar() {
-        switch (ProgressLevel.lookupByCode(mRegistrationProgressBar.getProgress())) {
+        switch (EnumProgressLevel.lookupByCode(mRegistrationProgressBar.getProgress())) {
             case STEP1:
                 newProgressValue = mRegistrationProgressBar.getProgress() + PROGRESS_EACH_STEP_VALUE;
                 mRegistrationCurrentStep.setText(getString(R.string.text_registration_step_2));
@@ -390,24 +432,14 @@ public class RegisterActivity extends BaseActivity {
                 newProgressValue = mRegistrationProgressBar.getProgress() - PROGRESS_EACH_STEP_VALUE;
                 mRegistrationCurrentStep.setText(getString(R.string.text_registration_step_1));
                 break;
-        }
-        mRegistrationProgressBar.setProgress(newProgressValue);
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        switch (mRegistrationViewFlipper.getCurrentView().getId()) {
-            case R.id.layout_registration_step_1:
-                super.onBackPressed();
+            case STEP3:
                 break;
-            case R.id.layout_registration_step_2:
-                mRegistrationViewFlipper.showPrevious();
-                updateProgressBar();
+            case STEP4:
                 break;
             default:
-                super.onBackPressed();
+                break;
         }
+        mRegistrationProgressBar.setProgress(newProgressValue);
     }
 
     private List<String> getPopulatedCountryList() {
@@ -418,6 +450,34 @@ public class RegisterActivity extends BaseActivity {
             countryNameList.add("Malaysia");
         }
         return countryNameList;
+    }
+
+    private void getCameraPermission() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (ActivityCompat.checkSelfPermission(RegisterActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(RegisterActivity.this,
+                            new String[]{Manifest.permission.CAMERA},
+                            REUEST_CODE_CAMERA_PERMISSION);
+                }
+            }
+        }, 5000);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REUEST_CODE_CAMERA_PERMISSION: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    RegisterActivity.this.startActivity(new Intent(RegisterActivity.this, CameraCaptureActivity.class));
+                } else {
+                    //show toast permision not granted
+
+                }
+                return;
+            }
+        }
     }
 
     @Override
