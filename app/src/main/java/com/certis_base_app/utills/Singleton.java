@@ -30,6 +30,10 @@ public class Singleton {
         self = this;
     }
 
+    public static int getRandomNumber(int min, int max){
+        return (min + (int)(Math.random() * (max - min)));
+    }
+
     public static void openKeyboard(Context context) {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(0, InputMethodManager.HIDE_IMPLICIT_ONLY); // show

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#FF272F63</color>
+    <color name="colorPrimaryDark">#FF060E43</color>
     <color name="colorAccent">#FFFF9400</color>
 
     <color name="white">@android:color/white</color>
@@ -15,6 +15,11 @@
 
     <color name="greenMixedSuccess">#FF1DC1AA</color>
     <color name="otpBoxUnselectedColor">#FF9B9B9B</color>
+
+    <color name="blackFullTransparent">#00000000</color>
+    <color name="blackSemiTransparent">#33000000</color>
+    <color name="blackSemiSemiTransparent">#66000000</color>
+
 
     <color name="snackBarActionColor">#FFFF9400</color>
 </resources>
@@ -55,7 +60,7 @@
     import static com.certis_base_app.utills.Constants.PROGRESS_EACH_STEP_VALUE;
 
     @EActivity(R.layout.activity_main)
-    public class RegisterActivity extends BaseActivity {
+    public class RegisterStep1Step2Activity extends BaseActivity {
 
     @ViewById(R.id.vf_registration)
     ViewFlipper mRegistrationViewFlipper;
@@ -288,11 +293,11 @@ private List<String> countryNameList;
             {
             setOtpUIVerified();
             resetOtpUnSelectedEdittextBackground();
-            Singleton.hideKeyboard(RegisterActivity.this,mOtpEdittext6);
+            Singleton.hideKeyboard(RegisterStep1Step2Activity.this,mOtpEdittext6);
             }
-            //Toast.makeText(RegisterActivity.this, "matched", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(RegisterStep1Step2Activity.this, "matched", Toast.LENGTH_SHORT).show();
             else
-            Toast.makeText(RegisterActivity.this, "not matched", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterStep1Step2Activity.this, "not matched", Toast.LENGTH_SHORT).show();
             }
             }
             });
@@ -366,7 +371,7 @@ private List<String> countryNameList;
             }
 
             private void updateProgressBar() {
-            switch (ProgressLevel.lookupByCode(mRegistrationProgressBar.getProgress())) {
+            switch (EnumProgressLevel.lookupByCode(mRegistrationProgressBar.getProgress())) {
             case STEP1:
             newProgressValue = mRegistrationProgressBar.getProgress() + PROGRESS_EACH_STEP_VALUE;
             mRegistrationCurrentStep.setText(getString(R.string.text_registration_step_2));

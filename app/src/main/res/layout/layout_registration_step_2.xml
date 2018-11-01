@@ -28,7 +28,7 @@
         android:textStyle="bold"
         android:drawablePadding="@dimen/dimens_10"
         android:padding="@dimen/dimens_4"
-        android:drawableStart="@drawable/register_flag_india"
+        android:drawableStart="@drawable/ic_register_flag_india"
         app:layout_constraintStart_toEndOf="@id/tv_otp_instruction_text"
         android:layout_marginStart="@dimen/dimens_16"/>
 
@@ -145,7 +145,7 @@
         android:id="@+id/iv_success_check"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/otp_validation_success_green"
+        android:src="@drawable/ic_otp_validation_success_green"
         android:layout_marginTop="@dimen/dimens_15"
         app:layout_constraintStart_toStartOf="@id/et_otp_1"
         app:layout_constraintEnd_toStartOf="@id/tv_success_message"

@@ -17,6 +17,7 @@
     <dimen name="textSizeMedium">16sp</dimen>
     <dimen name="textSizeLarge">21sp</dimen>
     <dimen name="textSizeXLarge">24sp</dimen>
+    <dimen name="textSizeXXLarge">26sp</dimen>
 
     <dimen name="outline_width_1">1dp</dimen>
     <dimen name="outline_width_2">2dp</dimen>

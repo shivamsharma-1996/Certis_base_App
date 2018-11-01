@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Certis_base_App</string>
+    <string name="app_name">Certis_Base_App</string>
+
+    <string name="title_account_registration">Account Registration</string>
+    <string name="title_mobile_verification">Account Registration - Mobile Verification</string>
 
     <string name="text_registration_step">Registration Step</string>
     <string name="text_registration_step_1">1</string>
@@ -23,5 +26,12 @@
     <string name="otp_verification_successful">Verification successful!</string>
     <string name="otp_snackbar_failed_message_text">Verification failed. Please Retry.</string>
     <string name="otp_snackbar_action_text">DISMISS</string>
+
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="camera_capture_picture">capture</string>
+    <string name="text_camera_label">Registration Step  3</string>
+    <string name="text_camera_follow_note">Take 2 photos of your face for sign in validation reference</string>
+    <string name="menu_submit_photo">SUBMIT PHOTO</string>
 
 </resources>

@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
@@ -11,10 +12,25 @@ import com.certis_base_app.R;
 
 public class BaseActivity extends AppCompatActivity {
     private Dialog loadingLayout;
+    private ActionBar mActionBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (mActionBar == null && getSupportActionBar()!=null) {
+            mActionBar = getSupportActionBar();
+        }
+    }
+
+    protected void setActionBarTitle(String title) {
+        if(mActionBar!=null)
+        mActionBar.setTitle(title);
+    }
+
+    protected void setBackButtionVisible(Boolean bool){
+        mActionBar.setDisplayShowHomeEnabled(bool);
+        mActionBar.setDisplayHomeAsUpEnabled(bool);
+        mActionBar.setHomeButtonEnabled(bool);
     }
 
     @Override
