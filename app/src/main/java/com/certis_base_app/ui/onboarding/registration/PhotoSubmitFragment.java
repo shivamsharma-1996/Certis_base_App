@@ -1,14 +1,12 @@
-package com.certis_base_app.ui.onboarding;
+package com.certis_base_app.ui.onboarding.registration;
 
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,12 +15,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.certis_base_app.R;
 import com.certis_base_app.ui.BaseFragment;
-import com.certis_base_app.ui.custom_views.AutoFitTextureView;
-import com.certis_base_app.utills.CameraUtil;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -33,7 +28,6 @@ public class PhotoSubmitFragment extends BaseFragment {
 
     private static final String IMAGE_FILE_PATH_KEY = "Image File Path Key";
     private String imageFilePath;
-
 
     @ViewById(R.id.iv_profile_photo)
     ImageView profilePhotoImage;
@@ -70,30 +64,47 @@ public class PhotoSubmitFragment extends BaseFragment {
         //setOnBackClickListener();
         getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-       /* AppCompatActivity activity = (AppCompatActivity) getActivity();
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(mToolbar);
         activity.getSupportActionBar().setTitle("");
         activity.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white);
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         activity.getSupportActionBar().setHomeButtonEnabled(true);
-        activity.getSupportActionBar().setDisplayShowCustomEnabled(true);*/
+        activity.getSupportActionBar().setDisplayShowCustomEnabled(true);
 
-
+/*
         mToolbar.setNavigationIcon(R.drawable.ic_close_white);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().onBackPressed();
+                //getActivity().onBackPressed();
+
+                CameraPreviewFragment_ cameraPreviewFragment = new CameraPreviewFragment_();
+                cameraPreviewFragment.setImageCapturedListener((RegisterStep3Activity)getActivity());
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frame_container, cameraPreviewFragment, CameraPreviewFragment_.class.getName() )
+                        //.addToBackStack(PhotoSubmitFragment_.class.getName())
+                        .commit();
             }
-        });
+        });*/
         if (getArguments() != null)
             imageFilePath = getArguments().getString(IMAGE_FILE_PATH_KEY);
 
         profilePhotoImage.setImageBitmap(BitmapFactory.decodeFile(imageFilePath));
 
+
+        getView().setFocusableInTouchMode(true);
+        getView().setOnKeyListener( new View.OnKeyListener(){
+            @Override
+            public boolean onKey( View v, int keyCode, KeyEvent event ){
+                if( keyCode == KeyEvent.KEYCODE_BACK ){
+                    return true;
+                }
+                return false;
+            }
+        });
     }
-
-
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -112,11 +123,11 @@ public class PhotoSubmitFragment extends BaseFragment {
                 //getActivity().onBackPressed();
                 setOnBackClickListener();
             default:
+                Toast.makeText(getContext(), "hyeeeeee", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public void onResume() {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="actvity_vertical_margin">16dp</dimen>
     <dimen name="components_vertical_margin">40dp</dimen>
     <dimen name="registration_next_button_radius">3dp</dimen>
 
@@ -12,6 +13,8 @@
     <dimen name="dimens_16">16dp</dimen>
     <dimen name="dimens_22">22dp</dimen>
     <dimen name="dimens_30">30dp</dimen>
+    <dimen name="dimens_40">40dp</dimen>
+
 
     <dimen name="textSizeNormal">14sp</dimen>
     <dimen name="textSizeMedium">16sp</dimen>
@@ -26,5 +29,7 @@
     <dimen name="outline_width_4">4dp</dimen>
 
     <dimen name="snackbar_inset_padding">30dp</dimen>
+    <dimen name="dimens_50">50dp</dimen>
+    <dimen name="textSizeMini">12sp</dimen>
 
 </resources>

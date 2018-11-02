@@ -24,14 +24,40 @@
     <string name="text_otp_recieve_label">You will receive a verification code via SMS within 10 minutes. Please enter the code above.</string>
     <string name="otp_resend_code">Resend Code</string>
     <string name="otp_verification_successful">Verification successful!</string>
-    <string name="otp_snackbar_failed_message_text">Verification failed. Please Retry.</string>
-    <string name="otp_snackbar_action_text">DISMISS</string>
+    <string name="snackbar_failed_message_text">Verification failed. Please Retry.</string>
+    <string name="snackbar_action_dismiss">DISMISS</string>
 
     <string name="request_permission">This sample needs camera permission.</string>
+    <string name="menu_submit_photo">SUBMIT PHOTO</string>
+
+    <string name="camera_retake_photos">retake photos</string>
     <string name="camera_error">This device doesn\'t support Camera2 API.</string>
     <string name="camera_capture_picture">capture</string>
-    <string name="text_camera_label">Registration Step  3</string>
-    <string name="text_camera_follow_note">Take 2 photos of your face for sign in validation reference</string>
-    <string name="menu_submit_photo">SUBMIT PHOTO</string>
+    <string name="camera_label">Registration Step  3</string>
+    <string name="camera_follow_note">Take 2 photos of your face for sign in validation reference</string>
+    <string name="camera_photo_rejected">Photo Rejected</string>
+    <string name="camera_photo_rejected_note">Please ensure that you are in a well-lit environment and place your face within the frame provided</string>
+    <string name="snackbar_photo_accepted">1st Photo Accepted.</string>
+    <string name="snackbar_action_view">VIEW</string>
+    <string name="landing_create_account">Create an account</string>
+    <string name="password_criteria_title">Password creation criteria</string>
+    <string name="password_character_label">Characters</string>
+    <string name="password_character_criteria">8+</string>
+    <string name="password_number_criteria">#</string>
+    <string name="password_number_label">Number/s</string>
+    <string name="password_lower_alphabet_criteria">A</string>
+    <string name="password_upper_alphabet_criteria">a</string>
+    <string name="password_lower_alphabet_label">At least 1 upper case</string>
+    <string name="password_upper_alphabet_label">At least 1 lower case</string>
+    <string name="password_rules">• At least ONE special character (e.g. !@#$%*)\n• Not be based on a dictionary word\n• Not be based on personal information, names of family members, etc.\n• Not be the same as the PW used other accounts</string>
+    <string name="password_creation_label">Please create a strong password:</string>
+    <string name="hint_confirm_password">Re-enter Password</string>
+    <string name="hint_enter_password">Enter Password</string>
+    <string name="password_create_password">Create Password</string>
+    <string name="camera_photo_submitted">Photo successfully submitted</string>
+    <string name="password_not_matched">Those passwords do not match. Try again.</string>
+    <string name="password_not_follow_criteria">Password does not follow the password creation criteria.</string>
+    <string name="password_criteria_fail">Password does not follow the password creation criteria.</string>
+    <string name="title_password_creation">Account Registration - Password Creation</string>
 
 </resources>

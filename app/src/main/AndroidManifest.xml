@@ -16,19 +16,46 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.onboarding.RegisterStep1Step2Activity_"
-            android:screenOrientation="landscape">
-
-        </activity>
-        <activity android:name=".ui.onboarding.RegisterStep3Activity"
+            android:name=".ui.onboarding.registration.RegisterStep1Step2Activity_"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ui.onboarding.registration.RegisterStep3Activity_"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/FullscreenTheme">
+            android:theme="@style/FullscreenTheme"/>
+        <activity
+            android:name=".ui.onboarding.registration.CameraPreviewSubmitActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.onboarding.login.LandingActivity_"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+        <activity android:name=".ui.onboarding.registration.RegisterStep4Activity_"
+            android:screenOrientation="landscape">
 
+        </activity>
+    </application>
 </manifest>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

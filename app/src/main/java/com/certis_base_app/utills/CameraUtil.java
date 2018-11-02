@@ -37,16 +37,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Size;
 import android.util.SparseIntArray;
-import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.TextureView;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.certis_base_app.R;
 import com.certis_base_app.ui.custom_views.AutoFitTextureView;
-import com.certis_base_app.ui.onboarding.CameraPreviewFragment;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -166,7 +162,6 @@ public class CameraUtil implements ActivityCompat.OnRequestPermissionsResultCall
         public void onImageAvailable(ImageReader reader) {
             mBackgroundHandler.post(new ImageSaver(reader.acquireNextImage(), mFile));
         }
-
     };
 
     public CaptureRequest.Builder mPreviewRequestBuilder;        //for the camera preview

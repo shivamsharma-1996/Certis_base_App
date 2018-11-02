@@ -22,6 +22,7 @@
 
 
     <color name="snackBarActionColor">#FFFF9400</color>
+    <color name="textErrorRed">#FFD36172</color>
 </resources>
 
  <!--   package com.certis_base_app.ui.onboarding;

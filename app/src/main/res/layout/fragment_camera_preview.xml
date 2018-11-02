@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.onboarding.CameraPreviewFragment">
+    tools:context=".ui.onboarding.registration.CameraPreviewFragment">
 
 
     <com.certis_base_app.ui.custom_views.AutoFitTextureView
@@ -30,7 +30,7 @@
         android:id="@+id/tv_registration_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_camera_label"
+        android:text="@string/camera_label"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="@dimen/textSizeNormal"
@@ -56,7 +56,7 @@
         android:id="@+id/tv_camera_follow_note"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/text_camera_follow_note"
+        android:text="@string/camera_follow_note"
         android:textColor="@color/white"
         android:textSize="@dimen/textSizeXLarge"
         android:textStyle="bold"
@@ -123,7 +123,7 @@
         android:id="@+id/iv_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_img_frame"
+        android:src="@drawable/iv_img_frame"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop" />
 

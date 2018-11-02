@@ -1,19 +1,17 @@
 package com.certis_base_app.utills;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.certis_base_app.R;
+import com.certis_base_app.enums.SnackBarActionType;
 
 public class Singleton {
 
@@ -44,7 +42,7 @@ public class Singleton {
         imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0); // hide
     }
 
-    public static void showSnackbar(Context context, final View view, int drawable, int messageText, int actionText, int actionColor) {
+    public static void showSnackbar(final Context context, final View view, int drawable, int messageText, final int actionText, int actionColor) {
         final Snackbar snackBar = Snackbar.make(view, messageText, Snackbar.LENGTH_INDEFINITE);
         View snackbarLayout = snackBar.getView();
         TextView textView = snackbarLayout.findViewById(android.support.design.R.id.snackbar_text);
@@ -54,10 +52,21 @@ public class Singleton {
         params.gravity = Gravity.TOP;
         view.setLayoutParams(params);
         textView.setCompoundDrawablePadding(context.getResources().getDimensionPixelOffset(R.dimen.snackbar_inset_padding));
+
+
+
         snackBar.setAction(actionText, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                snackBar.dismiss();
+
+                switch (SnackBarActionType.fromString(context.getResources().getString(actionText))){
+                    case VIEW:
+                        Toast.makeText(context, "view", Toast.LENGTH_SHORT).show();
+                        break;
+                    case DISMISSS:
+                        snackBar.dismiss();
+                        break;
+                }
             }
         }).setActionTextColor(ContextCompat.getColor(context, actionColor)).show();
     }

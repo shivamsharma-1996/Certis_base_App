@@ -13,21 +13,19 @@
         <item name="windowNoTitle">true</item>
     </style>
     
-    <style name="AppTheme.NoActionBar.TransparentStatusBar">
-       <!-- <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">#e34</item>-->
+    <style name="AppTheme.TransparentStatusBar">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
 
-    <style name="FullscreenTheme" parent="AppTheme">
-        <item name="android:windowActionBarOverlay">true</item>
+    <style name="FullscreenTheme" parent="AppTheme.TransparentStatusBar">
+        <!--<item name="android:windowActionBarOverlay">true</item>-->
         <item name="android:windowBackground">@drawable/bg_scrim_black_transparent</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
+        <!--<item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>-->
     </style>
 
     <style name="RegisterTextInputLayoutStyle" parent="Widget.Design.TextInputLayout">
@@ -44,9 +42,6 @@
         <item name="android:inputType">text</item>
         <item name="android:paddingStart">12dp</item>
         <item name="android:paddingEnd">12dp</item>
-        <!--
-                <item name="android:paddingBottom">25dp</item>
-        -->
         <item name="android:layout_marginStart">-4dp</item>
         <item name="android:layout_marginEnd">-4dp</item>
         <item name="backgroundTint">@color/greyDark</item>
@@ -81,6 +76,19 @@
         <item name="android:paddingEnd">@dimen/dimens_10</item>
         <item name="android:cursorVisible">false</item>
         <item name="android:layout_marginTop">@dimen/components_vertical_margin</item>
+    </style>
+
+    <style name="CameraRetakeButtonStyle">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:background">@drawable/bg_semi_round_color_accent</item>
+        <item name="android:paddingStart">@dimen/dimens_40</item>
+        <item name="android:paddingEnd">@dimen/dimens_40</item>
+        <item name="android:paddingTop">@dimen/dimens_10</item>
+        <item name="android:paddingBottom">@dimen/dimens_10</item>
+        <item name="android:text">@string/next</item>
+        <item name="android:textSize">@dimen/textSizeNormal</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

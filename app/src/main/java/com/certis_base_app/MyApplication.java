@@ -13,5 +13,6 @@ public class MyApplication extends Application
     {
         super.onCreate();
         SharedPrefHandler.initialize(this);
+        SharedPrefHandler.clearData();
     }
 }

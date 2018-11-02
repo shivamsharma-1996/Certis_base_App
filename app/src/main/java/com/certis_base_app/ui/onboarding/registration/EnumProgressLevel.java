@@ -1,4 +1,4 @@
-package com.certis_base_app.ui.onboarding;
+package com.certis_base_app.ui.onboarding.registration;
 
 import java.util.HashMap;
 import java.util.Map;

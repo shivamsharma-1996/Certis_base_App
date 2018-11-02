@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tv_reistration_text"
+            android:id="@+id/tv_registration_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/pb_registration"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimens_4"
             android:layout_marginTop="@dimen/components_vertical_margin"
-            android:layout_toEndOf="@+id/tv_reistration_text"
+            android:layout_toEndOf="@+id/tv_registration_text"
             android:text="@string/text_registration_step_1"
             android:textColor="@color/textPrimary"
             android:textSize="@dimen/textSizeNormal"
@@ -48,17 +48,15 @@
 
         <ProgressBar
             android:id="@+id/pb_registration"
-            android:tag="@string/registration_step_1"
             style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="650dp"
             android:layout_height="6dp"
-            android:layout_below="@+id/tv_reistration_text"
+            android:layout_below="@+id/tv_registration_text"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dimens_8"
             android:progress="25"
             android:progressBackgroundTint="@color/greyDark"
             android:progressTint="@color/colorPrimary" />
-
 
         <ViewFlipper
             android:id="@+id/vf_registration"

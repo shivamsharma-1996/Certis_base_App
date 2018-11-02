@@ -1,21 +1,12 @@
-package com.certis_base_app.ui.onboarding;
+package com.certis_base_app.ui.onboarding.registration;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.constraint.Group;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.certis_base_app.R;
 import com.certis_base_app.ui.BaseFragment;
@@ -26,13 +17,10 @@ import com.certis_base_app.utills.Singleton;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @EFragment(R.layout.fragment_camera_preview)
 public class CameraPreviewFragment extends BaseFragment implements CameraUtil.CaptureClickListener{
@@ -74,7 +62,6 @@ public class CameraPreviewFragment extends BaseFragment implements CameraUtil.Ca
         if (mCameraUtil == null)
             mCameraUtil = new CameraUtil(getContext(), mCameraAutoFitTextureView, this);
 
-
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getActivity().getWindow().setStatusBarColor(Color.parseColor("#33000000"));
@@ -85,7 +72,6 @@ public class CameraPreviewFragment extends BaseFragment implements CameraUtil.Ca
 
     @Click(R.id.btn_capture_picture)
     public void takePicture(){
-
         if(!SharedPrefHandler.isProfilePhoto1Verified() || !SharedPrefHandler.isProfilePhoto2Verified())
         mCameraUtil.takePicture(String.valueOf(Singleton.getRandomNumber(1000,9999999)));
     }

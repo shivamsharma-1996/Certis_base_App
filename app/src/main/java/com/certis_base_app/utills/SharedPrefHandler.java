@@ -85,6 +85,8 @@ public class SharedPrefHandler {
 
     public static void clearData() {
         SharedPreferences.Editor editor = preferences.edit();
-        editor.clear().apply();
+        editor.remove(PREFS_PROFILE_PHOTO_1).apply();
+        editor.remove(PREFS_PROFILE_PHOTO_2).apply();
+        editor.clear().commit();
     }
 }

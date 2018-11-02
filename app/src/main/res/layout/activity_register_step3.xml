@@ -1,6 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:id="@+id/frame_container"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    android:id="@+id/cl_container"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.certis_base_app.ui.custom_views.AutoFitTextureView
+        android:id="@+id/aftv_camera_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <View
+        android:id="@+id/view_status_bar"
+        android:background="@color/blackSemiTransparent"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:id="@+id/view_black_overlay_scrim"
+        android:layout_width="match_parent"
+        android:layout_height="162dp"
+        android:background="@color/blackSemiSemiTransparent"
+        app:layout_constraintTop_toBottomOf="@+id/view_status_bar"/>
+
+
+    <ImageView
+        android:id="@+id/iv_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="@+id/view_black_overlay_scrim" />
+
+    <ImageView
+        android:id="@+id/iv_preview_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:background="@color/blackSemiSemiTransparent"
+        app:layout_constraintTop_toTopOf="@+id/view_black_overlay_scrim" />
+
+    <TextView
+        android:id="@+id/tv_registration_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_label"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeNormal"
+        android:textStyle="bold"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/tv_camera_follow_note"
+        app:layout_constraintTop_toBottomOf="@+id/view_status_bar"
+        app:layout_constraintBottom_toTopOf="@+id/tv_camera_follow_note"/>
+
+    <TextView
+        android:id="@+id/tv_max_registration_step"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_4"
+        android:text="@string/text_max_registration_step"
+        android:textColor="@color/greyDark"
+        android:textSize="@dimen/textSizeNormal"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_registration_text"
+        app:layout_constraintStart_toEndOf="@id/tv_registration_text" />
+
+    <TextView
+        android:id="@+id/tv_camera_follow_note"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_follow_note"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeXLarge"
+        android:textStyle="bold"
+        android:gravity="start"
+        android:layout_marginStart="140dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="@dimen/dimens_4"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_registration_text"
+        app:layout_constraintBottom_toBottomOf="@id/view_black_overlay_scrim"
+        app:layout_constraintEnd_toStartOf="@id/iv_profile_photo_1"/>
+
+    <ImageView
+        android:id="@+id/iv_profile_photo_1"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_camera_profile_photo_validation_default"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:layout_marginStart="28dp"
+        app:layout_constraintStart_toEndOf="@id/tv_camera_follow_note"
+        app:layout_constraintEnd_toStartOf="@id/iv_profile_photo_2"
+        app:layout_constraintTop_toTopOf="@id/view_black_overlay_scrim"
+        app:layout_constraintBottom_toBottomOf="@+id/view_black_overlay_scrim"/>
+
+    <ImageView
+        android:id="@+id/iv_profile_photo_2"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_camera_profile_photo_validation_default"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="145dp"
+        app:layout_constraintStart_toEndOf="@id/iv_profile_photo_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/view_black_overlay_scrim"
+        app:layout_constraintBottom_toBottomOf="@+id/view_black_overlay_scrim" />
+
+    <android.support.constraint.Group
+        android:id="@+id/group_image_capture_ui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_camera_follow_note,
+        iv_profile_photo_1,iv_profile_photo_2,tv_max_registration_step,
+        tv_registration_text,view_black_overlay_scrim, iv_frame,
+        btn_capture_picture"/>
+
+    <ImageView
+        android:id="@+id/iv_rotate_tablet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_rotate_tablet"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+
+    <android.support.constraint.Group
+        android:id="@+id/group_capture_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="btn_capture_picture"/>
+
+    <Button
+        android:id="@+id/btn_capture_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_capture_picture"
+        style="@style/RegisterNextBtnStyle"
+        android:paddingTop="@dimen/dimens_12"
+        android:paddingBottom="@dimen/dimens_12"
+        android:paddingStart="@dimen/dimens_30"
+        android:paddingEnd="@dimen/dimens_30"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_photo_rejected_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_photo_rejected"
+        android:textSize="@dimen/textSizeXLarge"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_photo_rejected_note"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <TextView
+        android:id="@+id/tv_photo_rejected_note"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_photo_rejected_note"
+        android:textSize="@dimen/textSizeMedium"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dimens_16"
+        android:layout_marginBottom="@dimen/dimens_50"
+        android:layout_marginStart="210dp"
+        android:layout_marginEnd="210dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_photo_rejected_label"
+        app:layout_constraintBottom_toTopOf="@+id/btn_retake_photo"/>
+
+    <Button
+        android:id="@+id/btn_retake_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CameraRetakeButtonStyle"
+        android:text="@string/camera_retake_photos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_photo_rejected_note"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <android.support.constraint.Group
+        android:id="@+id/group_photo_rejected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tv_photo_rejected_label,tv_photo_rejected_note,btn_retake_photo"/>
+</android.support.constraint.ConstraintLayout>
 

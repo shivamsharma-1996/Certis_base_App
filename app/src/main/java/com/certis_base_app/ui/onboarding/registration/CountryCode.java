@@ -1,4 +1,4 @@
-package com.certis_base_app.ui.onboarding;
+package com.certis_base_app.ui.onboarding.registration;
 
 public class CountryCode {
     String codes;
