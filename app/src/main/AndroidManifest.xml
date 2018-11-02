@@ -21,7 +21,7 @@
         <activity
             android:name=".ui.onboarding.registration.RegisterStep3Activity_"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/FullscreenTheme"/>
+            android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".ui.onboarding.registration.CameraPreviewSubmitActivity_"
             android:screenOrientation="portrait" />
@@ -35,27 +35,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.onboarding.registration.RegisterStep4Activity_"
-            android:screenOrientation="landscape">
-
-        </activity>
+        <activity
+            android:name=".ui.onboarding.registration.RegisterStep4Activity_"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ui.onboarding.login.CameraAuthenticationActivity_"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".ui.onboarding.login.PasswordSigninActivity_"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
+
 </manifest>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

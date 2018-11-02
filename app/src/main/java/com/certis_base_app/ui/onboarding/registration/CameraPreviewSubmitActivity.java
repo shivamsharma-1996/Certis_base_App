@@ -19,8 +19,7 @@ import org.androidannotations.annotations.ViewById;
 public class CameraPreviewSubmitActivity extends BaseActivity {
 
     private static final String IMAGE_FILE_PATH_KEY = "Image File Path Key";
-    private static final String IMAGE_FILE_UPLOAD_RESULT_KEY = "Image File Upload Result Key";
-
+    private static final int CLOSE_BUTTON_RESULT_KEY = 99;
 
     private String imageFilePath;
 
@@ -60,47 +59,38 @@ public class CameraPreviewSubmitActivity extends BaseActivity {
         switch (item.getItemId()) {
             case R.id.nav_submit_photo:
 
-                checkStep3CompletedorNot();
-
                 if (!SharedPrefHandler.isProfilePhoto1Verified()) {
                     uploadResult = "success";
-                    /*if (uploadResult.equals("success"))
-                        SharedPrefHandler.setProfilePhoto1Verified(true);
-                    else if (uploadResult.equals("fail"))
-                        SharedPrefHandler.setProfilePhoto1Verified(false);*/
                 } else if (!SharedPrefHandler.isProfilePhoto2Verified()) {
                     uploadResult = "success";
-                    /*if (uploadResult.equals("success"))
-                        SharedPrefHandler.setProfilePhoto2Verified(true);
-                    else if (uploadResult.equals("fail"))
-                        SharedPrefHandler.setProfilePhoto2Verified(false);*/
+                }
+                else{
+                    uploadResult = "success";          //camera signin  case
                 }
                 this.sendSubmitResultToBack(uploadResult);
                 return true;
 
             case android.R.id.home:
-                super.onBackPressed();
-
+                //super.onBackPressed();
+                this.sendSubmitResultToBack("cancel");
+                return true;
             default:
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void checkStep3CompletedorNot() {
-        if (!SharedPrefHandler.isProfilePhoto1Verified() || !SharedPrefHandler.isProfilePhoto2Verified())
-            startActivity(new Intent(CameraPreviewSubmitActivity.this, RegisterStep4Activity_.class));
-    }
 
     private void sendSubmitResultToBack(String uploadResult) {
         Intent resultIntent = new Intent();
         resultIntent.putExtra(IMAGE_FILE_PATH_KEY, imageFilePath);
-        //resultIntent.putExtra(IMAGE_FILE_UPLOAD_RESULT_KEY, uploadResult);
 
         if(uploadResult.equals("success"))
         setResult(RESULT_OK, resultIntent);
         else if(uploadResult.equals("fail"))
             setResult(RESULT_CANCELED, resultIntent);
+        else if(uploadResult.equals("cancel"))
+            setResult(CLOSE_BUTTON_RESULT_KEY, resultIntent);
         finish();
     }
 

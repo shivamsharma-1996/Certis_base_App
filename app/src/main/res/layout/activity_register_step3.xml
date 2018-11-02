@@ -24,17 +24,16 @@
         android:layout_width="match_parent"
         android:layout_height="162dp"
         android:background="@color/blackSemiSemiTransparent"
-        app:layout_constraintTop_toBottomOf="@+id/view_status_bar"/>
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="@+id/view_black_overlay_scrim" />
+        android:src="@drawable/iv_img_frame"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv_preview_photo"

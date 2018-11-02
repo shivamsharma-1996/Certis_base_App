@@ -59,5 +59,9 @@
     <string name="password_not_follow_criteria">Password does not follow the password creation criteria.</string>
     <string name="password_criteria_fail">Password does not follow the password creation criteria.</string>
     <string name="title_password_creation">Account Registration - Password Creation</string>
+    <string name="camera_place_face_within_frame">Place your face within the frame below</string>
+    <string name="signin_header_text">Password Sign In</string>
+    <string name="signin_label">Please sign in via your password.</string>
+    <string name="signin_forgot_password">Forgot password?</string>
 
 </resources>

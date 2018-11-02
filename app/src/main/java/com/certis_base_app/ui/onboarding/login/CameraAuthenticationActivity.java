@@ -1,11 +1,15 @@
-package com.certis_base_app.ui.onboarding.registration;
+package com.certis_base_app.ui.onboarding.login;
 
-
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
+import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.constraint.Group;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,6 +17,11 @@ import android.widget.ImageView;
 import com.certis_base_app.R;
 import com.certis_base_app.ui.BaseActivity;
 import com.certis_base_app.ui.custom_views.AutoFitTextureView;
+import com.certis_base_app.ui.onboarding.registration.CameraPreviewSubmitActivity_;
+import com.certis_base_app.ui.onboarding.registration.RegisterStep1Step2Activity;
+import com.certis_base_app.ui.onboarding.registration.RegisterStep3Activity;
+import com.certis_base_app.ui.onboarding.registration.RegisterStep3Activity_;
+import com.certis_base_app.ui.onboarding.registration.RegisterStep4Activity_;
 import com.certis_base_app.utills.CameraUtil;
 import com.certis_base_app.utills.SharedPrefHandler;
 import com.certis_base_app.utills.Singleton;
@@ -23,23 +32,19 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import java.io.File;
+import java.security.acl.Group;
 
-@EActivity(R.layout.activity_register_step3)
-public class RegisterStep3Activity extends BaseActivity implements CameraUtil.CaptureClickListener {
+@EActivity(R.layout.activity_camera_authentication)
+public class CameraAuthenticationActivity extends BaseActivity implements CameraUtil.CaptureClickListener {
+    private static final int REQUEST_CODE_CAMERA_PERMISSION = 200;
 
     private static final String IMAGE_FILE_PATH_KEY = "Image File Path Key";
     private static final int CAMERA_PREVIEW_REQUEST_CODE = 101;
-    private static final String IMAGE_FILE_UPLOAD_RESULT_KEY = "Image File Upload Result Key";
     private static final int CLOSE_BUTTON_RESULT_KEY = 99;
-
     private CameraUtil mCameraUtil;
 
     @ViewById(R.id.iv_preview_photo)
     ImageView mPreviewPhoto;
-    @ViewById(R.id.iv_profile_photo_1)
-    ImageView mProfilePhoto1;
-    @ViewById(R.id.iv_profile_photo_2)
-    ImageView mProfilePhoto2;
     @ViewById(R.id.aftv_camera_view)
     AutoFitTextureView mCameraAutoFitTextureView;
     @ViewById(R.id.iv_rotate_tablet)
@@ -47,28 +52,32 @@ public class RegisterStep3Activity extends BaseActivity implements CameraUtil.Ca
     @ViewById(R.id.btn_capture_picture)
     Button mCaptureButton;
     @ViewById(R.id.group_image_capture_ui)
-    Group mImageCaptureUI;
+    android.support.constraint.Group mImageCaptureUI;
     @ViewById(R.id.group_photo_rejected)
-    Group mPhotoRejectedUI;
+    android.support.constraint.Group mPhotoRejectedUI;
     @ViewById(R.id.group_capture_btn)
-    Group mCaptureButttonVisibilityController;
+    android.support.constraint.Group mCaptureButttonVisibilityController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //SharedPrefHandler.clearData(); //clearing photo prefrences whenever this activity is created
     }
 
     @AfterViews
-    public void populateViews() {
-        if (mCameraUtil == null)
-            mCameraUtil = new CameraUtil(this, mCameraAutoFitTextureView, this);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-//        getWindow().setStatusBarColor(Color.parseColor("#33000000"));
+    public void populateViews(){
+        requestCameraPermission();
+    }
 
-        this.setLayout();
+    private void requestCameraPermission() {
+        if (ActivityCompat.checkSelfPermission(CameraAuthenticationActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(CameraAuthenticationActivity.this,
+                    new String[]{Manifest.permission.CAMERA},
+                    REQUEST_CODE_CAMERA_PERMISSION);
+        }
+        else {
+            if (mCameraUtil == null)
+                mCameraUtil = new CameraUtil(CameraAuthenticationActivity.this, mCameraAutoFitTextureView, this);
+        }
     }
 
     @Override
@@ -76,6 +85,11 @@ public class RegisterStep3Activity extends BaseActivity implements CameraUtil.Ca
         super.onResume();
         if (mCameraUtil != null)
             mCameraUtil.makeCameraResourceOpen();
+    }
+
+    @Click(R.id.btn_capture_picture)
+    public void takePicture() {
+            mCameraUtil.takePicture(String.valueOf(Singleton.getRandomNumber(1000, 9999999)));
     }
 
     @Override
@@ -120,20 +134,6 @@ public class RegisterStep3Activity extends BaseActivity implements CameraUtil.Ca
         }
     }
 
-    @Click(R.id.btn_capture_picture)
-    public void takePicture() {
-        if (!SharedPrefHandler.isProfilePhoto1Verified() || !SharedPrefHandler.isProfilePhoto2Verified())
-            mCameraUtil.takePicture(String.valueOf(Singleton.getRandomNumber(1000, 9999999)));
-        else //both 2 images are verified & user comes back to this step from step4
-            startActivity(new Intent(RegisterStep3Activity.this, RegisterStep4Activity_.class));
-    }
-
-    @Override
-    public void onBackPressed() {
-
-    }
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_PREVIEW_REQUEST_CODE) {
@@ -142,30 +142,11 @@ public class RegisterStep3Activity extends BaseActivity implements CameraUtil.Ca
 
             switch (resultCode) {
                 case RESULT_OK:
-                    if (!SharedPrefHandler.isProfilePhoto1Verified()){
-                        SharedPrefHandler.setProfilePhoto1Verified(true);
-                        mProfilePhoto1.setImageResource(R.drawable.iv_profile_photo_validation_success);
-                        Singleton.showSnackbar(this, findViewById(R.id.cl_container),0, R.string.snackbar_photo_accepted, R.string.snackbar_action_dismiss, R.color.colorAccent);
-                    }
-                    else if (!SharedPrefHandler.isProfilePhoto2Verified()){
-                        SharedPrefHandler.setProfilePhoto2Verified(true);
-                        mProfilePhoto2.setImageResource(R.drawable.iv_profile_photo_validation_success);
-
-                        RegisterStep3Activity.this.sendToPassowrdSetupPage();
-                    }
-
-                    checkStep3CompletedorNot();
-
+                    startActivity(new Intent(CameraAuthenticationActivity.this, PasswordSigninActivity_.class));
                     break;
 
                 case RESULT_CANCELED:
-                    if (!SharedPrefHandler.isProfilePhoto1Verified())
-                        mProfilePhoto1.setImageResource(R.drawable.iv_profile_photo_validation_fail);
-                    else if (!SharedPrefHandler.isProfilePhoto2Verified())
-                        mProfilePhoto2.setImageResource(R.drawable.iv_profile_photo_validation_fail);
 
-                    SharedPrefHandler.setProfilePhoto1Verified(false);
-                    SharedPrefHandler.setProfilePhoto2Verified(false);
                     mPhotoRejectedUI.setVisibility(View.VISIBLE);
                     mCaptureButttonVisibilityController.setVisibility(View.GONE);
                     mPreviewPhoto.setImageBitmap(BitmapFactory.decodeFile(imagePath));
@@ -174,32 +155,29 @@ public class RegisterStep3Activity extends BaseActivity implements CameraUtil.Ca
                 case CLOSE_BUTTON_RESULT_KEY:
                     break;
 
-                    default:
-                        break;
+                default:
+                    break;
             }
         }
     }
 
-    private void checkStep3CompletedorNot() {
-        if (SharedPrefHandler.isProfilePhoto1Verified() && SharedPrefHandler.isProfilePhoto2Verified())
-            startActivity(new Intent(RegisterStep3Activity.this, RegisterStep4Activity_.class));
-        else
-            return;
-    }
 
-    private void sendToPassowrdSetupPage() {
-        //Intent landingIntent = new
-    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CODE_CAMERA_PERMISSION: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-    @Click(R.id.btn_retake_photo)
-    public void OnRetakeClick(){
+                    if (mCameraUtil == null)
+                        mCameraUtil = new CameraUtil(CameraAuthenticationActivity.this, mCameraAutoFitTextureView, this);
 
-        mProfilePhoto1.setImageResource(R.drawable.ic_camera_profile_photo_validation_default);
-        mProfilePhoto2.setImageResource(R.drawable.ic_camera_profile_photo_validation_default);
-
-        mPhotoRejectedUI.setVisibility(View.GONE);
-        mCaptureButttonVisibilityController.setVisibility(View.VISIBLE);
-        mPreviewPhoto.setVisibility(View.GONE);
+                    this.setLayout();
+                } else {
+                    requestCameraPermission();
+                }
+                return;
+            }
+        }
     }
 
     @Override

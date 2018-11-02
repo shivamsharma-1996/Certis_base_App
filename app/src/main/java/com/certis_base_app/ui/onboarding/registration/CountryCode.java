@@ -1,20 +1,23 @@
 package com.certis_base_app.ui.onboarding.registration;
 
 public class CountryCode {
-    String codes;
+    String name;
     int flag;
 
-    public CountryCode(String codes, int flag) {
-        this.codes = codes;
+    public CountryCode() {
+    }
+
+    public CountryCode(String name, int flag) {
+        this.name = name;
         this.flag = flag;
     }
 
-    public String getCodes() {
-        return codes;
+    public String getName() {
+        return name;
     }
 
-    public void setCodes(String codes) {
-        this.codes = codes;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getFlag() {
@@ -23,5 +26,13 @@ public class CountryCode {
 
     public void setFlag(int flag) {
         this.flag = flag;
+    }
+
+    @Override
+    public String toString() {
+        return "CountryCode{" +
+                "name='" + name + '\'' +
+                ", flag=" + flag +
+                '}';
     }
 }

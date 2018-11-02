@@ -13,20 +13,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.certis_base_app.R;
 import com.certis_base_app.ui.BaseActivity;
 import com.certis_base_app.ui.custom_views.ClearableEditText;
 import com.certis_base_app.ui.onboarding.login.LandingActivity_;
+import com.certis_base_app.utills.SharedPrefHandler;
 import com.certis_base_app.utills.Singleton;
-
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-import java.util.regex.Pattern;
 
 
 @EActivity(R.layout.activity_register_step4)
@@ -107,13 +104,11 @@ public class RegisterStep4Activity extends BaseActivity {
                 }, 500
         );
         //setting listeners
+        mPasswordClearInput1.addTextChangedListener(mEmptyTextWatcher);
+        mPasswordClearInput2.addTextChangedListener(mEmptyTextWatcher);
+
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mCreatePasswordbutton.addTextChangedListener(mEmptyTextWatcher);
-    }
 
     @Click(R.id.iv_password_visibilty)
     public void onPasswordVisibiltyChange() {
@@ -147,11 +142,13 @@ public class RegisterStep4Activity extends BaseActivity {
         confirmPassword = mPasswordClearInput2.getText().toString().trim();
 
         if ((password.length() <= 8) ) {
+            mPasswordClearInput1.requestFocus();
             mPasswordCriteriaFail.setVisibility(View.VISIBLE);
             mPasswordNotMatched.setVisibility(View.GONE);
             return false;
         }
         else if (!password.equals(confirmPassword)) {
+            mPasswordClearInput2.requestFocus();
             mPasswordNotMatched.setVisibility(View.VISIBLE);
             mPasswordCriteriaFail.setVisibility(View.GONE);
             return false;
@@ -159,5 +156,11 @@ public class RegisterStep4Activity extends BaseActivity {
         mPasswordNotMatched.setVisibility(View.GONE);
         mPasswordCriteriaFail.setVisibility(View.GONE);
         return true;
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();  // disable back button
     }
 }

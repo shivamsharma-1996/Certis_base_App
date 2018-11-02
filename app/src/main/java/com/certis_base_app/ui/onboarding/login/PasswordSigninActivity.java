@@ -1,35 +1,45 @@
 package com.certis_base_app.ui.onboarding.login;
 
-import android.content.Intent;
+import android.media.Image;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.certis_base_app.R;
-import com.certis_base_app.ui.onboarding.registration.RegisterStep1Step2Activity_;
+import com.certis_base_app.ui.custom_views.ClearableEditText;
 
-import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-@EActivity(R.layout.activity_landing)
-public class LandingActivity extends AppCompatActivity {
+@EActivity(R.layout.activity_password_signin)
+public class PasswordSigninActivity extends AppCompatActivity {
 
-    @ViewById(R.id.til_staff_id)
-    TextInputLayout staffIdInputLayout;
-    @ViewById(R.id.cet_staff_id)
-    EditText mStaffIdClearInput;
+    private static boolean IS_PASSWORD_VISIBLE = false;
+
+
+    @ViewById(R.id.til_password)
+    TextInputLayout mPasswordInputLayout;
+    @ViewById(R.id.cet_password)
+    ClearableEditText mPasswordClearInput;
     @ViewById(R.id.btn_next)
     Button mNextStepButton;
     @ViewById(R.id.tv_create_account)
     TextView mCreateAccount;
+    @ViewById(R.id.iv_password_visibilty)
+    ImageView mPasswordVisibility;
+    @ViewById(R.id.tv_forgot_password)
+    TextView mForgotPasssword;
+
+
 
     public TextWatcher mEmptyTextWatcher = new TextWatcher() {
         @Override
@@ -44,8 +54,8 @@ public class LandingActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-            String staffId = mStaffIdClearInput.getText().toString().trim();
-            if (TextUtils.isEmpty(staffId)) {
+            String password = mPasswordClearInput.getText().toString().trim();
+            if (TextUtils.isEmpty(password)) {
                 mNextStepButton.setEnabled(false);
                 mNextStepButton.setAlpha(0.5f);
             } else {
@@ -60,19 +70,20 @@ public class LandingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
-    @AfterViews
-    public void populateViews(){
-        //Setting Listeners
-        mStaffIdClearInput.addTextChangedListener(mEmptyTextWatcher);
+
+    @Click(R.id.iv_password_visibilty)
+    public void onPasswordVisibiltyChange() {
+        if (IS_PASSWORD_VISIBLE) {
+            IS_PASSWORD_VISIBLE = false;
+            mPasswordVisibility.setImageResource(R.drawable.ic_password_shown);
+            mPasswordClearInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+        } else {
+            IS_PASSWORD_VISIBLE = true;
+            mPasswordVisibility.setImageResource(R.drawable.ic_password_hidden);
+            mPasswordClearInput.setInputType(InputType.TYPE_CLASS_TEXT);
+        }
     }
 
-    @Click(R.id.btn_next)
-    public void onNextClick(){
-        this.startActivity(new Intent(LandingActivity.this, CameraAuthenticationActivity_.class));
-    }
 
-    @Click(R.id.tv_create_account)
-    public void onCreateAccountClick(){
-        this.startActivity(new Intent(LandingActivity.this, RegisterStep1Step2Activity_.class));
-    }
 }

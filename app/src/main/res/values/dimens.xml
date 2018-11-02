@@ -31,5 +31,6 @@
     <dimen name="snackbar_inset_padding">30dp</dimen>
     <dimen name="dimens_50">50dp</dimen>
     <dimen name="textSizeMini">12sp</dimen>
+    <dimen name="textSizeXXXLarge">30sp</dimen>
 
 </resources>
