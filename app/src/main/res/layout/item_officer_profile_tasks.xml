@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    android:id="@+id/cv_officer_profile_tasks"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dimens_16"
+    android:layout_marginBottom="@dimen/dimens_16"
+    android:background="@drawable/bg_item_officer_task_gray_light"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            android:id="@+id/tv_task_time_between"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="07:00 - 07:45 AM"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/textSizeMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_task_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Open Gate 27"
+            android:layout_marginEnd="@dimen/dimens_24"
+            android:layout_marginTop="@dimen/dimens_12"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:textSize="@dimen/textSizeLarge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_task_time_between"
+            app:layout_constraintEnd_toStartOf="@+id/tv_task_status"/>
+
+        <TextView
+            android:id="@+id/tv_task_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/textSizeMedium"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_task_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_task_title" />
+
+        <ProgressBar
+            android:id="@+id/pb_task"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="@dimen/dimens_16"
+            android:progress="50"
+            android:progressBackgroundTint="@color/greyDark"
+            android:progressTint="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_task_status"
+            app:layout_constraintStart_toStartOf="@+id/tv_task_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_task_title" />
+
+        <TextView
+            android:id="@+id/tv_pending_acknowledgment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_5"
+            android:drawablePadding="@dimen/dimens_8"
+            android:drawableStart="@drawable/ic_small_alert_red"
+            android:text="@string/officer_label_pending_acknowledgement"
+            android:textColor="@color/textPrimary"
+            android:textSize="@dimen/textSizeMedium"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/tv_task_title"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>

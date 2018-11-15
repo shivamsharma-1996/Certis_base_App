@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             style="@style/RegisterEditTextStyle"
             android:hint="@string/hint_staff_id"
-            android:inputType="text" />
+            android:inputType="text"/>
 
     </android.support.design.widget.TextInputLayout>
 

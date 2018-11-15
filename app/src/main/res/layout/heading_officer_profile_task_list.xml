@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dimens_16"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_heading_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/officer_label_task_header"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/textSizeLarge"
+        android:textStyle="bold"/>
+
+</LinearLayout>

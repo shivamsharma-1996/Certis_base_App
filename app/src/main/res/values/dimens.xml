@@ -12,6 +12,7 @@
     <dimen name="dimens_15">15dp</dimen>
     <dimen name="dimens_16">16dp</dimen>
     <dimen name="dimens_22">22dp</dimen>
+    <dimen name="dimens_24">24dp</dimen>
     <dimen name="dimens_30">30dp</dimen>
     <dimen name="dimens_40">40dp</dimen>
 
@@ -21,6 +22,8 @@
     <dimen name="textSizeLarge">21sp</dimen>
     <dimen name="textSizeXLarge">24sp</dimen>
     <dimen name="textSizeXXLarge">26sp</dimen>
+    <dimen name="textSizeXXXLarge">28sp</dimen>
+    <dimen name="textSizeXXXXLarge">30sp</dimen>
 
     <dimen name="outline_width_1">1dp</dimen>
     <dimen name="outline_width_2">2dp</dimen>
@@ -31,6 +34,6 @@
     <dimen name="snackbar_inset_padding">30dp</dimen>
     <dimen name="dimens_50">50dp</dimen>
     <dimen name="textSizeMini">12sp</dimen>
-    <dimen name="textSizeXXXLarge">30sp</dimen>
+
 
 </resources>

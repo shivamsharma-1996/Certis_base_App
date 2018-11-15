@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_signin_failed_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingMultiplier="1.3"
+        android:text="@string/label_signin_failed_info"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_signin_failed_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/text_signin_failed"
+        android:textColor="@color/red"
+        android:textSize="@dimen/textSizeXLarge"
+        app:layout_constraintBottom_toTopOf="@+id/tv_signin_failed_info"
+        app:layout_constraintStart_toStartOf="@+id/tv_signin_failed_info" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_fail"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_signin_failed_heading"
+        app:layout_constraintStart_toEndOf="@+id/tv_signin_failed_heading"
+        app:layout_constraintTop_toTopOf="@+id/tv_signin_failed_heading" />
+
+
+        <Button
+            android:id="@+id/btn_reset_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/bg_reset_account_button"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingBottom="10dp"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:paddingTop="10dp"
+            android:text="@string/button_reset_my_account"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="@+id/tv_signin_failed_info"
+            app:layout_constraintTop_toBottomOf="@+id/tv_signin_failed_info"/>
+
+        <Button
+            android:id="@+id/btn_back_to_sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingBottom="10dp"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:paddingTop="10dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/bg_back_to_signin_page_button"
+            android:text="@string/button_back_to_sign_in_page"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/btn_reset_account"
+            app:layout_constraintTop_toTopOf="@id/btn_reset_account"
+            app:layout_constraintBottom_toBottomOf="@id/btn_reset_account"/>
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="@dimen/dimens_10"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_certis_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</android.support.constraint.ConstraintLayout>

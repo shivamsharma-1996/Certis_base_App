@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            android:id="@+id/appBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapse_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginStart="48dp"
+                app:expandedTitleMarginEnd="64dp">
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/dimens_16"
+                    android:paddingEnd="@dimen/dimens_16"
+                    android:paddingTop="@dimen/dimens_40"
+                    android:paddingBottom="@dimen/dimens_40"
+                    app:layout_collapseMode="parallax">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_officer_photo"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_register_flag_india"
+                        android:layout_marginTop="@dimen/dimens_24"
+                        android:layout_marginStart="@dimen/dimens_8"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_officer_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimens_12"
+                        android:textSize="@dimen/textSizeXLarge"
+                        android:textColor="@android:color/white"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:text="John Peterson"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_officer_id"
+                        app:layout_constraintStart_toEndOf="@+id/iv_officer_photo"
+                        app:layout_constraintTop_toTopOf="@+id/iv_officer_photo"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <TextView
+                        android:id="@+id/tv_officer_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimens_12"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textSizeMedium"
+                        android:text="123456"
+                        app:layout_constraintEnd_toStartOf="@+id/view_seperator_bar1"
+                        app:layout_constraintStart_toEndOf="@+id/iv_officer_photo"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_officer_name"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <View
+                        android:id="@+id/view_seperator_bar1"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@android:color/white"
+                        android:layout_marginStart="@dimen/dimens_12"
+                        app:layout_constraintStart_toEndOf="@+id/tv_officer_id"
+                        app:layout_constraintTop_toTopOf="@+id/tv_officer_id"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_officer_id" />
+
+                    <TextView
+                        android:id="@+id/tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textSizeMedium"
+                        android:text="ATSU/T1/A1"
+                        android:layout_marginStart="@dimen/dimens_12"
+                        app:layout_constraintEnd_toStartOf="@+id/view_seperator_bar2"
+                        app:layout_constraintStart_toEndOf="@+id/view_seperator_bar1"
+                        app:layout_constraintTop_toTopOf="@+id/tv_officer_id"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_officer_id" />
+
+                    <View
+                        android:id="@+id/view_seperator_bar2"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@android:color/white"
+                        android:layout_marginStart="@dimen/dimens_12"
+                        app:layout_constraintStart_toEndOf="@+id/tv"
+                        app:layout_constraintTop_toTopOf="@+id/tv_officer_id"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_officer_id" />
+
+                    <TextView
+                        android:id="@+id/tv_officer_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="10dp"
+                        android:text="+65 87654321"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textSizeMedium"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_officer_id"
+                        app:layout_constraintStart_toEndOf="@+id/view_seperator_bar2"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_officer_name" />
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    android:background="@color/colorPrimary"
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/ic_arrow_back_white"/>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_officer_tasks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingEnd="@dimen/dimens_16"
+            android:paddingStart="@dimen/dimens_16"
+            android:layout_marginBottom="@dimen/dimens_16"
+            android:nestedScrollingEnabled="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_officer_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimens_16"
+            app:fabSize="mini"
+            android:src="@drawable/ic_message"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/blue"
+            app:layout_anchor="@+id/appBar"
+            app:layout_anchorGravity="bottom|right|end" />
+
+    </android.support.design.widget.CoordinatorLayout>
+</android.support.constraint.ConstraintLayout>

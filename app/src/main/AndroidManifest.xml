@@ -7,8 +7,15 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
-        android:name=".MyApplication"
+        android:name=".AppConfig"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -23,7 +30,7 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/FullscreenTheme" />
         <activity
-            android:name=".ui.onboarding.registration.CameraPreviewSubmitActivity_"
+            android:name=".ui.onboarding.CameraPreviewSubmitActivity_"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.onboarding.login.LandingActivity_"
@@ -39,12 +46,43 @@
             android:name=".ui.onboarding.registration.RegisterStep4Activity_"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".ui.onboarding.login.CameraAuthenticationActivity_"
+            android:name=".ui.onboarding.login.SigninCameraAuthActivity_"
             android:configChanges="orientation|screenSize"
             android:theme="@style/FullscreenTheme" />
-        <activity android:name=".ui.onboarding.login.PasswordSigninActivity_"
+        <activity
+            android:name=".ui.onboarding.login.SigninPasswordActivity_"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.onboarding.login.SigninFailedActivity" />
+        <activity
+            android:name=".ui.menuOfficerDashboard.OfficerMonitoringActivity_"
+            android:label="@string/label_incident"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".ui.menuMessaging.MessagingActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.menuIncidentManagement.IncidentManagementActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.menuTaskManagement.TaskManagementActivity"
+            android:launchMode="singleTop" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
     </application>
 
 </manifest>

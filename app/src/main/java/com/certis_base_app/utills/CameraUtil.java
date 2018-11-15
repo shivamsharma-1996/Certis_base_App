@@ -62,6 +62,7 @@ public class CameraUtil implements ActivityCompat.OnRequestPermissionsResultCall
 
 
 
+
     public interface CaptureClickListener {
         void onCaptureClick(File imageFilePath);
     }
@@ -79,6 +80,8 @@ public class CameraUtil implements ActivityCompat.OnRequestPermissionsResultCall
 
 
     public static final SparseIntArray ORIENTATIONS = new SparseIntArray(); //Conversion from screen rotation to JPEG orientation.
+
+
 
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -347,19 +350,19 @@ public class CameraUtil implements ActivityCompat.OnRequestPermissionsResultCall
 
                 //We don't use a front facing camera in this sample.
                 Integer facing = characteristics.get(CameraCharacteristics.LENS_FACING);
-                if (facing != null && facing == CameraCharacteristics.LENS_FACING_FRONT) {
-                    /*Toast.makeText(activity, "selfie", Toast.LENGTH_SHORT).show();
-                    Log.i(TAG, "selfie: ");
-                    mCameraId = cameraId; */
+                if(facing != null && facing != CameraCharacteristics.LENS_FACING_FRONT) {
+                    //Toast.makeText(activity, "selfie", Toast.LENGTH_SHORT).show();
+                    //Log.i(TAG, "selfie: ");
+                    mCameraId = cameraId;
                     continue;
                 }
 
                 StreamConfigurationMap map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-                if (map == null) {
+                if(map == null) {
                     continue;
                 }
 
-                // For still image captures, we use the largest available size.
+                //For still image captures, we use the largest available size.
                 Size largest = Collections.max(Arrays.asList(map.getOutputSizes(ImageFormat.JPEG)), new CompareSizesByArea());
                 mImageReader = ImageReader.newInstance(largest.getWidth(), largest.getHeight(), ImageFormat.JPEG, /*maxImages*/2);
                 mImageReader.setOnImageAvailableListener(mOnImageAvailableListener, mBackgroundHandler);
@@ -457,8 +460,7 @@ public class CameraUtil implements ActivityCompat.OnRequestPermissionsResultCall
             }
 
             //cameraId = ;
-
-            manager.openCamera(manager.getCameraIdList()[1], mStateCallback, mBackgroundHandler);
+            manager.openCamera(mCameraId, mStateCallback, mBackgroundHandler);
         } catch (CameraAccessException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -502,14 +504,15 @@ public class CameraUtil implements ActivityCompat.OnRequestPermissionsResultCall
 
 
     public void stopBackgroundThread() {
-        if(mBackgroundHandler!=null)
-        mBackgroundThread.quitSafely();
-        try {
-            mBackgroundThread.join();
-            mBackgroundThread = null;
-            mBackgroundHandler = null;
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if(mBackgroundHandler!=null){
+            mBackgroundThread.quitSafely();
+            try {
+                mBackgroundThread.join();
+                mBackgroundThread = null;
+                mBackgroundHandler = null;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 

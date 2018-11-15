@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_officer_monitoring"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/dimens_12">
+
+   <de.hdodenhof.circleimageview.CircleImageView
+       android:id="@+id/civ_officer_image"
+       android:layout_width="60dp"
+       android:layout_height="60dp"
+       android:src="@mipmap/ic_launcher"
+       app:civ_border_color="@color/white"
+       android:layout_marginStart="@dimen/dimens_24"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"/>
+
+   <TextView
+        android:id="@+id/tv_officer_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+       android:layout_marginStart="@dimen/dimens_16"
+       android:layout_marginEnd="@dimen/dimens_24"
+       android:lines="1"
+       android:ellipsize="end"
+       android:text="Briandito Priambodo di C"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeLarge"
+       android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/civ_officer_image"
+       app:layout_constraintEnd_toStartOf="@+id/tv_task_id"
+       app:layout_constraintTop_toTopOf="@+id/civ_officer_image" />
+
+    <TextView
+        android:id="@+id/tv_task_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimens_24"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="#123456"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/textSizeMedium"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_officer_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_officer_name" />
+
+
+   <TextView
+       android:id="@+id/tv_task_status"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginEnd="@dimen/dimens_24"
+       android:ellipsize="end"
+       android:lines="1"
+       android:text="3/5 Completed"
+       android:textSize="@dimen/textSizeMedium"
+       android:textColor="@color/textPrimary"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toEndOf="@+id/tv_task_title"
+       app:layout_constraintTop_toBottomOf="@+id/tv_task_id" />
+
+   <TextView
+        android:id="@+id/tv_task_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Open Gate 27"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintEnd_toStartOf="@+id/tv_task_status"
+        app:layout_constraintStart_toStartOf="@+id/tv_officer_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_officer_name"/>
+
+<!--   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/dimens_4"
+        android:layout_marginTop="@dimen/dimens_12"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/textSizeNormal"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/tv_task_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_title" />-->
+
+    <ProgressBar
+        android:id="@+id/pb_task"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="@dimen/dimens_16"
+        android:layout_marginEnd="@dimen/dimens_24"
+        android:progress="60"
+        android:progressBackgroundTint="@color/greyDark"
+        android:progressTint="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_task_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_title" />
+
+    <View
+        android:id="@+id/view_seperator"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dimens_24"
+        android:background="@color/greyDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pb_task" />
+
+</android.support.constraint.ConstraintLayout>

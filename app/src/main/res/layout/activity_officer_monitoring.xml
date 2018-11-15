@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cl_officer_monitoring">
+<!--
+    android:clipToPadding="false"
+-->
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:layout_constraintStart_toEndOf="@+id/fragment_sidebar"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <fragment
+        android:id="@+id/fragment_sidebar"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:name="com.certis_base_app.ui.router.SidebarMenuFragment_"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--<android.support.constraint.Guideline
+        android:orientation="vertical"
+        android:id="@+id/guideline_divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.40"/>-->
+
+    <android.support.constraint.Guideline
+        android:orientation="vertical"
+        android:id="@+id/guideline_divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/fragment_sidebar"
+        app:layout_constraintGuide_percent="0.45"/>
+
+    <android.support.constraint.Guideline
+        android:orientation="vertical"
+        android:id="@+id/guideline_divider2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/fragment_sidebar"
+        app:layout_constraintGuide_percent="0.30"/>
+
+
+    <FrameLayout
+        android:id="@+id/frame_officer_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/fragment_sidebar"
+        app:layout_constraintEnd_toEndOf="@id/guideline_divider"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    <FrameLayout
+        android:id="@+id/frame_officer_profile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/fragment_sidebar"
+        app:layout_constraintEnd_toEndOf="@id/guideline_divider"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <FrameLayout
+        android:id="@+id/frame_map"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline_divider"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <FrameLayout
+        android:id="@+id/frame_task_detail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline_divider2"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

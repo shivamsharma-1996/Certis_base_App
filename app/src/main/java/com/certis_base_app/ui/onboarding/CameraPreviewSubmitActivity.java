@@ -1,4 +1,4 @@
-package com.certis_base_app.ui.onboarding.registration;
+package com.certis_base_app.ui.onboarding;
 
 import android.content.Intent;
 import android.graphics.BitmapFactory;

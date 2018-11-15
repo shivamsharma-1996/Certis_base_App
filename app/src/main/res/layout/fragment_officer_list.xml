@@ -1,0 +1,52 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".ui.menuOfficerDashboard.OfficerMonitoringFragment">
+
+    <ImageView
+        android:id="@+id/iv_sort_up"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_table_sorting_up"
+        android:layout_marginStart="@dimen/dimens_24"
+        app:layout_constraintTop_toTopOf="@+id/tv_sort_by_name"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_sort_by_name"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_sort_by_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/officer_label_name"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium"
+        android:layout_marginTop="@dimen/dimens_12"
+        android:layout_marginStart="@dimen/dimens_4"
+        app:layout_constraintStart_toEndOf="@id/iv_sort_up"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:id="@+id/view_seperator"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintHorizontal_weight="4"
+        android:background="@color/greyDark"
+        android:layout_marginTop="@dimen/dimens_8"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sort_by_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_officer_dashboard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/view_seperator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/view_seperator"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>
+

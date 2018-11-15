@@ -5,4 +5,5 @@
 
     <item
         android:drawable="@drawable/bg_otp_semi_round_gray_unselected" />
+
 </selector>

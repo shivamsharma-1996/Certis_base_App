@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 
 import com.certis_base_app.utills.SharedPrefHandler;
 
-public class MyApplication extends Application
+public class AppConfig extends Application
 {
     @Override
     public void onCreate()

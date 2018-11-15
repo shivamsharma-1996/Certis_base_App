@@ -21,6 +21,7 @@ import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_landing)
 public class LandingActivity extends AppCompatActivity {
+    public static LandingActivity instance = null;
 
     @ViewById(R.id.til_staff_id)
     TextInputLayout staffIdInputLayout;
@@ -58,7 +59,9 @@ public class LandingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = this;
     }
+
 
     @AfterViews
     public void populateViews(){
@@ -68,11 +71,17 @@ public class LandingActivity extends AppCompatActivity {
 
     @Click(R.id.btn_next)
     public void onNextClick(){
-        this.startActivity(new Intent(LandingActivity.this, CameraAuthenticationActivity_.class));
+        this.startActivity(new Intent(LandingActivity.this, SigninCameraAuthActivity_.class));
     }
 
     @Click(R.id.tv_create_account)
     public void onCreateAccountClick(){
         this.startActivity(new Intent(LandingActivity.this, RegisterStep1Step2Activity_.class));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        instance = null;
     }
 }

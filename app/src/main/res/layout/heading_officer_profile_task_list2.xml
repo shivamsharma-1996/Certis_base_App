@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dimens_16"
+    android:orientation="horizontal">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_weight="5"
+        android:layout_gravity="center_vertical"
+        android:background="@color/greyDark"/>
+
+    <TextView
+        android:id="@+id/tv_heading_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/officer_label_task_sub_header"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/textSizeMedium"
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/dimens_8"
+        android:layout_marginEnd="@dimen/dimens_8"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_weight="5"
+        android:layout_gravity="center_vertical"
+        android:background="@color/greyDark" />
+
+</LinearLayout>

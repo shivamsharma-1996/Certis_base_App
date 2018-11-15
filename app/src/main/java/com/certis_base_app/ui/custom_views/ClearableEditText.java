@@ -95,7 +95,7 @@ public class ClearableEditText extends AppCompatEditText implements View.OnTouch
 
 
     private void init(final Context context) {
-        final Drawable drawable = ContextCompat.getDrawable(context, R.drawable.ic_close_black);
+        final Drawable drawable = ContextCompat.getDrawable(context, R.drawable.ic_close_gray);
         final Drawable wrappedDrawable = DrawableCompat.wrap(drawable); //Wrap the drawable so that it can be tinted pre Lollipop
         DrawableCompat.setTint(wrappedDrawable, getCurrentHintTextColor());
         mClearTextIcon = wrappedDrawable;

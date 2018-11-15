@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,13 +15,8 @@ import android.widget.ImageView;
 import com.certis_base_app.R;
 import com.certis_base_app.ui.BaseActivity;
 import com.certis_base_app.ui.custom_views.AutoFitTextureView;
-import com.certis_base_app.ui.onboarding.registration.CameraPreviewSubmitActivity_;
-import com.certis_base_app.ui.onboarding.registration.RegisterStep1Step2Activity;
-import com.certis_base_app.ui.onboarding.registration.RegisterStep3Activity;
-import com.certis_base_app.ui.onboarding.registration.RegisterStep3Activity_;
-import com.certis_base_app.ui.onboarding.registration.RegisterStep4Activity_;
+import com.certis_base_app.ui.onboarding.CameraPreviewSubmitActivity_;
 import com.certis_base_app.utills.CameraUtil;
-import com.certis_base_app.utills.SharedPrefHandler;
 import com.certis_base_app.utills.Singleton;
 
 import org.androidannotations.annotations.AfterViews;
@@ -32,10 +25,12 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import java.io.File;
-import java.security.acl.Group;
 
 @EActivity(R.layout.activity_camera_authentication)
-public class CameraAuthenticationActivity extends BaseActivity implements CameraUtil.CaptureClickListener {
+public class SigninCameraAuthActivity extends BaseActivity implements CameraUtil.CaptureClickListener {
+
+    public static SigninCameraAuthActivity instance = null;
+
     private static final int REQUEST_CODE_CAMERA_PERMISSION = 200;
 
     private static final String IMAGE_FILE_PATH_KEY = "Image File Path Key";
@@ -61,6 +56,7 @@ public class CameraAuthenticationActivity extends BaseActivity implements Camera
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = this;
     }
 
     @AfterViews
@@ -69,14 +65,14 @@ public class CameraAuthenticationActivity extends BaseActivity implements Camera
     }
 
     private void requestCameraPermission() {
-        if (ActivityCompat.checkSelfPermission(CameraAuthenticationActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(CameraAuthenticationActivity.this,
+        if (ActivityCompat.checkSelfPermission(SigninCameraAuthActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(SigninCameraAuthActivity.this,
                     new String[]{Manifest.permission.CAMERA},
                     REQUEST_CODE_CAMERA_PERMISSION);
         }
         else {
             if (mCameraUtil == null)
-                mCameraUtil = new CameraUtil(CameraAuthenticationActivity.this, mCameraAutoFitTextureView, this);
+                mCameraUtil = new CameraUtil(SigninCameraAuthActivity.this, mCameraAutoFitTextureView, this);
         }
     }
 
@@ -110,6 +106,7 @@ public class CameraAuthenticationActivity extends BaseActivity implements Camera
         super.onDestroy();
         if (mCameraUtil != null)
             mCameraUtil.makeCameraResourceClosed();
+        instance = null;
     }
 
     @Override
@@ -142,7 +139,7 @@ public class CameraAuthenticationActivity extends BaseActivity implements Camera
 
             switch (resultCode) {
                 case RESULT_OK:
-                    startActivity(new Intent(CameraAuthenticationActivity.this, PasswordSigninActivity_.class));
+                    startActivity(new Intent(SigninCameraAuthActivity.this, SigninPasswordActivity_.class));
                     break;
 
                 case RESULT_CANCELED:
@@ -169,7 +166,7 @@ public class CameraAuthenticationActivity extends BaseActivity implements Camera
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
                     if (mCameraUtil == null)
-                        mCameraUtil = new CameraUtil(CameraAuthenticationActivity.this, mCameraAutoFitTextureView, this);
+                        mCameraUtil = new CameraUtil(SigninCameraAuthActivity.this, mCameraAutoFitTextureView, this);
 
                     this.setLayout();
                 } else {

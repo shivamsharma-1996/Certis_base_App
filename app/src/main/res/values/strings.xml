@@ -3,29 +3,36 @@
 
     <string name="title_account_registration">Account Registration</string>
     <string name="title_mobile_verification">Account Registration - Mobile Verification</string>
+    <string name="title_password_creation">Account Registration - Password Creation</string>
+
+    <string name="snackbar_failed_message_text">Verification failed. Please Retry.</string>
+    <string name="snackbar_action_dismiss">DISMISS</string>
+    <string name="snackbar_photo_accepted">1st Photo Accepted.</string>
+    <string name="snackbar_action_view">VIEW</string>
 
     <string name="text_registration_step">Registration Step</string>
     <string name="text_registration_step_1">1</string>
     <string name="text_registration_step_2">2</string>
     <string name="text_registration_step_3">3</string>
     <string name="text_registration_step_4">4</string>
-
+    <string name="text_otp_instruction">Confirmation code has been sent to:</string>
     <string name="text_max_registration_step">/ 4</string>
     <string name="text_registration_instruction">Please enter the fields below:</string>
-    <string name="hint_staff_id">Staff ID</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="hint_phone_no">Phone Number</string>
-    <string name="next">next</string>
-    <string name="text_otp_instruction">Confirmation code has been sent to:</string>
-    <string name="otp_phone_no_text">+882 496 5636</string>
     <string name="registration_step_1">step1</string>
-    <string name="text_otp_hint">0</string>
-    <string name="text_otp_recieve_label">You will receive a verification code via SMS within 10 minutes. Please enter the code above.</string>
+
+
+    <string name="hint_staff_id">Staff ID</string>
+    <string name="hint_phone_no">Phone Number</string>
+    <string name="hint_confirm_password">Re-enter Password</string>
+    <string name="hint_enter_password">Enter Password</string>
+    <string name="hint_otp_default">0</string>
+
+    <string name="next">next</string>
+    <string name="otp_phone_no_text">+882 496 5636</string>
+    <string name="otp_recieve_label">You will receive a verification code via SMS within 10 minutes. Please enter the code above.</string>
     <string name="otp_resend_code">Resend Code</string>
     <string name="otp_verification_successful">Verification successful!</string>
-    <string name="snackbar_failed_message_text">Verification failed. Please Retry.</string>
-    <string name="snackbar_action_dismiss">DISMISS</string>
+
 
     <string name="request_permission">This sample needs camera permission.</string>
     <string name="menu_submit_photo">SUBMIT PHOTO</string>
@@ -37,9 +44,9 @@
     <string name="camera_follow_note">Take 2 photos of your face for sign in validation reference</string>
     <string name="camera_photo_rejected">Photo Rejected</string>
     <string name="camera_photo_rejected_note">Please ensure that you are in a well-lit environment and place your face within the frame provided</string>
-    <string name="snackbar_photo_accepted">1st Photo Accepted.</string>
-    <string name="snackbar_action_view">VIEW</string>
+
     <string name="landing_create_account">Create an account</string>
+
     <string name="password_criteria_title">Password creation criteria</string>
     <string name="password_character_label">Characters</string>
     <string name="password_character_criteria">8+</string>
@@ -51,17 +58,46 @@
     <string name="password_upper_alphabet_label">At least 1 lower case</string>
     <string name="password_rules">• At least ONE special character (e.g. !@#$%*)\n• Not be based on a dictionary word\n• Not be based on personal information, names of family members, etc.\n• Not be the same as the PW used other accounts</string>
     <string name="password_creation_label">Please create a strong password:</string>
-    <string name="hint_confirm_password">Re-enter Password</string>
-    <string name="hint_enter_password">Enter Password</string>
+
     <string name="password_create_password">Create Password</string>
-    <string name="camera_photo_submitted">Photo successfully submitted</string>
     <string name="password_not_matched">Those passwords do not match. Try again.</string>
     <string name="password_not_follow_criteria">Password does not follow the password creation criteria.</string>
     <string name="password_criteria_fail">Password does not follow the password creation criteria.</string>
-    <string name="title_password_creation">Account Registration - Password Creation</string>
+    <string name="camera_photo_submitted">Photo successfully submitted</string>
     <string name="camera_place_face_within_frame">Place your face within the frame below</string>
     <string name="signin_header_text">Password Sign In</string>
     <string name="signin_label">Please sign in via your password.</string>
     <string name="signin_forgot_password">Forgot password?</string>
+    <string name="label_signin_failed_info">Please try again or reset your account.\nAn email will be sent to you if you choose to reset your account.</string>
+    <string name="button_reset_my_account">Reset My Account</string>
+    <string name="button_back_to_sign_in_page">BACK TO SIGN IN PAGE</string>
+    <string name="text_signin_failed">Sign In Failed</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_officer">Officer</string>
+    <string name="label_incident">Incident</string>
+    <string name="menu_task">Task</string>
+    <string name="menu_message">Message</string>
+    <string name="menu_logout">Logout</string>
+    <string name="officer_label_name">Name</string>
+    <string name="officer_label_filter_all_officer">Filter – All Officers</string>
+    <string name="officer_label_active_officers">Active Officers</string>
+    <string name="officer_label_attendence">Attendence</string>
+    <string name="officer_label_task_completed">Tasks Completed</string>
+    <string name="title_officer_monitoring">Officer Monitoring</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="officer_label_pb_count">117</string>
+    <string name="officer_label_pb_total">of 230</string>
+    <string name="officer_label_pending_acknowledgement">Pending Acknowledgement</string>
+    <string name="officer_label_task_header">Tasks</string>
+    <string name="officer_label_task_sub_header">In Progress</string>
+    <string name="dialog_filter_heading">Filter Options</string>
+    <string name="dialog_filter_apply">APPLY</string>
+    <string name="dialog_filter_cancel">CANCEL</string>
+    <string name="dialog_filter_header_status">STATUS</string>
+    <string name="dialog_filter_header_groups">GROUPS</string>
+    <string name="dialog_filter_item_select_all">Select All</string>
+    <string name="menu_cancel_task">CANCEL TASK</string>
 
 </resources>

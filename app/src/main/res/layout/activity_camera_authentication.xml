@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.onboarding.login.CameraAuthenticationActivity">
-
+    tools:context=".ui.onboarding.login.SigninCameraAuthActivity">
 
     <com.certis_base_app.ui.custom_views.AutoFitTextureView
         android:id="@+id/aftv_camera_view"
@@ -24,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/camera_place_face_within_frame"
-        android:textSize="@dimen/textSizeXXXLarge"
+        android:textSize="@dimen/textSizeXXXXLarge"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
