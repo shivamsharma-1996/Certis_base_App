@@ -10,6 +10,10 @@ public class Officer {
     public Officer() {
     }
 
+    public Officer(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

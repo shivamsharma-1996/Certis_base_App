@@ -7,16 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.certis_base_app.R;
+import com.certis_base_app.model.Officer;
 import com.certis_base_app.model.OfficerWrapper;
 import java.util.List;
 
-public class OfficerMonitoringAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class OfficerDashboardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context context;
-    private List<OfficerWrapper> officersList;
+    private List<Officer> officersList;
     private View.OnClickListener onClickListener;
 
-    public OfficerMonitoringAdapter(Context context, List<OfficerWrapper> officersList, View.OnClickListener onClickListener) {
+    public OfficerDashboardAdapter(Context context, List<Officer> officersList, View.OnClickListener onClickListener) {
         this.context = context;
         this.officersList = officersList;
         this.onClickListener = onClickListener;
@@ -38,7 +39,7 @@ public class OfficerMonitoringAdapter extends RecyclerView.Adapter<RecyclerView.
 
     @Override
     public int getItemCount() {
-        return 10;
+        return officersList.size();
     }
 
     public int getItemViewType(int i) {
@@ -46,10 +47,8 @@ public class OfficerMonitoringAdapter extends RecyclerView.Adapter<RecyclerView.
     }
 
     private class OfficerMonitoringViewHolder extends RecyclerView.ViewHolder {
-
         public OfficerMonitoringViewHolder(View itemView) {
             super(itemView);
-
         }
     }
 }

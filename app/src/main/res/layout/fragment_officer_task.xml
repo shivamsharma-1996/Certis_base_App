@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40" />
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/collapse_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:expandedTitleMarginEnd="64dp"
+                    app:expandedTitleMarginStart="48dp"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/dimens_40"
+                        android:paddingEnd="@dimen/dimens_16"
+                        android:paddingStart="@dimen/dimens_16"
+                        android:paddingTop="@dimen/dimens_40"
+                        app:layout_collapseMode="parallax">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/iv_officer_photo"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="@dimen/dimens_8"
+                            android:layout_marginTop="@dimen/dimens_24"
+                            android:src="@drawable/ic_register_flag_india"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_officer_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimens_12"
+                            android:ellipsize="end"
+                            android:lines="1"
+                            android:text="John Peterson"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/textSizeXLarge"
+                            app:layout_constraintBottom_toTopOf="@+id/tv_officer_id"
+                            app:layout_constraintStart_toEndOf="@+id/iv_officer_photo"
+                            app:layout_constraintTop_toTopOf="@+id/iv_officer_photo"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                        <TextView
+                            android:id="@+id/tv_officer_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimens_12"
+                            android:text="123456"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/textSizeMedium"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/view_seperator_bar1"
+                            app:layout_constraintStart_toEndOf="@+id/iv_officer_photo"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_officer_name" />
+
+                        <View
+                            android:id="@+id/view_seperator_bar1"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="@dimen/dimens_12"
+                            android:background="@android:color/white"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_officer_id"
+                            app:layout_constraintStart_toEndOf="@+id/tv_officer_id"
+                            app:layout_constraintTop_toTopOf="@+id/tv_officer_id" />
+
+                        <TextView
+                            android:id="@+id/tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="@dimen/dimens_12"
+                            android:text="ATSU/T1/A1"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/textSizeMedium"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_officer_id"
+                            app:layout_constraintEnd_toStartOf="@+id/view_seperator_bar2"
+                            app:layout_constraintStart_toEndOf="@+id/view_seperator_bar1"
+                            app:layout_constraintTop_toTopOf="@+id/tv_officer_id" />
+
+                        <View
+                            android:id="@+id/view_seperator_bar2"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="@dimen/dimens_12"
+                            android:background="@android:color/white"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_officer_id"
+                            app:layout_constraintStart_toEndOf="@+id/tv"
+                            app:layout_constraintTop_toTopOf="@+id/tv_officer_id" />
+
+                        <TextView
+                            android:id="@+id/tv_officer_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="10dp"
+                            android:text="+65 87654321"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/textSizeMedium"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_officer_id"
+                            app:layout_constraintStart_toEndOf="@+id/view_seperator_bar2"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_officer_name" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@color/colorPrimary"
+                        app:layout_collapseMode="pin"
+                        app:navigationIcon="@drawable/ic_arrow_back_white"
+                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+                </android.support.design.widget.CollapsingToolbarLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_officer_tasks"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dimens_16"
+                android:background="@color/white"
+                android:nestedScrollingEnabled="true"
+                android:paddingEnd="@dimen/dimens_16"
+                android:paddingStart="@dimen/dimens_16"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_officer_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimens_16"
+                android:src="@drawable/ic_message"
+                android:tint="@android:color/white"
+                app:backgroundTint="@color/blue"
+                app:fabSize="mini"
+                app:layout_anchor="@+id/appBar"
+                app:layout_anchorGravity="bottom|right|end" />
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_map"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!--<android.support.design.widget.NavigationView
+        android:layout_gravity="end"
+        android:id="@+id/nv_officer_tasks_panel"
+        android:fitsSystemWindows="true"
+        android:layout_width="@dimen/width_panel_task_detail"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/fl_officer_tasks_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </android.support.design.widget.NavigationView>-->
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view_side_panel_right"
+        android:layout_width="@dimen/nav_view_side_panel_right"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:fitsSystemWindows="true">
+
+        <FrameLayout
+            android:id="@+id/frame_side_panel_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!--<FrameLayout
+            android:id="@+id/frame_side_panel_message_officer"
+            android:layout_width="@dimen/nav_view_side_panel_message_officer"
+            android:layout_height="match_parent" />-->
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

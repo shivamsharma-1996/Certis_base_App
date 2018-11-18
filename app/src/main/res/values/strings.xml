@@ -99,5 +99,17 @@
     <string name="dialog_filter_header_groups">GROUPS</string>
     <string name="dialog_filter_item_select_all">Select All</string>
     <string name="menu_cancel_task">CANCEL TASK</string>
+    <string name="task_detail_label_catagory">Category</string>
+    <string name="task_detail_label_subcatagory">Subcatagory</string>
+    <string name="task_detail_label_incident_description">Incident Description</string>
+    <string name="task_detail_label_incident_location">Incident Location</string>
+    <string name="task_detail_label_incident_photo">Incident Photo/s</string>
+    <string name="task_detail_label_subtasks">Subtasks</string>
+    <string name="dialog_cancel_task_label">Are you sure you want to cancel this task?\n\nThe assigned officer will no longer be assigned and the details tied to the task will be deleted.\n\nThis action is permanent.</string>
+    <string name="dialog_cancel_task_button1">Keep task</string>
+    <string name="dialog_cancel_task_button2">Cancel Task</string>
+    <string name="hint_message_to_officer">Message to Officer</string>
+    <string name="title_message_officer">Message Officer</string>
+    <string name="message_label_acknowledged">Acknowledged</string>
 
 </resources>

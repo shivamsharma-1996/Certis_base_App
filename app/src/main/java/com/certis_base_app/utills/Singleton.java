@@ -70,5 +70,7 @@ public class Singleton {
             }
         }).setActionTextColor(ContextCompat.getColor(context, actionColor)).show();
     }
+
+
 }
 

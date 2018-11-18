@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.menuTaskManagement.TaskManagementActivity">
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/fragment_sidebar"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:name="com.certis_base_app.ui.router.SidebarMenuFragment"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="task"/>
-</android.support.constraint.ConstraintLayout>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/fragment_sidebar"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_percent="0.75"
+            android:orientation="vertical" />
+
+        <fragment
+            android:id="@+id/fragment_all_tasks"
+            android:name="com.certis_base_app.ui.menuTaskManagement.AllTasksFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toEndOf="@+id/fragment_sidebar"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+        <fragment
+            android:id="@+id/fragment_latest_task_updates"
+            android:name="com.certis_base_app.ui.menuTaskManagement.LatestTaskUpdatesFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view_task_detail"
+        android:layout_width="@dimen/nav_view_side_panel_right"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:fitsSystemWindows="true">
+        <fragment
+            android:id="@+id/frag_task_detail"
+            android:name="com.certis_base_app.ui.menuOfficerDashboard.OfficerTaskDetailFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

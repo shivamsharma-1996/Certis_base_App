@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/ic_close_white"
+        app:title="@string/title_message_officer"
+        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_message"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingEnd="@dimen/dimens_14"
+        android:paddingStart="@dimen/dimens_14"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/iv_send"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="@id/et_message"
+        app:layout_constraintEnd_toEndOf="@id/iv_send"
+        app:layout_constraintTop_toTopOf="@id/et_message"
+        app:layout_constraintBottom_toBottomOf="@id/et_message"/>
+
+    <EditText
+        android:id="@+id/et_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_message_to_officer"
+        android:background="@null"
+        android:fontFamily="sans-serif-medium"
+        android:textColorHint="@color/greyDark"
+        android:padding="@dimen/dimens_28"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_send"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_send"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:padding="@dimen/dimens_12"
+        android:src="@drawable/ic_fab_messaging_inactive"
+        app:layout_constraintStart_toEndOf="@+id/et_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_message"
+        app:layout_constraintBottom_toBottomOf="@+id/et_message" />
+
+</android.support.constraint.ConstraintLayout>

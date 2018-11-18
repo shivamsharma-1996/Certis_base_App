@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".ui.menuOfficerDashboard.OfficerMonitoringFragment">
+    android:id="@+id/cl_officer_dashboard"
+    tools:context=".ui.menuOfficerDashboard.OfficerDashboardFragment">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.45"
+        android:orientation="vertical"/>
 
     <ImageView
         android:id="@+id/iv_sort_up"
@@ -33,13 +42,11 @@
         android:id="@+id/view_seperator"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        app:layout_constraintHorizontal_weight="4"
         android:background="@color/greyDark"
         android:layout_marginTop="@dimen/dimens_8"
         app:layout_constraintTop_toBottomOf="@+id/tv_sort_by_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/frame_map" />
-
+        app:layout_constraintEnd_toEndOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_officer_dashboard"
@@ -54,13 +61,13 @@
         android:id="@+id/frame_map"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintHorizontal_weight="5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/view_seperator"
+        app:layout_constraintStart_toStartOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <android.support.v7.widget.CardView
+        android:id="@+id/cv_officer_monitoring_filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/white"
@@ -291,7 +298,6 @@
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
-
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_fullscreen"

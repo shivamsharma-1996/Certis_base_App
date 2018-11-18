@@ -36,11 +36,7 @@
             android:name=".ui.onboarding.login.LandingActivity_"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.onboarding.registration.RegisterStep4Activity_"
@@ -56,21 +52,26 @@
         <activity android:name=".ui.onboarding.login.SigninFailedActivity" />
         <activity
             android:name=".ui.menuOfficerDashboard.OfficerMonitoringActivity_"
-            android:label="@string/label_incident"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ui.menuMessaging.MessagingActivity"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.menuIncidentManagement.IncidentManagementActivity"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".ui.menuTaskManagement.TaskManagementActivity"
-            android:launchMode="singleTop" />
+            android:name=".ui.menuTaskManagement.TaskManagementActivity_"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

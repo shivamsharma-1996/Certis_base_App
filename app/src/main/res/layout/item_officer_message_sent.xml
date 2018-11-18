@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dimens_12">
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimens_12"
+        android:layout_marginTop="@dimen/dimens_8"
+        android:textColor="@color/textSecondary"
+        android:textStyle="bold"
+        android:text="Today"
+        android:visibility="gone"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_message_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_message_sent"
+        android:layout_marginTop="@dimen/dimens_12"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="@dimen/dimens_16"
+        android:padding="@dimen/dimens_16"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tv_date">
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium2"
+        android:layout_marginStart="@dimen/dimens_16"
+        android:layout_marginEnd="@dimen/dimens_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_sent_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_16"
+        android:text="10:05 AM"
+        android:textColor="@color/textSecondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_message"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_acknowledged"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_4"
+        android:drawablePadding="@dimen/dimens_8"
+        android:drawableStart="@drawable/ic_check_green"
+        android:text="@string/message_label_acknowledged"
+        android:textColor="@color/greenMixedSuccess"
+        android:layout_alignEnd="@+id/cl_message_box"
+        android:layout_below="@id/cl_message_box"/>
+</RelativeLayout>

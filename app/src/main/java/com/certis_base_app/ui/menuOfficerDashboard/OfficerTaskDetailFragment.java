@@ -8,10 +8,13 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.certis_base_app.R;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
@@ -19,8 +22,15 @@ import org.androidannotations.annotations.ViewById;
 @EFragment(R.layout.fragment_task_detail)
 public class OfficerTaskDetailFragment extends Fragment {
 
-    @ViewById(R.id.toolbar)
-    Toolbar toolbar;
+    private InteractionListener mListener;
+    public interface InteractionListener{
+        void oncloseClick();
+        void onCancelTaskClick();
+    }
+
+    public void setInteractionListener(InteractionListener mListener) {
+        this.mListener = mListener;
+    }
 
     public OfficerTaskDetailFragment() {
         // Required empty public constructor
@@ -28,25 +38,24 @@ public class OfficerTaskDetailFragment extends Fragment {
 
     @AfterViews
     public void populateViews() {
-        OfficerTaskDetailFragment.this.setUpToolbar();
+
     }
 
-    private void setUpToolbar() {
-        toolbar.inflateMenu(R.menu.menu_offficer_task_detail);
+    @Click(R.id.iv_close)
+    public void onCloseClick(){
+        mListener.oncloseClick();
+    }
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                OfficerTaskDetailFragment.this.getActivity().onBackPressed();
-            }
-        });
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.menu_cancel_task:
-                        return true;
-                }
-                return true;
-            }
-        });
+    @Click(R.id.tv_cancel_task)
+    public void onCancelTask(){
+        mListener.onCancelTaskClick();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(mListener!=null){
+            mListener = null;
+        }
     }
 }

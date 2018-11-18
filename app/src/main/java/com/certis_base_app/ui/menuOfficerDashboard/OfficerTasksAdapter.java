@@ -52,7 +52,6 @@ public class OfficerTasksAdapter extends Adapter<ViewHolder> {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         OfficerTaskViewHolder taskViewHolder;
         String taskStatus;
@@ -73,27 +72,37 @@ public class OfficerTasksAdapter extends Adapter<ViewHolder> {
                 taskViewHolder.taskProgressBar.setProgress(taskList.get(position).getProgress());
 
                 taskStatus = taskList.get(position).getStatus();
-                switch (taskStatus) {
-                    case "Completed":
-                        taskViewHolder.taskProgressBar.setProgressTintList(ColorStateList.valueOf(ContextCompat.getColor(context,R.color.taskCompleted)));
-                        taskViewHolder.taskStatus.setTextColor(ContextCompat.getColor(context,R.color.taskCompleted));
-                        break;
-                    case "1 Incomplete Subtask":
-                        taskViewHolder.taskProgressBar.setProgressTintList(ColorStateList.valueOf(ContextCompat.getColor(context,R.color.taskInCompleted)));
-                        taskViewHolder.taskStatus.setTextColor(ContextCompat.getColor(context,R.color.taskInCompleted));
-                        break;
-                    case "3/5 Completed":
-                        taskViewHolder.taskProgressBar.setVisibility(View.GONE);
-                        break;
+                try {
+                    switch (taskStatus) {
+                        case "Completed":
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                taskViewHolder.taskProgressBar.setProgressTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.taskCompleted)));
+                            }
+                            taskViewHolder.taskStatus.setTextColor(ContextCompat.getColor(context, R.color.taskCompleted));
+                            break;
+                        case "1 Incomplete Subtask":
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                taskViewHolder.taskProgressBar.setProgressTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.taskInCompleted)));
+                            }
+                            taskViewHolder.taskStatus.setTextColor(ContextCompat.getColor(context, R.color.taskInCompleted));
+                            break;
+                        case "3/5 Completed":
+                            taskViewHolder.taskProgressBar.setVisibility(View.GONE);
+                            break;
 
-                    case "0":
-                    default:
-                        taskViewHolder.taskStatus.setVisibility(View.GONE);
-                        taskViewHolder.taskPendingAcknowldgement.setVisibility(View.VISIBLE);
-                        taskViewHolder.taskProgressBar.setVisibility(View.GONE);
-                        taskViewHolder.itemOfficerTask.setBackground(ContextCompat.getDrawable(context, R.drawable.bg_item_officer_task_red));
-                        break;
+                        case "0":
+                        default:
+                            taskViewHolder.taskStatus.setVisibility(View.GONE);
+                            taskViewHolder.taskPendingAcknowldgement.setVisibility(View.VISIBLE);
+                            taskViewHolder.taskProgressBar.setVisibility(View.GONE);
+                            taskViewHolder.itemOfficerTask.setBackground(ContextCompat.getDrawable(context, R.drawable.bg_item_officer_task_red));
+                            break;
+                    }
+                }catch (Exception e){
+                    throw e;
                 }
+
+
 
             default:
                 return;

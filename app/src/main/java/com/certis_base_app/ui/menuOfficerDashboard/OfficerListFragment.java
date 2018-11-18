@@ -1,15 +1,12 @@
 package com.certis_base_app.ui.menuOfficerDashboard;
 
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.certis_base_app.R;
+import com.certis_base_app.model.Officer;
 import com.certis_base_app.model.OfficerWrapper;
 import com.certis_base_app.ui.BaseFragment;
 
@@ -25,16 +22,14 @@ public class OfficerListFragment extends BaseFragment implements View.OnClickLis
 
     @ViewById(R.id.rv_officer_dashboard)
     RecyclerView rvOfficerDasboard;
-
-    private OfficerMonitoringAdapter mOfficerMonitoringAdapter;
-    private List<OfficerWrapper> officerList;
+    private OfficerDashboardAdapter mOfficerDashboardAdapter;
 
     private OfficerItemClickListener mOfficerItemClickListener;
+    private List<Officer> officerList;
 
     public interface OfficerItemClickListener{
         void onOfficerItemClick();
     }
-
 
     public void setOfficerItemClickListener(OfficerItemClickListener mOfficerItemClickListener) {
         this.mOfficerItemClickListener = mOfficerItemClickListener;
@@ -46,9 +41,9 @@ public class OfficerListFragment extends BaseFragment implements View.OnClickLis
 
     @AfterViews
     public void populateViews(){
-            mOfficerMonitoringAdapter = new OfficerMonitoringAdapter(getActivity(), officerList, this);
+            mOfficerDashboardAdapter = new OfficerDashboardAdapter(getActivity(), officerList, this);
             rvOfficerDasboard.setLayoutManager(new LinearLayoutManager(getContext()));
-            rvOfficerDasboard.setAdapter(this.mOfficerMonitoringAdapter);
+            rvOfficerDasboard.setAdapter(this.mOfficerDashboardAdapter);
     }
 
     @Override
