@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/dimens_28"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/iv_task_subtasks"
+        android:layout_width="@dimen/dimens_24"
+        android:layout_height="@dimen/dimens_24"
+        android:src="@drawable/ic_subtasks_default"
+        android:padding="3dp"
+        android:layout_marginStart="@dimen/dimens_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_create_task_subtasks"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_create_task_subtasks" />
+
+    <TextView
+        android:id="@+id/tv_create_task_subtasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_create_task_subtasks"
+        android:textColor="@color/textPrimary"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/iv_task_subtasks"
+        android:layout_marginStart="@dimen/dimens_32"
+        android:layout_marginEnd="@dimen/dimens_8"
+        android:layout_marginTop="@dimen/dimens_28"
+        app:layout_constraintTop_toBottomOf="@+id/view_seperator_assignee"
+        app:layout_constraintStart_toEndOf="@id/iv_task_subtasks"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_subtask_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_create_task_subtasks" />
+
+    <TextView
+        android:id="@+id/tv_create_task_add_subtasks_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_create_task_add_subtasks"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium2"
+        android:textAllCaps="true"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="@dimen/dimens_28"
+        app:layout_constraintTop_toBottomOf="@+id/rv_subtask_list"
+        app:layout_constraintStart_toStartOf="@id/tv_create_task_subtasks"
+        app:layout_constraintEnd_toStartOf="@id/iv_add_subtask_chevron"/>
+
+    <ImageView
+        android:id="@+id/iv_add_subtask_chevron"
+        android:layout_width="@dimen/dimens_24"
+        android:layout_height="@dimen/dimens_24"
+        android:src="@drawable/ic_chevron_right"
+        android:layout_marginEnd="@dimen/dimens_24"
+        android:padding="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_create_task_add_subtasks_label"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_create_task_add_subtasks_label"/>
+</android.support.constraint.ConstraintLayout>

@@ -24,6 +24,8 @@ public class OfficerMonitoringActivity extends BaseActivity implements Interacti
     @ViewById(R.id.cl_officer_monitoring)
     ConstraintLayout mOfficerMonitoring;
 
+    private OfficerTaskFragment_ officerTaskFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +44,6 @@ public class OfficerMonitoringActivity extends BaseActivity implements Interacti
         this.getSupportFragmentManager().
                 beginTransaction().
                 replace(R.id.frame_container, officerDashboardFragment, officerDashboardFragment.getClass().getSimpleName()).
-                addToBackStack(officerDashboardFragment.getClass().getSimpleName()).
                 commit();
 
         /*officerMapFragment = new OfficerMapFragment_();
@@ -53,28 +54,32 @@ public class OfficerMonitoringActivity extends BaseActivity implements Interacti
                 commit();*/
     }
 
-    public void onOfficerItemClick() {
-       /*OfficerProfileFragment_ officerProfileFragment = new OfficerProfileFragment_();
-        officerProfileFragment.setmListener(this);
-        FragmentTransaction ft = this.getSupportFragmentManager().beginTransaction();
-        ft.setCustomAnimations(R.anim.slide_out_right, R.anim.slide_in_right, R.anim.slide_in_left, R.anim.slide_out_left);
-        ft.replace(R.id.frame_officer_list, officerProfileFragment, officerProfileFragment.getClass().getSimpleName()).
-                addToBackStack(officerProfileFragment.getClass().getSimpleName()).
-                commit();
-        mGuidelineDivider.setGuidelinePercent(0.40f);*/
+    public void onFilterClick() {
+        FilterDialog filterDialog = new FilterDialog();
+        filterDialog.show(this.getSupportFragmentManager(), filterDialog.getClass().getSimpleName());
     }
-
-
 
 
     /*@Override
     public void onBackPressed() {
         super.onBackPressed();
-        if(this.getSupportFragmentManager().findFragmentByTag()
-*//*        if(this.getSupportFragmentManager().findFragmentByTag(officerListFragment.getClass().getSimpleName())!=null)
+        FragmentTransaction ft = this.getSupportFragmentManager().beginTransaction();
+        if(this.getSupportFragmentManager().findFragmentByTag(officerTaskFragment.getClass().getSimpleName())!=null)
+            ft.remove(officerTaskFragment).commit();
+      *//*  if(this.getSupportFragmentManager().findFragmentByTag(officerListFragment.getClass().getSimpleName())!=null)
             mGuidelineDivider.setGuidelinePercent(0.45f);*//*
     }*/
 
+    @Override
+    public void onItemClick(String officerId) {
+        officerTaskFragment =  OfficerTaskFragment_.newInstance(officerId);
+        officerTaskFragment.setInteractionListener(this);
+        FragmentTransaction ft = this.getSupportFragmentManager().beginTransaction();
+        //ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left, R.anim.slide_in_right, R.anim.slide_out_right);
+        ft.replace(R.id.frame_container, officerTaskFragment, officerTaskFragment.getClass().getSimpleName()).
+                addToBackStack(officerTaskFragment.getClass().getSimpleName()).
+                commit();
+    }
 
 
     public void onFullScreenClick() {
@@ -96,10 +101,7 @@ public class OfficerMonitoringActivity extends BaseActivity implements Interacti
         }*/
     }
 
-    public void onFilterClick() {
-        FilterDialog filterDialog = new FilterDialog();
-        filterDialog.show(this.getSupportFragmentManager(), filterDialog.getClass().getSimpleName());
-    }
+
 
     public void onTaskItemClick() {
        /* OfficerTaskDetailFragment_ officerTaskDetailFragment = new OfficerTaskDetailFragment_();
@@ -110,14 +112,16 @@ public class OfficerMonitoringActivity extends BaseActivity implements Interacti
                 commit();*/
     }
 
-    @Override
-    public void onItemClick(String officerId) {
-        OfficerTaskFragment_ officerTaskFragment =  OfficerTaskFragment_.newInstance(officerId);
-        officerTaskFragment.setInteractionListener(this);
+    public void onOfficerItemClick() {
+       /*OfficerProfileFragment_ officerProfileFragment = new OfficerProfileFragment_();
+        officerProfileFragment.setmListener(this);
         FragmentTransaction ft = this.getSupportFragmentManager().beginTransaction();
-        //ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left, R.anim.slide_in_right, R.anim.slide_out_right);
-        ft.replace(R.id.frame_container, officerTaskFragment, officerTaskFragment.getClass().getSimpleName()).
-                addToBackStack(officerTaskFragment.getClass().getSimpleName()).
+        ft.setCustomAnimations(R.anim.slide_out_right, R.anim.slide_in_right, R.anim.slide_in_left, R.anim.slide_out_left);
+        ft.replace(R.id.frame_officer_list, officerProfileFragment, officerProfileFragment.getClass().getSimpleName()).
+                addToBackStack(officerProfileFragment.getClass().getSimpleName()).
                 commit();
+        mGuidelineDivider.setGuidelinePercent(0.40f);*/
     }
+
+
 }

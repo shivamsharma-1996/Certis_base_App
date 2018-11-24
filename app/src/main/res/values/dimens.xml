@@ -17,7 +17,6 @@
     <dimen name="dimens_40">40dp</dimen>
     <dimen name="dimens_72">72dp</dimen>
 
-
     <dimen name="textSizeNormal">14sp</dimen>
     <dimen name="textSizeMedium">16sp</dimen>
     <dimen name="textSizeMedium2">18sp</dimen>
@@ -42,6 +41,8 @@
     <dimen name="dimens_32">32dp</dimen>
     <dimen name="dimens_28">28dp</dimen>
     <dimen name="dimens_14">14dp</dimen>
+    <dimen name="dimens_2">2dp</dimen>
+    <dimen name="dimens_18">18dp</dimen>
 
 
 </resources>

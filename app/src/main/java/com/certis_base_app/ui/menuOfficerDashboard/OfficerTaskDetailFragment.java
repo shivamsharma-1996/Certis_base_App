@@ -38,7 +38,6 @@ public class OfficerTaskDetailFragment extends Fragment {
 
     @AfterViews
     public void populateViews() {
-
     }
 
     @Click(R.id.iv_close)

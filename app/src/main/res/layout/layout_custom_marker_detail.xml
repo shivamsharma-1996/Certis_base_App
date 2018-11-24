@@ -21,7 +21,7 @@
                 android:id="@+id/civ_user"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_launcher_round" />
 
             <TextView
                 android:id="@+id/tv_user_name"
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_user_name"
-                android:layout_toRightOf="@+id/civ_user"
+                android:layout_alignStart="@+id/tv_user_name"
                 android:gravity="center"
                 android:lineSpacingMultiplier="1.5"
                 android:paddingEnd="20dp"
@@ -63,9 +63,9 @@
         android:scaleType="fitXY"
         android:src="@drawable/shape_arrow_white"
         android:outlineProvider="bounds"
-        android:layout_marginStart="@dimen/dimens_40"
         android:rotation="180"
         app:layout_constraintTop_toBottomOf="@+id/cv_officer_detail_card"
-        app:layout_constraintStart_toStartOf="@id/cv_officer_detail_card"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

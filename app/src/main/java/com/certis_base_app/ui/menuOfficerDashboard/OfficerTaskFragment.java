@@ -1,6 +1,7 @@
 package com.certis_base_app.ui.menuOfficerDashboard;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.constraint.Guideline;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -98,7 +99,7 @@ public class OfficerTaskFragment extends BaseFragment implements View.OnClickLis
 
                     final LatLng customMarkerLocationOne = new LatLng(28.5429519, 77.2374969);
                     mMap.addMarker(new MarkerOptions().position(customMarkerLocationOne).icon(BitmapDescriptorFactory.fromBitmap(
-                            createCustomMarker(getActivity(),R.mipmap.ic_launcher, R.layout.layout_custom_marker_detail, officerId))));
+                            createCustomMarker(getActivity(),R.mipmap.ic_launcher_round, R.layout.layout_custom_marker_detail, officerId))));
 
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(customMarkerLocationOne));
 
@@ -168,15 +169,22 @@ public class OfficerTaskFragment extends BaseFragment implements View.OnClickLis
 
     @Click(R.id.fab_officer_message)
     public void onFabMessageClick(){
-       /* DisplayMetrics metrics = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);*/
-        DrawerLayout.LayoutParams params = (DrawerLayout.LayoutParams) mSidePanelView.getLayoutParams();
+        /*  DrawerLayout.LayoutParams params = (DrawerLayout.LayoutParams) mSidePanelView.getLayoutParams();
         params.width = 1000;
         mSidePanelView.setLayoutParams(params);
-
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                OfficerMessageFragment_ officerChatFragment = new OfficerMessageFragment_();
+                getChildFragmentManager().beginTransaction().
+                        replace(R.id.frame_side_panel_right, officerChatFragment, officerChatFragment.getClass().getSimpleName()).
+                        commit();
+                mDrawerLayout.openDrawer(mSidePanelView);
+            }
+        }, 2000);*/
 
         OfficerMessageFragment_ officerChatFragment = new OfficerMessageFragment_();
-        this.getChildFragmentManager().beginTransaction().
+        getChildFragmentManager().beginTransaction().
                 replace(R.id.frame_side_panel_right, officerChatFragment, officerChatFragment.getClass().getSimpleName()).
                 commit();
         mDrawerLayout.openDrawer(mSidePanelView);

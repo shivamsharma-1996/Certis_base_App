@@ -40,5 +40,7 @@
     <color name="subTaskCompleted">#FFF9C633</color>
     <color name="headingGrayTranslucent">#FFB0B0B0</color>
     <color name="officerTaskDetailBgColor">#FFF0F0F0</color>
+    <color name="redLight">#29D77080</color>
+    <color name="colorCreateTask">#58ffffff</color>
 </resources>
 

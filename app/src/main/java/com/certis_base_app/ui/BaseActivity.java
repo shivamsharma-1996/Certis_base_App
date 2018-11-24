@@ -38,7 +38,8 @@ public class BaseActivity extends AppCompatActivity {
         super.onStart();
     }
 
-    public void showLoading() {
+    public void
+    showLoading() {
         if (loadingLayout == null) {
             loadingLayout = new Dialog(this);
             loadingLayout.setContentView(R.layout.dialog_loading_layout);

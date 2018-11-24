@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dimens_24"
+    android:background="@drawable/bg_card_solid_white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/view_bg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_semi_round_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dialog_heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_dialog_heading"/>
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="@dimen/dimens_24"
+        android:layout_height="@dimen/dimens_24"
+        android:layout_marginStart="@dimen/dimens_16"
+        android:padding="3dp"
+        android:src="@drawable/ic_close_black"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dialog_heading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_dialog_heading"/>
+
+    <TextView
+        android:id="@+id/tv_dialog_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_32"
+        android:paddingBottom="@dimen/dimens_16"
+        android:paddingTop="@dimen/dimens_16"
+        android:gravity="center_vertical"
+        android:text="@string/dialog_edit_subtask_heading"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeLarge"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintStart_toEndOf="@+id/iv_close"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_subtask_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_edit_subtask_button_save"
+        android:textAllCaps="true"
+        android:textColor="@color/textPrimary"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginEnd="@dimen/dimens_24"
+        app:layout_constraintTop_toTopOf="@+id/view_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/view_bg"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_subtask_label_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/greyDark"
+        android:textStyle="bold"
+        android:text="@string/dialog_edit_subtask_label_title"
+        android:layout_marginStart="@dimen/dimens_24"
+        android:layout_marginTop="@dimen/dimens_16"
+        app:layout_constraintTop_toBottomOf="@+id/view_bg"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_subtask_title_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_edit_subtask_hint_title"
+        android:background="@null"
+        android:textCursorDrawable="@null"
+        android:layout_marginTop="@dimen/dimens_18"
+        android:textSize="@dimen/textSizeMedium2"
+        android:textColor="@color/textPrimary"
+        android:textColorHint="@color/textPrimary"
+        android:layout_marginEnd="@dimen/dimens_8"
+        app:layout_constraintEnd_toStartOf="@id/iv_subtask_type_chevron"
+        app:layout_constraintStart_toStartOf="@id/tv_subtask_label_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtask_label_title"/>
+
+    <View
+        android:id="@+id/view_subtask_title"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/greyDark"
+        android:layout_marginTop="@dimen/dimens_18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_subtask_title_value"/>
+
+
+    <TextView
+        android:id="@+id/tv_subtask_label_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/greyDark"
+        android:textStyle="bold"
+        android:text="@string/dialog_edit_subtask_label_location"
+        android:layout_marginStart="@dimen/dimens_24"
+        android:layout_marginTop="@dimen/dimens_16"
+        app:layout_constraintTop_toBottomOf="@+id/view_subtask_title"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_subtask_location_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium2"
+        android:text="@string/dialog_edit_subtask_add_location"
+        android:layout_marginTop="@dimen/dimens_16"
+        android:layout_marginEnd="@dimen/dimens_8"
+        app:layout_constraintEnd_toStartOf="@id/iv_subtask_type_chevron"
+        app:layout_constraintStart_toStartOf="@id/tv_subtask_label_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtask_label_location"/>
+
+    <View
+        android:id="@+id/view_subtask_location"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/greyDark"
+        android:layout_marginTop="@dimen/dimens_18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtask_location_value" />
+
+    <TextView
+        android:id="@+id/tv_subtask_label_subtask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/greyDark"
+        android:textStyle="bold"
+        android:text="@string/dialog_edit_subtask_label_type"
+        android:textAllCaps="true"
+        android:layout_marginStart="@dimen/dimens_24"
+        android:layout_marginTop="@dimen/dimens_16"
+        app:layout_constraintTop_toBottomOf="@+id/view_subtask_location"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_subtask_type_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium2"
+        android:ellipsize="end"
+        android:text="@string/dialog_edit_subtask_add_type"
+        android:layout_marginTop="@dimen/dimens_16"
+        android:layout_marginEnd="@dimen/dimens_8"
+        app:layout_constraintEnd_toStartOf="@id/iv_subtask_type_chevron"
+        app:layout_constraintStart_toStartOf="@id/tv_subtask_label_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtask_label_subtask"/>
+
+
+    <ImageView
+        android:id="@+id/iv_subtask_type_chevron"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chevron_right"
+        android:layout_marginEnd="@dimen/dimens_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_subtask_type_value"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_subtask_type_value"/>
+
+    <View
+        android:id="@+id/view_subtask_type"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/greyDark"
+        android:layout_marginTop="@dimen/dimens_18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtask_type_value"/>
+
+    <TextView
+        android:id="@+id/tv_subtask__label_end_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/greyDark"
+        android:textStyle="bold"
+        android:text="@string/dialog_edit_subtask_label_end_time"
+        android:textAllCaps="true"
+        android:layout_marginTop="@dimen/dimens_16"
+        android:layout_marginEnd="@dimen/dimens_8"
+        app:layout_constraintTop_toBottomOf="@+id/view_subtask_type"
+        app:layout_constraintStart_toStartOf="@id/tv_subtask_label_title"
+        app:layout_constraintEnd_toStartOf="@id/switch_subtask_end_time"/>
+
+    <Switch
+        android:id="@+id/switch_subtask_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/dimens_24"
+        android:padding="2dp"
+        app:layout_constraintTop_toTopOf="@+id/tv_subtask__label_end_time"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_subtask__label_end_time"/>
+
+    <TextView
+        android:id="@+id/tv_subtask_end_time_value"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="05:30 AM"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium2"
+        android:gravity="center_vertical"
+        android:layout_marginEnd="@dimen/dimens_8"
+        app:layout_constraintTop_toTopOf="@+id/btn_minus"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_minus"
+        app:layout_constraintStart_toStartOf="@id/tv_subtask__label_end_time"
+        app:layout_constraintEnd_toStartOf="@id/btn_minus" />
+
+    <Button
+        android:id="@+id/btn_minus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_subtask_end_time_minus"
+        android:layout_marginTop="@dimen/dimens_24"
+        android:layout_marginEnd="@dimen/dimens_8"
+        android:enabled="false"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtask__label_end_time"
+        app:layout_constraintEnd_toStartOf="@id/btn_plus" />
+
+    <Button
+        android:id="@+id/btn_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_subtask_end_time_plus"
+        android:layout_marginTop="@dimen/dimens_24"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtask__label_end_time"
+        app:layout_constraintEnd_toEndOf="@id/switch_subtask_end_time" />
+
+    <android.support.constraint.Group
+        android:id="@+id/group_subtask_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tv_subtask_end_time_value,btn_minus,btn_plus  " />
+</android.support.constraint.ConstraintLayout>

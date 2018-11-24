@@ -41,7 +41,7 @@ public class OfficerTasksAdapter extends Adapter<ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
 
-        if (i == HEADING_TASKS)
+        if(i == HEADING_TASKS)
             return new HeadingViewHolder(inflater.inflate(R.layout.heading_officer_profile_task_list, viewGroup, false));
         else if (i == SUB_HEADING_IN_PROGRESS)
             return new SubHeadingViewHolder(inflater.inflate(R.layout.heading_officer_profile_task_list2, viewGroup, false));

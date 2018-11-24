@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card_solid_white">
+
+    <View
+        android:id="@+id/view_bg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_semi_round_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dialog_heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_dialog_heading" />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="@dimen/dimens_24"
+        android:layout_height="@dimen/dimens_24"
+        android:layout_marginStart="@dimen/dimens_16"
+        android:src="@drawable/ic_close_black"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dialog_heading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_dialog_heading" />
+
+    <TextView
+        android:id="@+id/tv_dialog_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_32"
+        android:fontFamily="sans-serif-medium"
+        android:paddingBottom="@dimen/dimens_16"
+        android:paddingTop="@dimen/dimens_16"
+        android:text="@string/dialog_task_creation_heading"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeLarge"
+        app:layout_constraintStart_toEndOf="@+id/iv_close"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_dialog_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_24"
+        android:fontFamily="sans-serif-medium"
+        android:paddingBottom="@dimen/dimens_16"
+        android:paddingTop="@dimen/dimens_16"
+        android:text="@string/label_choose_item"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dialog_heading"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_task_template"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_24"
+        android:layout_marginBottom="@dimen/dimens_24"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dialog_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</android.support.constraint.ConstraintLayout>

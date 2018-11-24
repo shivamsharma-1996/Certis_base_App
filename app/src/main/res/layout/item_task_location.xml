@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_item_task_location_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/dimens_24"
+    android:paddingEnd="@dimen/dimens_24"
+    android:paddingTop="@dimen/dimens_12">
+
+    <ImageView
+        android:id="@+id/iv_location"
+        android:layout_width="@dimen/dimens_24"
+        android:layout_height="@dimen/dimens_24"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_location_default"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_location_name"
+        app:layout_constraintTop_toTopOf="@id/tv_location_name"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_country_label" />
+
+    <TextView
+        android:id="@+id/tv_location_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Geylang"
+        android:layout_marginStart="@dimen/dimens_32"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium2"
+        app:layout_constraintStart_toEndOf="@+id/iv_location"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_country_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Singapore"
+        android:layout_marginStart="@dimen/dimens_32"
+        android:textColor="@color/greyDark"
+        android:textSize="@dimen/textSizeMedium2"
+        app:layout_constraintStart_toEndOf="@+id/iv_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_location_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

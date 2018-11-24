@@ -14,6 +14,7 @@ import com.certis_base_app.ui.menuMessaging.MessagingActivity;
 import com.certis_base_app.ui.menuOfficerDashboard.OfficerMonitoringActivity;
 import com.certis_base_app.ui.menuOfficerDashboard.OfficerMonitoringActivity_;
 import com.certis_base_app.ui.menuTaskManagement.TaskManagementActivity;
+import com.certis_base_app.ui.menuTaskManagement.TaskManagementActivity_;
 import com.certis_base_app.ui.onboarding.login.LandingActivity_;
 
 import org.androidannotations.annotations.AfterViews;
@@ -102,7 +103,7 @@ public class SidebarMenuFragment extends Fragment implements View.OnClickListene
             case R.id.iv_task:
             case R.id.tv_task:
                 //do
-                startActivity(new Intent(getActivity(), TaskManagementActivity.class));
+                startActivity(new Intent(getActivity(), TaskManagementActivity_.class));
                 getActivity().overridePendingTransition(0, 0);
                 break;
             case R.id.iv_message:

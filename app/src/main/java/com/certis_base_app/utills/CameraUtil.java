@@ -60,9 +60,6 @@ import static android.content.ContentValues.TAG;
 
 public class CameraUtil implements ActivityCompat.OnRequestPermissionsResultCallback {
 
-
-
-
     public interface CaptureClickListener {
         void onCaptureClick(File imageFilePath);
     }
@@ -80,8 +77,6 @@ public class CameraUtil implements ActivityCompat.OnRequestPermissionsResultCall
 
 
     public static final SparseIntArray ORIENTATIONS = new SparseIntArray(); //Conversion from screen rotation to JPEG orientation.
-
-
 
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);

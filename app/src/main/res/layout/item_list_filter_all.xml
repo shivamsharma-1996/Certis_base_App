@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="horizontal"
     android:paddingBottom="10dp"
     android:paddingTop="10dp">
 
+   <!-- <com.certis_base_app.ui.custom_views.TriStateCheckBox
+        android:id="@+id/tsc_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/selector_dialog_filter_checkbox"/>-->
+
+    <com.certis_base_app.ui.custom_views.TriStateCheckBox
+        android:id="@+id/tsc_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/tv_item_filter_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="shivam"
+        android:layout_marginStart="@dimen/dimens_20"
         android:textSize="@dimen/textSizeMedium"
-        android:textColor="@color/black"
-        android:button="@drawable/selector_dialog_filter_checkbox"
-        android:drawablePadding="@dimen/dimens_30"
-        android:drawableStart="@drawable/ic_checkbox_not_all"/>
+        android:textColor="@color/black"/>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

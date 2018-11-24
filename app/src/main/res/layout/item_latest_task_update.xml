@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/dimens_12"
+    android:paddingStart="@dimen/dimens_24">
+
+    <TextView
+        android:id="@+id/tv_task_update_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="04:52 AM"
+        android:textColor="@color/textSecondary"
+        android:textAllCaps="true"
+        android:textSize="@dimen/textSizeMedium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <TextView
+        android:id="@+id/tv_task_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="2"
+        android:text="Unattended Bag Detected"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium"
+        android:layout_marginStart="@dimen/dimens_16"
+        android:layout_marginEnd="@dimen/dimens_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_task_update_time" />
+
+    <TextView
+        android:id="@+id/tv_task_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Report to gate A4"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintStart_toStartOf="@+id/tv_task_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_title"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_task_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="Acknowledged"
+        android:textColor="@color/greenMixedSuccess"
+        app:layout_constraintStart_toStartOf="@+id/tv_task_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_subtitle"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dimens_12"
+        android:background="@color/greyDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_status" />
+</android.support.constraint.ConstraintLayout>
