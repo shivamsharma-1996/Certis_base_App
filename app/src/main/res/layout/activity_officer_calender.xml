@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraint_"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:title="@string/title_select_officer_assignee"
+        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
+        app:popupTheme="@style/Base.ThemeOverlay.AppCompat.Dark"
+        app:navigationIcon="@drawable/ic_close_white"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_select_all"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_16"
+        android:layout_marginTop="@dimen/dimens_16"
+        android:background="@drawable/selector_calender_filter_chips"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:focusedByDefault="true"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:paddingBottom="@dimen/dimens_8"
+        android:paddingEnd="@dimen/dimens_20"
+        android:paddingStart="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_8"
+        android:text="@string/calender_filter_select_all"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+    <Button
+        android:id="@+id/btn_3_active"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_8"
+        android:background="@drawable/selector_calender_filter_chips"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:paddingBottom="@dimen/dimens_8"
+        android:paddingEnd="@dimen/dimens_20"
+        android:paddingStart="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_8"
+        android:text="@string/calender_filter_3_active"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintStart_toEndOf="@+id/btn_select_all"
+        app:layout_constraintTop_toTopOf="@+id/btn_select_all" />
+
+    <Button
+        android:id="@+id/btn_with_comflict_tasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_8"
+        android:background="@drawable/selector_calender_filter_chips"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:paddingBottom="@dimen/dimens_8"
+        android:paddingEnd="@dimen/dimens_20"
+        android:paddingStart="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_8"
+        android:text="@string/calender_filter_with_comflict_tasks"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintStart_toEndOf="@+id/btn_3_active"
+        app:layout_constraintTop_toTopOf="@+id/btn_select_all" />
+
+    <Button
+        android:id="@+id/btn_24_unavailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_8"
+        android:background="@drawable/selector_calender_filter_chips"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:paddingBottom="@dimen/dimens_8"
+        android:paddingEnd="@dimen/dimens_20"
+        android:paddingStart="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_8"
+        android:text="@string/calender_filter_24_unavailable"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintStart_toEndOf="@+id/btn_with_comflict_tasks"
+        app:layout_constraintTop_toTopOf="@+id/btn_select_all" />
+
+
+    <ImageView
+        android:layout_width="@dimen/dimens_28"
+        android:layout_height="@dimen/dimens_28"
+        android:layout_marginEnd="@dimen/dimens_24"
+        android:src="@drawable/ic_search_white"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_select_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_select_all" />
+
+    <include
+        android:id="@+id/first_row"
+        layout="@layout/layout_calender_first_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_28"
+        app:layout_constraintTop_toBottomOf="@+id/btn_select_all" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_row"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/calenderView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
+            android:paddingBottom="@dimen/dimens_12"/>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>

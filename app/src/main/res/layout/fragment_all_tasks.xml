@@ -12,7 +12,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv_tasks_all"
@@ -28,10 +28,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_tasks_all"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clickable="true"
-            android:background="@drawable/selector_card_type_task_all">
+            android:background="@drawable/bg_card_task_all_outline_blue">
 
             <TextView
                 android:id="@+id/tv_all"
@@ -86,10 +86,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_task_unassigned"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/tv_unassigned"
@@ -171,6 +170,7 @@
         app:layout_constraintTop_toTopOf="@+id/view_bg">
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_tasks_open"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:focusable="true"
@@ -254,6 +254,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_tasks_closed"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

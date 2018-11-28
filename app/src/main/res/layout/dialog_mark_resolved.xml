@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dimens_4"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/tv_resolve_incident_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimens_24"
+        android:text="@string/dialog_incident_resolved_message"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/textSizeMedium2"
+        android:lineSpacingMultiplier="1.5" />
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:padding="@dimen/dimens_12"
+        android:text="@string/dialog_incident_resolved_btn_cancel"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="@dimen/dimens_8"
+        android:layout_marginEnd="@dimen/dimens_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_resolve_incident"
+        app:layout_constraintTop_toBottomOf="@+id/tv_resolve_incident_message"/>
+
+    <TextView
+        android:id="@+id/tv_resolve_incident"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimens_4"
+        android:fontFamily="sans-serif-medium"
+        android:padding="@dimen/dimens_12"
+        android:layout_marginTop="@dimen/dimens_8"
+        android:text="@string/dialog_incident_resolved_btn_resolved"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_resolve_incident_message"/>
+</android.support.constraint.ConstraintLayout>

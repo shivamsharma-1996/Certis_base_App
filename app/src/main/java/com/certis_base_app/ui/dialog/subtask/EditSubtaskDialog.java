@@ -154,7 +154,7 @@ public class EditSubtaskDialog extends Dialog implements View.OnClickListener {
                 subTaskNewEndTimeInMilli = this.getSubtaskCurrentEndTimeInMilli() - this.getFiveMinuteInMilli();
                 tvSubtaskEndTime.setText(String.format("%s", new SimpleDateFormat("hh:mm a").format(subTaskNewEndTimeInMilli)));
                 //btnMinusEndTime.setEnabled(getSubtaskCurrentEndTimeInMilli()> getCurrentTimeInMilli()? true: false);
-                btnMinusEndTime.setEnabled(subTaskEndTime.equals(subTaskNewEndTimeInMilli) ? true : false);
+                //btnMinusEndTime.setEnabled(subTaskEndTime.equals(subTaskNewEndTimeInMilli) ? true : false);
                 break;
         }
     }

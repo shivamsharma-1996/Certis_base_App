@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -28,6 +29,7 @@ public class CreateTaskListDialog extends Dialog implements View.OnClickListener
     public CreateTaskListDialog(@NonNull Context context, OnItemSelectListener onItemSelectListener, List<String> list) {
         super(context);
         this.onItemSelectListener = onItemSelectListener;
+        Log.i("shivamshivam", String.valueOf(onItemSelectListener));
         this.list = list;
     }
 
@@ -51,8 +53,8 @@ public class CreateTaskListDialog extends Dialog implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        CreateTaskListDialog.this.dismiss();
         onItemSelectListener.onItemSelected(list.get(((Integer) view.getTag()).intValue()));
+        CreateTaskListDialog.this.dismiss();
     }
 
     @Override

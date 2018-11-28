@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.menuIncidentManagement.IncidentTaskFragment">
+
+
+    <View
+        android:id="@+id/view_bg_heading_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/greyTranslucent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_comments_label"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_comments_label"/>
+
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="@dimen/dimens_24"
+        android:layout_height="@dimen/dimens_24"
+        android:src="@drawable/ic_arrow_back_white"
+        android:tint="@color/black"
+        android:layout_marginStart="@dimen/dimens_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_comments_label"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_comments_label"/>
+
+    <TextView
+        android:id="@+id/tv_comments_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tasks (5)"
+        android:fontFamily="sans-serif-medium"
+        android:paddingTop="@dimen/dimens_16"
+        android:paddingBottom="@dimen/dimens_16"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeLarge"
+        android:layout_marginStart="@dimen/dimens_32"
+        app:layout_constraintStart_toEndOf="@id/iv_back" />
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nsv_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/view_bg_heading_top"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_incident_task_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"/>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dimens_24"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_officer_photo"
+        android:layout_width="@dimen/dimens_60dp"
+        android:layout_height="@dimen/dimens_60dp"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/tv_message_officer_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Jon Peterson"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeXLarge"
+        android:layout_marginStart="@dimen/dimens_12"
+        app:layout_constraintStart_toEndOf="@id/civ_officer_photo"
+        app:layout_constraintEnd_toStartOf="@id/tv_message_last_ago" />
+
+    <TextView
+        android:id="@+id/tv_message_last_ago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Now"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/textSizeMedium"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+
+    <TextView
+        android:id="@+id/tv_message_last_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="You: Ya im your Boss!! I just saw a strange..."
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/textSizeMedium"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_marginTop="2dp"
+        android:paddingEnd="@dimen/dimens_12"
+        app:layout_constraintTop_toBottomOf="@+id/tv_message_officer_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_message_officer_name"/>
+
+</android.support.constraint.ConstraintLayout>

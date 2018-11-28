@@ -43,6 +43,10 @@
     <dimen name="dimens_14">14dp</dimen>
     <dimen name="dimens_2">2dp</dimen>
     <dimen name="dimens_18">18dp</dimen>
-
+    <dimen name="nav_view_incident_report_right">600dp</dimen>
+    <dimen name="dimens_38">38dp</dimen>
+    <dimen name="dimens_60dp">60dp</dimen>
+    <dimen name="dimens_3">3dp</dimen>
+    <dimen name="dimnes_45">45dp</dimen>
 
 </resources>

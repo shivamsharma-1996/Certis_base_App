@@ -1,4 +1,4 @@
-package com.certis_base_app.ui.dialog.subtask;
+package com.certis_base_app.ui.createTask;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import com.certis_base_app.R;
 import com.certis_base_app.model.Subtask;
-import com.certis_base_app.ui.createTask.CreateTaskActivity;
+import com.certis_base_app.ui.custom_views.RecyclerItemTouchHelper;
+import com.certis_base_app.ui.custom_views.SwipeViewHolder;
 
 import java.util.List;
-import java.util.Locale;
 
-public class SubtaskListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class SubtaskTypeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int ITEM_VIEW_TYPE_QR_CODE = 0;
     private static final int ITEM_VIEW_TYPE_PHOTO = 1;
     private static final int ITEM_VIEW_TYPE_EMPTY = 2;
@@ -26,7 +26,7 @@ public class SubtaskListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     private View.OnClickListener onClickListener;
     private List<Subtask> subtaskList;
 
-    public SubtaskListAdapter(Context context, List<Subtask> subtaskList, View.OnClickListener onClickListener) {
+    public SubtaskTypeAdapter(Context context, List<Subtask> subtaskList, View.OnClickListener onClickListener) {
         this.context = context;
         this.subtaskList = subtaskList;
         this.onClickListener = onClickListener;
@@ -35,7 +35,7 @@ public class SubtaskListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new SubtaskListItemHolder(LayoutInflater.from(context).inflate(R.layout.item_list_subtask, parent, false));
+        return new SubtaskListItemHolder(LayoutInflater.from(context).inflate(R.layout.item_list_subtask_types, parent, false));
     }
 
     @Override
@@ -87,6 +87,12 @@ public class SubtaskListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             return ITEM_VIEW_TYPE_QR_CODE;
     }
 
+
+    public void setSubtaskList( List<Subtask> subtaskList){
+        this.subtaskList = subtaskList;
+        notifyDataSetChanged();
+    }
+
     public Subtask getItem(int position) {
         return subtaskList.get(position);
     }
@@ -101,7 +107,9 @@ public class SubtaskListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         return subtaskList != null ? subtaskList.size() : 0;
     }
 
-    public class SubtaskListItemHolder extends RecyclerView.ViewHolder {
+    public static class SubtaskListItemHolder extends RecyclerView.ViewHolder {
+        public View viewBackground;
+        public View viewForeground;
         ImageView subtaskImage;
         TextView subtaskTitle;
         TextView subtaskType;
@@ -113,6 +121,8 @@ public class SubtaskListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             subtaskTitle = itemView.findViewById(R.id.tv_subtask_title);
             subtaskType = itemView.findViewById(R.id.tv_subtask_type);
             subtaskEndTime = itemView.findViewById(R.id.tv_subtask_end_time);
+            this.viewForeground = itemView.findViewById(R.id.view_foreground);
+            this.viewBackground = itemView.findViewById(R.id.view_background);
         }
     }
 }

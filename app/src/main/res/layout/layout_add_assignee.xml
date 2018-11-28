@@ -30,7 +30,6 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/iv_task_assignee"
         app:layout_constraintStart_toEndOf="@id/iv_task_assignee" />
 
-
     <TextView
         android:id="@+id/tv_create_assignee_label"
         android:layout_width="0dp"
@@ -50,6 +49,7 @@
         android:layout_height="wrap_content"
         android:text="@string/label_add_task_assignee_note"
         android:textSize="@dimen/textSizeNormal"
+        android:paddingBottom="@dimen/dimens_4"
         android:textColor="@color/textPrimary"
         app:layout_constraintStart_toStartOf="@id/tv_task_assignee_label"
         app:layout_constraintEnd_toStartOf="@id/iv_create_assignee_chevron"
@@ -65,4 +65,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_create_assignee_label"
         app:layout_constraintBottom_toBottomOf="@+id/tv_add_assignee"/>
+    
+    <android.support.constraint.Group
+        android:id="@+id/group_assignee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_create_assignee_label, tv_add_assignee, iv_create_assignee_chevron"/>
+    
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_assignee_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_assignee_label"
+        app:layout_constraintStart_toStartOf="@id/tv_task_assignee_label"
+        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>

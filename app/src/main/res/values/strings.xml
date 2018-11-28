@@ -166,5 +166,36 @@
     <string name="dialog_subtask_type_label_photo">Take Photo</string>
     <string name="dialog_subtask_type_label_empty">Empty Subtask</string>
     <string name="dialog_subtask_type_label_description">Mandatory Description</string>
+    <string name="heading_incident_type">Incident Type</string>
+    <string name="heading_reported_by">Reported By</string>
+    <string name="heading_catagory">Catagory</string>
+    <string name="label_list_filters">List Filters</string>
+    <string name="label_catagories">Catagories</string>
+    <string name="heading_incident_date_time"><![CDATA[Incident Date & Time]]></string>
+    <string name="title_incident_report">Incident Report</string>
+    <string name="button_mark_as_resolved">Mark As Resolved</string>
+    <string name="button_create_task">Create Task</string>
+    <string name="label_subcatagory">Subcatagory</string>
+    <string name="label_time_of_incident">Time of Incident</string>
+    <string name="label_time_of_report_added">Time of Report added</string>
+    <string name="hint_incident_comments">Add Comment</string>
+    <string name="dialog_add_comment_button_add">Add</string>
+    <string name="dialog_add_comment_heading">Add Comment</string>
+    <string name="subtask_mandatory_description">Mandatory Description</string>
+    <string name="title_select_officer_assignee">Select Officer Assignee</string>
+    <string name="calender_filter_select_all">See All</string>
+    <string name="calender_filter_3_active">3 Active</string>
+    <string name="calender_filter_with_comflict_tasks">2 with Conflicting Tasks</string>
+    <string name="calender_filter_24_unavailable">24 Unavailable</string>
+    <string name="dialog_incident_resolved_message">Are you sure you want to mark this Incident as Resolved? This action cannot be undone.</string>
+    <string name="dialog_incident_resolved_btn_cancel">CANCEL</string>
+    <string name="dialog_incident_resolved_btn_resolved">Mark as Resolved</string>
+    <string name="menu_incident_edit_details">Edit Details</string>
+    <string name="menu_incident_forward_report">Forward Report</string>
+    <string name="menu_incident_email">Email</string>
+    <string name="dialog_show_photo_button_cancel">Cancel</string>
+    <string name="snackBar_action_undo">UNDO</string>
+    <string name="snackBar_title_subtask_deleted">Subtask Deleted</string>
+    <string name="title_messages">Messages</string>
 
 </resources>

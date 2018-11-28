@@ -20,7 +20,6 @@ public class Singleton {
     public static Singleton getInstance() {
         if (self == null)
             self = new Singleton();
-
         return self;
     }
 
@@ -41,6 +40,13 @@ public class Singleton {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0); // hide
     }
+
+    public static void showSnackbar(final Context context, final View view, int drawable, int messageText, final int actionText, View.OnClickListener onClickListener, int actionColor) {
+        final Snackbar snackBar = Snackbar.make(view, messageText, Snackbar.LENGTH_LONG);
+        snackBar.setAction(actionText,onClickListener).setActionTextColor(ContextCompat.getColor(context, actionColor)).show();
+    }
+
+
 
     public static void showSnackbar(final Context context, final View view, int drawable, int messageText, final int actionText, int actionColor) {
         final Snackbar snackBar = Snackbar.make(view, messageText, Snackbar.LENGTH_INDEFINITE);

@@ -10,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.certis_base_app.R;
 import com.certis_base_app.ui.menuIncidentManagement.IncidentManagementActivity;
+import com.certis_base_app.ui.menuIncidentManagement.IncidentManagementActivity_;
 import com.certis_base_app.ui.menuMessaging.MessagingActivity;
+import com.certis_base_app.ui.menuMessaging.MessagingActivity_;
 import com.certis_base_app.ui.menuOfficerDashboard.OfficerMonitoringActivity;
 import com.certis_base_app.ui.menuOfficerDashboard.OfficerMonitoringActivity_;
 import com.certis_base_app.ui.menuTaskManagement.TaskManagementActivity;
@@ -40,6 +42,10 @@ public class SidebarMenuFragment extends Fragment implements View.OnClickListene
     TextView mTaskText;
     @ViewById(R.id.tv_message)
     TextView mMessageText;
+    @ViewById(R.id.iv_logout)
+    ImageView mLogoutImage;
+    @ViewById(R.id.tv_logout)
+    TextView mLogoutText;
 
     public SidebarMenuFragment() {
         // Required empty public constructor
@@ -60,6 +66,8 @@ public class SidebarMenuFragment extends Fragment implements View.OnClickListene
         mIncidentText.setOnClickListener(this);
         mTaskText.setOnClickListener(this);
         mMessageText.setOnClickListener(this);
+        mLogoutImage.setOnClickListener(this);
+        mLogoutText.setOnClickListener(this);
     }
 
     private void switchUi() {
@@ -84,7 +92,6 @@ public class SidebarMenuFragment extends Fragment implements View.OnClickListene
         }
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -97,7 +104,7 @@ public class SidebarMenuFragment extends Fragment implements View.OnClickListene
             case R.id.iv_incident:
             case R.id.tv_incident:
                 //do
-                startActivity(new Intent(getActivity(), IncidentManagementActivity.class));
+                startActivity(new Intent(getActivity(), IncidentManagementActivity_.class));
                 getActivity().overridePendingTransition(0, 0);
                 break;
             case R.id.iv_task:
@@ -109,7 +116,7 @@ public class SidebarMenuFragment extends Fragment implements View.OnClickListene
             case R.id.iv_message:
             case R.id.tv_message:
                 //do
-                startActivity(new Intent(getActivity(), MessagingActivity.class));
+                startActivity(new Intent(getActivity(), MessagingActivity_.class));
                 getActivity().overridePendingTransition(0, 0);
                 break;
 

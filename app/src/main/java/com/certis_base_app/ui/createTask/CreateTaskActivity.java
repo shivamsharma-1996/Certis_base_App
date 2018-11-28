@@ -1,8 +1,12 @@
 package com.certis_base_app.ui.createTask;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.support.constraint.Group;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -10,27 +14,34 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.certis_base_app.R;
 import com.certis_base_app.model.Subtask;
 import com.certis_base_app.ui.BaseActivity;
+import com.certis_base_app.ui.custom_views.RecyclerItemTouchHelper;
 import com.certis_base_app.ui.dialog.general.CreateTaskListDialog;
 import com.certis_base_app.ui.dialog.location.LocationDialog;
 import com.certis_base_app.ui.dialog.subtask.EditSubtaskDialog;
-import com.certis_base_app.ui.dialog.subtask.SubtaskListAdapter;
 import com.certis_base_app.ui.dialog.subtask.SubtaskTypeDialog;
+import com.certis_base_app.utills.Singleton;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import java.text.DateFormatSymbols;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @EActivity(R.layout.activity_create_task)
-public class CreateTaskActivity extends BaseActivity implements View.OnClickListener {
+public class CreateTaskActivity extends BaseActivity implements View.OnClickListener, RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
+    private static final int REQUEST_CODE_OFFICER_ASSIGNEE = 101;
+
     @ViewById(R.id.tv_create_task)
     TextView tvCreateTask;
     @ViewById(R.id.et_task_title)
@@ -47,11 +58,11 @@ public class CreateTaskActivity extends BaseActivity implements View.OnClickList
     TextView tvTaskLocation;
     @ViewById(R.id.tv_create_task_start_date)
     TextView tvAddStartDate;
-    @ViewById(R.id.tv_create_task_start_time)
-    TextView tvAddStartTime;
     @ViewById(R.id.tv_create_task_end_date)
     TextView tvAddEndDate;
-    @ViewById(R.id.tv_create_task_end_date)
+    @ViewById(R.id.tv_create_task_start_time)
+    TextView tvAddStartTime;
+    @ViewById(R.id.tv_create_task_end_time)
     TextView tvAddEndTime;
     @ViewById(R.id.tv_create_task_add_subtasks_label)
     TextView tvAddSubtask;
@@ -69,9 +80,20 @@ public class CreateTaskActivity extends BaseActivity implements View.OnClickList
     ImageView ivClose;
     @ViewById(R.id.rv_subtask_list)
     RecyclerView rvSubtaskList;
+    @ViewById(R.id.tv_create_assignee_label)
+    TextView tvCreateAssigneeLabel;
+    @ViewById(R.id.tv_add_assignee)
+    TextView tvAddAssignee;
+    @ViewById(R.id.iv_create_assignee_chevron)
+    ImageView tvCreateAssigneeChevron;
+    @ViewById(R.id.group_assignee)
+    Group mGroupAssignee;
+    @ViewById(R.id.rv_assignee_list)
+    RecyclerView rvAssigneeList;
+    private int assignee_count;
     private List<Subtask> subtaskList = new ArrayList<>();
 
-    private SubtaskListAdapter subtaskListAdapter;
+    private SubtaskTypeAdapter subtaskTypeAdapter;
     private TextWatcher mEmptyWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -95,10 +117,14 @@ public class CreateTaskActivity extends BaseActivity implements View.OnClickList
 
     @AfterViews
     public void populateViews() {
-        subtaskListAdapter = new SubtaskListAdapter(CreateTaskActivity.this, subtaskList, this);
+        subtaskTypeAdapter = new SubtaskTypeAdapter(CreateTaskActivity.this, subtaskList, this);
         rvSubtaskList.setLayoutManager(new LinearLayoutManager(this));
-        rvSubtaskList.setAdapter(subtaskListAdapter);
+        rvSubtaskList.setAdapter(subtaskTypeAdapter);
 
+        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
+        new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(rvSubtaskList);
+
+        tvCreateTask.setOnClickListener(CreateTaskActivity.this);
         tvTaskCatagory.setOnClickListener(CreateTaskActivity.this);
         tvTaskSubcatagory.setOnClickListener(CreateTaskActivity.this);
         tvTaskType.setOnClickListener(CreateTaskActivity.this);
@@ -110,17 +136,15 @@ public class CreateTaskActivity extends BaseActivity implements View.OnClickList
         ivTypeChevron.setOnClickListener(CreateTaskActivity.this);
         ivAssigneeChevron.setOnClickListener(CreateTaskActivity.this);
         ivSubtaskChevron.setOnClickListener(CreateTaskActivity.this);
+        tvCreateAssigneeLabel.setOnClickListener(CreateTaskActivity.this);
+        ivAssigneeChevron.setOnClickListener(CreateTaskActivity.this);
+        tvCreateAssigneeChevron.setOnClickListener(CreateTaskActivity.this);
+
+        tvAddStartDate.setOnClickListener(CreateTaskActivity.this);
+        tvAddEndDate.setOnClickListener(CreateTaskActivity.this);
+        tvAddStartTime.setOnClickListener(CreateTaskActivity.this);
+        tvAddEndTime.setOnClickListener(CreateTaskActivity.this);
         this.etTaskTitle.addTextChangedListener(mEmptyWatcher);
-    }
-
-    @Click(R.id.tv_create_task_start_date)
-    public void onTaskStartDateClick() {
-        new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-            }
-        }, Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH).show();
     }
 
     @Click(R.id.iv_close)
@@ -131,6 +155,13 @@ public class CreateTaskActivity extends BaseActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.tv_create_task:
+                CreateTaskActivity.this.finish();
+                break;
+            case R.id.view_foreground:
+                CreateTaskActivity.this.showEditSubtaskDialog(subtaskList.get(((Integer) v.getTag()).intValue()));
+                break;
+
             case R.id.tv_create_task_location_label:
                 showLocationDialog();
                 break;
@@ -147,7 +178,7 @@ public class CreateTaskActivity extends BaseActivity implements View.OnClickList
                 CreateTaskActivity.this.showCustomDialog(tvTaskType, CreateTaskActivity.this.getPopulateList());
                 break;
             case R.id.tv_create_task_description_label:
-                CreateTaskActivity.this.showCustomDialog(tvTaskDescription, CreateTaskActivity.this.getPopulateList());
+                //CreateTaskActivity.this.showCustomDialog(tvTaskDescription, CreateTaskActivity.this.getPopulateList());
                 break;
 
             case R.id.tv_create_task_add_subtasks_label:
@@ -155,12 +186,104 @@ public class CreateTaskActivity extends BaseActivity implements View.OnClickList
                 CreateTaskActivity.this.showEditSubtaskDialog(null);
                 break;
 
-            case R.id.cl_item_list_subtask:
-                CreateTaskActivity.this.showEditSubtaskDialog(subtaskList.get(((Integer) v.getTag()).intValue()));
+            case R.id.tv_create_assignee_label:
+            case R.id.tv_add_assignee:
+            case R.id.iv_create_assignee_chevron:
+            case R.id.cl_item_list_assignee:
+                CreateTaskActivity.this.startCalenderActivity();
+                break;
+
+            case R.id.tv_create_task_start_date:
+                CreateTaskActivity.this.showDatePicker(tvAddStartDate);
+                break;
+            case R.id.tv_create_task_end_date:
+                CreateTaskActivity.this.showDatePicker(tvAddEndDate);
+                break;
+            case R.id.tv_create_task_start_time:
+                CreateTaskActivity.this.showTimePicker(tvAddStartTime);
+                break;
+            case R.id.tv_create_task_end_time:
+                CreateTaskActivity.this.showTimePicker(tvAddEndTime);
                 break;
         }
     }
 
+    public void showDatePicker(final TextView widget) {
+        Calendar calendar = Calendar.getInstance();
+        new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//                GregorianCalendar date1 = new GregorianCalendar(year, month, dayOfMonth);
+//                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM");
+//                String result = formatter.format(date1.getTime());
+                widget.setText(String.format("%s, %s %s", CreateTaskActivity.this.getDayOfWeek(year,month, dayOfMonth),
+                        dayOfMonth-1, CreateTaskActivity.this.getMonth(month)));
+            }
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+    }
+
+    public void showTimePicker(final TextView widget) {
+        Calendar calendar = Calendar.getInstance();
+        new TimePickerDialog(CreateTaskActivity.this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                widget.setText(String.format("%02d:%02d %s", selectedHour, selectedMinute, (selectedHour < 12) ? "AM" : "PM"));
+            }
+        }, calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), true).show();
+    }
+
+
+
+    public String getMonth(int month) {
+        return new DateFormatSymbols().getMonths()[month-1];
+    }
+
+    public String getDayOfWeek(int year, int month, int dayOfMonth) {
+        SimpleDateFormat simpledateformat = new SimpleDateFormat("EEEE");
+        Date date = new Date(year, month, dayOfMonth-1);
+        String dayOfWeek = simpledateformat.format(date);
+        return dayOfWeek;
+    }
+
+    private void startCalenderActivity() {
+        Intent calenderIntent = new Intent(CreateTaskActivity.this, TaskCalenderActivity.class);
+        CreateTaskActivity.this.startActivityForResult(calenderIntent, REQUEST_CODE_OFFICER_ASSIGNEE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_OFFICER_ASSIGNEE) {
+            switch (resultCode){
+                case RESULT_OK:
+                    assignee_count = data!=null? data.getIntExtra("OFFICERS_COUNT", 0): 0;
+                    if(assignee_count>0){
+                        mGroupAssignee.setVisibility(View.GONE);
+                        rvAssigneeList.setVisibility(View.VISIBLE);
+                        rvAssigneeList.setLayoutManager(new LinearLayoutManager(CreateTaskActivity.this));
+                        rvAssigneeList.setAdapter(new TaskAssigneeAdapter(assignee_count, CreateTaskActivity.this));
+                    }
+                    break;
+                case RESULT_CANCELED:
+                    mGroupAssignee.setVisibility(View.VISIBLE);
+                    rvAssigneeList.setVisibility(View.GONE);
+                    break;
+            }
+        }
+    }
+    public void onSwiped(RecyclerView.ViewHolder viewHolder, int i, int i2) {
+        if (viewHolder instanceof SubtaskTypeAdapter.SubtaskListItemHolder)
+        {
+            final int adapterPosition = viewHolder.getAdapterPosition();
+            final Subtask removedSubtask = this.subtaskList.remove(adapterPosition);
+            CreateTaskActivity.this.subtaskTypeAdapter.setSubtaskList(subtaskList);
+            Singleton.showSnackbar(CreateTaskActivity.this,this.rvSubtaskList,0,R.string.snackBar_title_subtask_deleted, R.string.snackBar_action_undo, new View.OnClickListener() {
+                public void onClick(View view) {
+                    CreateTaskActivity.this.subtaskList.add(adapterPosition, removedSubtask);
+                    CreateTaskActivity.this.subtaskTypeAdapter.setSubtaskList(subtaskList);
+                }
+            }, R.color.colorAccent);
+        }
+    }
     private void showEditSubtaskDialog(Object arg) {
         Subtask subtask = (Subtask) arg;
         new EditSubtaskDialog(this, new EditSubtaskDialog.OnItemClickListener() {
@@ -173,6 +296,7 @@ public class CreateTaskActivity extends BaseActivity implements View.OnClickList
                     }
                 }).show();
             }
+
             @Override
             public void onSubtaskTypeClick(final TextView typeWidget) {
                 new SubtaskTypeDialog(CreateTaskActivity.this, new SubtaskTypeDialog.OnSubtaskTypeSelectListener() {
@@ -186,9 +310,9 @@ public class CreateTaskActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onSubtaskSaveClick(Subtask subtask) {
                 subtaskList.add(subtask);
-                subtaskListAdapter.notifyDataSetChanged();
+                subtaskTypeAdapter.notifyDataSetChanged();
             }
-        }, arg!=null?subtask:null).show();
+        }, arg != null ? subtask : null).show();
     }
 
     private void showCustomDialog(final TextView view, final List<String> populateList) {
@@ -209,7 +333,6 @@ public class CreateTaskActivity extends BaseActivity implements View.OnClickList
         }).show();
     }
 
-
     public List<String> getPopulateList() {
         List<String> populateList = new ArrayList<>();
         populateList.add("a");
@@ -219,4 +342,7 @@ public class CreateTaskActivity extends BaseActivity implements View.OnClickList
         populateList.add("e");
         return populateList;
     }
+
+
+
 }

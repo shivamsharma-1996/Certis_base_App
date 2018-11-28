@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_item_list_incident_task"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingTop="@dimen/dimens_16"
+    android:paddingBottom="@dimen/dimens_18">
+
+    <TextView
+        android:id="@+id/tv_task_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_24"
+        android:fontFamily="sans-serif-medium"
+        android:text="04:15 AM"
+        android:paddingEnd="@dimen/dimens_4"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintTop_toTopOf="@+id/tv_task_title"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_task_title"/>
+
+    <TextView
+        android:id="@+id/tv_task_time_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_hourglass"
+        android:drawableTint="@color/greyDark"
+        android:drawablePadding="@dimen/dimens_4"
+        android:fontFamily="sans-serif-medium"
+        android:text="20m left"
+        android:paddingEnd="@dimen/dimens_4"
+        android:gravity="center_vertical"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/textSizeMedium2"
+        app:layout_constraintStart_toStartOf="@id/tv_task_time"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_time" />
+
+    <TextView
+        android:id="@+id/tv_task_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:lines="1"
+        android:paddingEnd="@dimen/dimens_8"
+        android:layout_marginStart="16dp"
+        android:text="Defective Security Door/Fence"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeLarge"
+        app:layout_constraintEnd_toStartOf="@+id/tv_task_status"
+        app:layout_constraintStart_toEndOf="@+id/tv_task_time"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_task_officer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:maxEms="10"
+        android:layout_marginTop="2dp"
+        android:drawableStart="@drawable/ic_small_alert_red"
+        android:drawablePadding="@dimen/dimens_4"
+        android:text="Amanda Johnson Daisy Jason"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintStart_toStartOf="@+id/tv_task_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_title" />
+
+    <TextView
+        android:id="@+id/tv_task_officer_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_16"
+        android:text="#123456"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintStart_toEndOf="@+id/tv_task_officer_name"
+        android:layout_marginEnd="@dimen/dimens_8"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_title" />
+
+    <TextView
+        android:id="@+id/tv_task_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimens_24"
+        android:text="In Progress"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_task_title"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_task_time_left"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@+id/tv_task_title" />
+
+    <TextView
+        android:id="@+id/tv_task_substatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_4"
+        android:text="3/5 Completed"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintEnd_toEndOf="@+id/tv_task_status"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_status"/>
+
+    <ProgressBar
+        android:id="@+id/pb_task"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimens_2"
+        android:layout_marginTop="@dimen/dimens_8"
+        android:progress="80"
+        android:progressBackgroundTint="@color/greyDark"
+        android:progressTint="@color/colorAccent"
+        app:layout_constraintEnd_toStartOf="@id/guideline_task_time_left"
+        app:layout_constraintStart_toStartOf="@+id/tv_task_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_task_officer_name"
+        />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_task_time_left"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_percent="0.82"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_task_time_to_start"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_8"
+        android:layout_marginEnd="@dimen/dimens_24"
+        android:fontFamily="sans-serif-medium"
+        android:text="Started"
+        android:gravity="end"
+        android:textColor="@color/textSecondary"
+        android:textColorHint="@color/greyDark"
+        android:textSize="@dimen/textSizeMedium2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pb_task"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+  <!--  <View
+        android:id="@+id/separator_incident_task"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dimens_16"
+        android:background="@color/greyDark"
+        app:layout_constraintEnd_toEndOf="0"
+        app:layout_constraintStart_toStartOf="0"
+        app:layout_constraintTop_toBottomOf="@+id/pb_task" />-->
+</android.support.constraint.ConstraintLayout>

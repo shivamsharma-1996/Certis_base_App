@@ -62,9 +62,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:fitsSystemWindows="true">
-        <fragment
+        <FrameLayout
             android:id="@+id/fragment_task_detail"
-            android:name="com.certis_base_app.ui.menuOfficerDashboard.OfficerTaskDetailFragment_"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </android.support.design.widget.NavigationView>

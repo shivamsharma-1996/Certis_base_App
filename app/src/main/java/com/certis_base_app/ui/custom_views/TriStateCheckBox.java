@@ -50,7 +50,6 @@ public class TriStateCheckBox extends AppCompatCheckBox {
                 updateBtn();
             }
         });
-
     }
 
     private void updateBtn() {

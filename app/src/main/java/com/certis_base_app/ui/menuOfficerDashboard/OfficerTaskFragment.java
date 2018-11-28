@@ -34,7 +34,7 @@ import java.util.List;
 import static com.certis_base_app.utills.MapUtil.createCustomMarker;
 
 @EFragment(R.layout.fragment_officer_task)
-public class OfficerTaskFragment extends BaseFragment implements View.OnClickListener, GoogleMap.OnMarkerClickListener, OfficerTaskDetailFragment_.InteractionListener{
+public class OfficerTaskFragment extends BaseFragment implements View.OnClickListener, GoogleMap.OnMarkerClickListener, OfficerTaskDetailFragment.InteractionListener{
     @ViewById(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
     @ViewById(R.id.nav_view_side_panel_right)
@@ -85,7 +85,6 @@ public class OfficerTaskFragment extends BaseFragment implements View.OnClickLis
             rvOfficerTasks.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
             rvOfficerTasks.setAdapter(mOfficerTaskAdapter);
         }
-
         //((OfficerMonitoringActivity)getActivity()).getSupportActionBar().hide();
     }
 

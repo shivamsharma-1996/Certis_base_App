@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.menuIncidentManagement.IncidentDetailFragment">
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/greyLightShadow"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_incident_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="@dimen/dimens_24"
+        android:layout_height="@dimen/dimens_24"
+        android:layout_marginStart="@dimen/dimens_16"
+        android:layout_marginTop="@dimen/dimens_16"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_close_black"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_overflow"
+        android:layout_width="@dimen/dimens_24"
+        android:layout_height="@dimen/dimens_24"
+        android:layout_marginEnd="@dimen/dimens_22"
+        android:layout_marginTop="@dimen/dimens_22"
+        android:adjustViewBounds="true"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:src="@drawable/ic_overflow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_incident_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_72"
+        android:layout_marginTop="@dimen/dimens_32"
+        android:paddingBottom="@dimen/dimens_22"
+        android:text="Urgent Road Closure"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeXLarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_close" />
+
+
+    <View
+        android:id="@+id/view_bg_mark_resolved"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/dimens_16"
+        android:layout_marginStart="@dimen/dimens_24"
+        android:background="@drawable/bg_semi_round_outline_blue"
+        android:paddingEnd="@dimen/dimens_24"
+        android:paddingStart="@dimen/dimens_24"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_mark_resolved"
+        app:layout_constraintEnd_toStartOf="@+id/view_bg_create_task"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_mark_resolved" />
+
+    <TextView
+        android:id="@+id/tv_mark_resolved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimens_16"
+        android:layout_marginTop="@dimen/dimens_24"
+        android:drawablePadding="@dimen/dimens_8"
+        android:drawableStart="@drawable/ic_check_blue"
+        android:fontFamily="sans-serif-medium"
+        android:paddingBottom="@dimen/dimens_12"
+        android:paddingTop="@dimen/dimens_12"
+        android:text="@string/button_mark_as_resolved"
+        android:textAllCaps="true"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toEndOf="@+id/view_bg_mark_resolved"
+        app:layout_constraintStart_toStartOf="@+id/view_bg_mark_resolved"
+        app:layout_constraintTop_toBottomOf="@+id/tv_incident_title" />
+
+
+    <View
+        android:id="@+id/view_bg_create_task"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/dimens_24"
+        android:background="@drawable/bg_semi_round_solid_accent"
+        android:paddingEnd="@dimen/dimens_24"
+        android:paddingStart="@dimen/dimens_24"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_create_task"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view_bg_mark_resolved"
+        app:layout_constraintTop_toTopOf="@+id/tv_create_task" />
+
+
+    <TextView
+        android:id="@+id/tv_create_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimens_16"
+        android:layout_marginTop="@dimen/dimens_24"
+        android:drawablePadding="@dimen/dimens_8"
+        android:drawableStart="@drawable/ic_create_task_white"
+        android:fontFamily="sans-serif-medium"
+        android:paddingBottom="@dimen/dimens_12"
+        android:paddingTop="@dimen/dimens_12"
+        android:text="@string/button_create_task"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="@+id/view_bg_create_task"
+        app:layout_constraintStart_toStartOf="@+id/view_bg_create_task"
+        app:layout_constraintTop_toBottomOf="@+id/tv_incident_title" />
+
+
+    <View
+        android:id="@+id/view_seperator_bar1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dimens_16"
+        android:background="@color/greyDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_create_task" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_incident_associated_tasks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/view_seperator_bar1">
+
+    <ImageView
+        android:id="@+id/iv_incident"
+        android:layout_width="@dimen/dimens_24"
+        android:layout_height="@dimen/dimens_24"
+        android:src="@drawable/ic_incidents"
+        android:layout_marginStart="@dimen/dimens_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_incident_associated_tasks"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_incident_associated_tasks"/>
+
+    <ImageView
+        android:id="@+id/iv_incident_tasks_chevron"
+        android:layout_width="@dimen/dimens_24"
+        android:layout_height="@dimen/dimens_24"
+        android:src="@drawable/ic_chevron_right"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:layout_marginEnd="@dimen/dimens_16"
+        app:layout_constraintTop_toTopOf="@+id/tv_incident_associated_tasks"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_incident_associated_tasks"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_incident_associated_tasks"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSizeMedium2"
+        android:textColor="@color/textPrimary"
+        android:paddingTop="@dimen/dimens_22"
+        android:paddingBottom="@dimen/dimens_22"
+        android:layout_marginEnd="@dimen/dimens_8"
+        android:layout_marginStart="@dimen/dimens_32"
+        android:text="5 Tasks associated with this report"
+        app:layout_constraintStart_toEndOf="@id/iv_incident"
+        app:layout_constraintEnd_toStartOf="@id/iv_incident_tasks_chevron"/>
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+    <View
+        android:id="@+id/view_seperator_bar"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/greyDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_incident_associated_tasks" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/view_seperator_bar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/dimens_24">
+
+            <ImageView
+                android:id="@+id/iv_catagory"
+                android:layout_width="@dimen/dimens_24"
+                android:layout_height="@dimen/dimens_24"
+                android:layout_marginStart="@dimen/dimens_24"
+                android:src="@drawable/ic_category_default"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_incident_catagory_value"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_incident_catagory_label" />
+
+            <TextView
+                android:id="@+id/tv_incident_catagory_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimens_32"
+                android:layout_marginTop="@dimen/dimens_24"
+                android:text="@string/label_catagories"
+                android:textColor="@color/greyDark"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/iv_catagory"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_incident_catagory_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_4"
+                android:text="APD Security Test"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/textSizeMedium2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_catagory_label" />
+
+            <TextView
+                android:id="@+id/tv_incident_subcatagory_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimens_32"
+                android:layout_marginTop="@dimen/dimens_24"
+                android:text="@string/label_subcatagory"
+                android:textColor="@color/greyDark"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/iv_catagory"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_catagory_value" />
+
+            <TextView
+                android:id="@+id/tv_incident_subcatagory_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_4"
+                android:text="By QMT"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/textSizeMedium2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_subcatagory_label" />
+
+
+            <ImageView
+                android:id="@+id/iv_description"
+                android:layout_width="@dimen/dimens_24"
+                android:layout_height="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_32"
+                android:src="@drawable/ic_description_default"
+                app:layout_constraintStart_toStartOf="@id/iv_catagory"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_subcatagory_value" />
+
+            <TextView
+                android:id="@+id/tv_description_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_32"
+                android:text="Black coloured bulky item"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/textSizeMedium2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_subcatagory_value" />
+
+            <ImageView
+                android:id="@+id/iv_location"
+                android:layout_width="@dimen/dimens_24"
+                android:layout_height="@dimen/dimens_24"
+                android:src="@drawable/ic_location_default"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_incident_location_value"
+                app:layout_constraintStart_toStartOf="@id/iv_catagory"
+                app:layout_constraintTop_toTopOf="@+id/tv_incident_location_value" />
+
+            <TextView
+                android:id="@+id/tv_incident_location_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_32"
+                android:text="Geylang Bahru Longkang 23 Ave 3 Valley 10 Stream 1"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/textSizeMedium2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_description_value" />
+
+            <ImageView
+                android:id="@+id/iv_incident_time"
+                android:layout_width="@dimen/dimens_24"
+                android:layout_height="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_38"
+                android:src="@drawable/ic_time_duration_default"
+                app:layout_constraintStart_toStartOf="@id/iv_catagory"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_location_value" />
+
+            <TextView
+                android:id="@+id/tv_incident_time_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_32"
+                android:text="@string/label_time_of_incident"
+                android:textColor="@color/greyDark"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_location_value" />
+
+            <TextView
+                android:id="@+id/tv_incident_time_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_32"
+                android:text="@string/label_time_of_incident"
+                android:textColor="@color/greyDark"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_location_value" />
+
+            <TextView
+                android:id="@+id/tv_incident_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_4"
+                android:text="Friday, 13 Jul"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/textSizeMedium2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_time_value" />
+
+            <TextView
+                android:id="@+id/tv_incident_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimens_24"
+                android:text="02:20 AM"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/textSizeMedium2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_date" />
+
+            <TextView
+                android:id="@+id/tv_incident_report_time_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_32"
+                android:text="@string/label_time_of_report_added"
+                android:textColor="@color/greyDark"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_time" />
+
+            <TextView
+                android:id="@+id/tv_incident_report_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_4"
+                android:text="Friday, 13 Jul"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/textSizeMedium2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_report_time_label" />
+
+            <TextView
+                android:id="@+id/tv_incident_report_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimens_24"
+                android:text="02:20 AM"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/textSizeMedium2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_report_date" />
+
+            <ImageView
+                android:id="@+id/iv_incident_source"
+                android:layout_width="@dimen/dimens_24"
+                android:layout_height="@dimen/dimens_24"
+                android:src="@drawable/ic_source_default"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_incident_source_value"
+                app:layout_constraintStart_toStartOf="@id/iv_catagory"
+                app:layout_constraintTop_toTopOf="@+id/tv_incident_source_value" />
+
+            <TextView
+                android:id="@+id/tv_incident_source_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_32"
+                android:text="Officer / SUP who reported the incident"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/textSizeMedium2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_report_time" />
+
+            <View
+                android:id="@+id/view_seperator_bar2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dimens_24"
+                android:background="@color/greyDark"
+                app:layout_constraintTop_toBottomOf="@+id/tv_incident_source_value" />
+
+            <ImageView
+                android:id="@+id/iv_incident_image"
+                android:layout_width="@dimen/dimens_24"
+                android:layout_height="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_24"
+                android:src="@drawable/ic_gallery"
+                app:layout_constraintStart_toStartOf="@id/iv_catagory"
+                app:layout_constraintTop_toTopOf="@+id/view_seperator_bar2" />
+
+            <ImageView
+                android:id="@+id/i1"
+                android:layout_width="100dp"
+                android:layout_height="76dp"
+                android:layout_marginTop="@dimen/dimens_12"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_register_flag_india"
+                app:layout_constraintStart_toStartOf="@id/tv_incident_catagory_label"
+                app:layout_constraintTop_toTopOf="@+id/view_seperator_bar2" />
+
+            <ImageView
+                android:id="@+id/i2"
+                android:layout_width="100dp"
+                android:layout_height="76dp"
+                android:layout_marginStart="@dimen/dimens_8"
+                android:layout_marginTop="@dimen/dimens_12"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_register_flag_india"
+                app:layout_constraintStart_toEndOf="@id/i1"
+                app:layout_constraintTop_toTopOf="@+id/view_seperator_bar2" />
+
+            <View
+                android:id="@+id/view_seperator_bar3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dimens_24"
+                android:background="@color/greyDark"
+                app:layout_constraintTop_toBottomOf="@+id/i1" />
+
+            <ImageView
+                android:id="@+id/iv_incident_comments"
+                android:layout_width="@dimen/dimens_24"
+                android:layout_height="@dimen/dimens_24"
+                android:src="@drawable/ic_comment"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_incident_comments_label"
+                app:layout_constraintEnd_toStartOf="@+id/tv_incident_comments_label"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tv_incident_comments_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_incident_comments"
+                android:textColor="@color/textPrimary"
+                android:textColorHint="@color/textSecondary"
+                android:textSize="@dimen/textSizeMedium2"
+                android:layout_marginEnd="@dimen/dimens_72"
+                android:layout_marginStart="@dimen/dimens_72"
+                android:layout_marginTop="@dimen/dimens_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_seperator_bar3"/>
+
+            <ImageView
+                android:id="@+id/iv_incident_comments_chevron"
+                android:layout_width="@dimen/dimens_24"
+                android:layout_height="@dimen/dimens_24"
+                android:layout_marginTop="@dimen/dimens_12"
+                android:src="@drawable/ic_chevron_right"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_incident_comments_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_incident_comments_label" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.constraint.ConstraintLayout>

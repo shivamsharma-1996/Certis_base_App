@@ -28,9 +28,9 @@ public class CancelTaskDialog extends DialogFragment {
         // Required empty public constructor
     }
 
-    @Nullable
+    @NonNull
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_cancel_task, null);
         tvCancelTask  = dialogView.findViewById(R.id.tv_cancel_task);
@@ -51,6 +51,6 @@ public class CancelTaskDialog extends DialogFragment {
             }
         });
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        return dialogView;
+        return dialog;
     }
 }

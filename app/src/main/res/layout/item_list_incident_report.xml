@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_item_list_incident_report"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingTop="@dimen/dimens_12"
+    android:paddingBottom="@dimen/dimens_12"
+    android:paddingStart="@dimen/dimens_24"
+    android:paddingEnd="@dimen/dimens_24"
+    android:clipToPadding="false">
+
+    <TextView
+        android:id="@+id/tv_incident_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Suspicious Article Spotted"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeMedium"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintBottom_toTopOf="@+id/tv_incident_zone"
+        app:layout_constraintEnd_toStartOf="@+id/tv_reported_by_name"
+        app:layout_constraintHorizontal_weight="3.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_incident_zone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="T4,Zone A"
+        android:textColor="@color/textSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_incident_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_incident_type"/>
+
+    <TextView
+        android:id="@+id/tv_reported_by_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_24"
+        android:text="Samuel Chandra"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/textSizeNormal"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintBottom_toTopOf="@+id/tv_reported_by_id"
+        app:layout_constraintEnd_toStartOf="@+id/tv_category"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toEndOf="@+id/tv_incident_type"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_reported_by_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="#123456"
+        android:textColor="@color/textSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_reported_by_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_reported_by_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reported_by_name" />
+
+    <TextView
+        android:id="@+id/tv_category"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_24"
+        android:textColor="@color/textSecondary"
+        android:text="../ Subcatagory"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_incident_date_time"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toEndOf="@+id/tv_reported_by_name"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_incident_date_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_24"
+        android:textColor="@color/textPrimary"
+        android:text="7 jul,02:49 AM"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toEndOf="@+id/tv_category"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>

@@ -6,13 +6,14 @@ import android.widget.Toast;
 
 import com.certis_base_app.R;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
+
+@EActivity(R.layout.activity_messaging)
 public class MessagingActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_messaging);
-        Toast.makeText(this, "message", Toast.LENGTH_SHORT).show();
-
+    @AfterViews
+    public void populatrViews(){
     }
-            }
+
+}
