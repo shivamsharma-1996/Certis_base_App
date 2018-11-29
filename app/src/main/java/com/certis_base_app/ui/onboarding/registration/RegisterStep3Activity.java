@@ -12,8 +12,7 @@ import android.widget.ImageView;
 
 import com.certis_base_app.R;
 import com.certis_base_app.ui.BaseActivity;
-import com.certis_base_app.ui.custom_views.AutoFitTextureView;
-import com.certis_base_app.ui.onboarding.CameraPreviewSubmitActivity;
+import com.certis_base_app.ui.custom.AutoFitTextureView;
 import com.certis_base_app.ui.onboarding.CameraPreviewSubmitActivity_;
 import com.certis_base_app.utills.CameraUtil;
 import com.certis_base_app.utills.SharedPrefHandler;

@@ -14,7 +14,7 @@
             android:id="@+id/fragment_sidebar"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:name="com.certis_base_app.ui.router.SidebarMenuFragment_"
+            android:name="com.certis_base_app.ui.navigation.SidebarMenuFragment_"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -37,7 +37,7 @@
 
         <fragment
             android:id="@+id/fragment_all_tasks"
-            android:name="com.certis_base_app.ui.menuTaskManagement.AllTasksFragment_"
+            android:name="com.certis_base_app.ui.taskManagement.AllTasksFragment_"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
 
         <fragment
             android:id="@+id/fragment_latest_task_updates"
-            android:name="com.certis_base_app.ui.menuTaskManagement.LatestTaskUpdatesFragment_"
+            android:name="com.certis_base_app.ui.taskManagement.LatestTaskUpdatesFragment_"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

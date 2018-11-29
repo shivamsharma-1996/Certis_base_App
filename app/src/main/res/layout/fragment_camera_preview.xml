@@ -7,7 +7,7 @@
     tools:context=".ui.onboarding.registration.CameraPreviewFragment">
 
 
-    <com.certis_base_app.ui.custom_views.AutoFitTextureView
+    <com.certis_base_app.ui.custom.AutoFitTextureView
         android:id="@+id/aftv_camera_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

@@ -42,7 +42,7 @@ import android.view.TextureView;
 import android.widget.Toast;
 
 import com.certis_base_app.R;
-import com.certis_base_app.ui.custom_views.AutoFitTextureView;
+import com.certis_base_app.ui.custom.AutoFitTextureView;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -126,7 +126,6 @@ public class CameraUtil implements ActivityCompat.OnRequestPermissionsResultCall
         public void onOpened(@NonNull CameraDevice cameraDevice) {
             // This method is called when the camera is opened.  We start camera preview here.
 
-            Log.i("click", "2345678");
             mCameraOpenCloseLock.release();
             mCameraDevice = cameraDevice;
             createCameraPreviewSession();

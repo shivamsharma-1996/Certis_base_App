@@ -88,7 +88,7 @@
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintTop_toBottomOf="@+id/tv_password_creation_label">
 
-        <com.certis_base_app.ui.custom_views.ClearableEditText
+        <com.certis_base_app.ui.custom.ClearableEditText
             android:id="@+id/cet_password1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -123,7 +123,7 @@
         app:layout_constraintEnd_toStartOf="@id/iv_password_visibilty"
         app:layout_constraintTop_toTopOf="@+id/til_password1">
 
-        <com.certis_base_app.ui.custom_views.ClearableEditText
+        <com.certis_base_app.ui.custom.ClearableEditText
             android:id="@+id/cet_password2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

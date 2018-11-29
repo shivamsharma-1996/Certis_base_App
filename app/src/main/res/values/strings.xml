@@ -197,5 +197,12 @@
     <string name="snackBar_action_undo">UNDO</string>
     <string name="snackBar_title_subtask_deleted">Subtask Deleted</string>
     <string name="title_messages">Messages</string>
+    <string name="dialog_broadcast_heading">New Broadcast Message</string>
+    <string name="dialog_broadcast_label_reciepent">Choose Broadcast Recipients</string>
+    <string name="dialog_broadcast_filter1">ATSU/T1/A1</string>
+    <string name="dialog_broadcast_filter2">ATSU/T1/A2</string>
+    <string name="dialog_broadcast_filter3">ATSU/T1/A3</string>
+    <string name="dialog_broadcast_label_content">Message Content</string>
+    <string name="hint_enter_message">Enter message here</string>
 
 </resources>

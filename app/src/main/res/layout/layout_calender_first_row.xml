@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.certis_base_app.ui.custom_views.TriStateCheckBox
+    <com.certis_base_app.ui.custom.TriStateCheckBox
         android:id="@+id/tsc_check_officer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

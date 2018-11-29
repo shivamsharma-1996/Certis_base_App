@@ -29,7 +29,6 @@ public class CreateTaskListDialog extends Dialog implements View.OnClickListener
     public CreateTaskListDialog(@NonNull Context context, OnItemSelectListener onItemSelectListener, List<String> list) {
         super(context);
         this.onItemSelectListener = onItemSelectListener;
-        Log.i("shivamshivam", String.valueOf(onItemSelectListener));
         this.list = list;
     }
 

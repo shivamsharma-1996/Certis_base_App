@@ -1,11 +1,9 @@
 package com.certis_base_app.ui.createTask;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,7 @@ import android.widget.TextView;
 
 import com.certis_base_app.R;
 import com.certis_base_app.enums.CalenderItemType;
-import com.certis_base_app.ui.custom_views.TriStateCheckBox;
+import com.certis_base_app.ui.custom.TriStateCheckBox;
 
 import java.util.ArrayList;
 import java.util.HashMap;

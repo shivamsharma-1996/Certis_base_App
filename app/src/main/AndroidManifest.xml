@@ -49,18 +49,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.onboarding.login.SigninFailedActivity" />
         <activity
-            android:name=".ui.menuOfficerDashboard.OfficerMonitoringActivity_"
+            android:name=".ui.officerDashboard.OfficerMonitoringActivity_"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".ui.menuMessaging.MessagingActivity_"
+            android:name=".ui.messaging.MessagingActivity_"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme.NoActionBar"
-             />
-        <activity
-            android:name=".ui.menuIncidentManagement.IncidentManagementActivity_"
-            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,7 +65,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.menuTaskManagement.TaskManagementActivity_"
+            android:name=".ui.incidentManagement.IncidentManagementActivity_"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".ui.taskManagement.TaskManagementActivity_"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"/>

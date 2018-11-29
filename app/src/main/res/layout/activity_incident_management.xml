@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout_incident_management"
-    tools:context=".ui.menuIncidentManagement.IncidentManagementActivity">
+    tools:context=".ui.incidentManagement.IncidentManagementActivity">
 
 
     <android.support.constraint.ConstraintLayout
@@ -59,7 +59,7 @@
             android:id="@+id/fragment_sidebar"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:name="com.certis_base_app.ui.router.SidebarMenuFragment_"
+            android:name="com.certis_base_app.ui.navigation.SidebarMenuFragment_"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>

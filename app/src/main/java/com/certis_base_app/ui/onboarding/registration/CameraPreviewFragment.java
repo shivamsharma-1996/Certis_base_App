@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 import com.certis_base_app.R;
 import com.certis_base_app.ui.BaseFragment;
-import com.certis_base_app.ui.custom_views.AutoFitTextureView;
+import com.certis_base_app.ui.custom.AutoFitTextureView;
 import com.certis_base_app.utills.CameraUtil;
 import com.certis_base_app.utills.SharedPrefHandler;
 import com.certis_base_app.utills.Singleton;

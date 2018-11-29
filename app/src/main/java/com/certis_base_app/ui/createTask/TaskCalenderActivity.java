@@ -4,7 +4,6 @@ package com.certis_base_app.ui.createTask;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -15,7 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import com.certis_base_app.R;
 import com.certis_base_app.ui.BaseActivity;
-import com.certis_base_app.ui.custom_views.TriStateCheckBox;
+import com.certis_base_app.ui.custom.TriStateCheckBox;
 
 import java.util.HashMap;
 

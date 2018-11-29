@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
+   <!-- <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_seperator"
         app:layout_constraintStart_toEndOf="@id/fragment_sidebar"
         app:popupTheme="@style/Base.ThemeOverlay.AppCompat.Dark"
         app:title="@string/title_messages"/>
-
+-->
     <fragment
         android:id="@+id/fragment_sidebar"
-        android:name="com.certis_base_app.ui.router.SidebarMenuFragment_"
+        android:name="com.certis_base_app.ui.navigation.SidebarMenuFragment_"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,25 +27,25 @@
 
     <fragment
         android:id="@+id/fragment_message_room"
-        android:name="com.certis_base_app.ui.menuMessaging.MessageRoomFragment"
+        android:name="com.certis_base_app.ui.messaging.MessageRoomFragment_"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toEndOf="@+id/fragment_sidebar"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.33" />
 
     <fragment
-        android:id="@+id/fragment_message_invbox"
-        android:name="com.certis_base_app.ui.menuMessaging.MessageInboxFragment"
+        android:id="@+id/fragment_message_inbox"
+        android:name="com.certis_base_app.ui.messaging.MessageInboxFragment_"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/view_seperator"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <android.support.constraint.Guideline
+ <!--   <android.support.constraint.Guideline
         android:id="@+id/guideline"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -53,7 +53,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/fragment_sidebar"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.35"/>
+        app:layout_constraintGuide_percent="0.40"/>-->
+
+    <View
+        android:id="@+id/view_seperator"
+        android:layout_width="@dimen/outline_width_1"
+        android:layout_height="0dp"
+        android:background="@color/greyDark"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragment_message_room" />
 
 </android.support.constraint.ConstraintLayout>
 

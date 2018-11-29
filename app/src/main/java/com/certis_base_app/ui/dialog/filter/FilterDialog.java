@@ -5,17 +5,20 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.certis_base_app.R;
-import com.certis_base_app.ui.custom_views.TriStateCheckBox;
+import com.certis_base_app.ui.custom.TriStateCheckBox;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +40,8 @@ public class FilterDialog extends DialogFragment implements CompoundButton.OnChe
         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_filter, null);
         tvApply  = dialogView.findViewById(R.id.tv_apply);
         tvCancel  = dialogView.findViewById(R.id.tv_cancel);
-
         builder.setView(dialogView);
+
         final AlertDialog dialog = builder.create();
         tvApply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,19 +55,19 @@ public class FilterDialog extends DialogFragment implements CompoundButton.OnChe
                 dialog.dismiss();
             }
         });
-        /*builder.setTitle(getString(R.string.dialog_filter_heading)).
-                setPositiveButton(getString(R.string.dialog_filter_apply), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                }).
-                setNegativeButton(getString(R.string.dialog_filter_cancel), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });*/
+//        builder.setTitle(getString(R.string.dialog_filter_heading)).
+//                setPositiveButton(getString(R.string.dialog_filter_apply), new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                    }
+//                }).
+//                setNegativeButton(getString(R.string.dialog_filter_cancel), new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                });
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         rvFilterList = dialogView.findViewById(R.id.rv_filter_list);
@@ -74,11 +77,14 @@ public class FilterDialog extends DialogFragment implements CompoundButton.OnChe
         return dialog;
     }
 
-    /*@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                               Bundle savedInstanceState) {
 
-    }*/
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+//        Window window = this.getDialog().getWindow();
+//        window.setLayout(1000, window.getAttributes().height);
+    }
 
     public List<String> getPopulatedList() {
         List<String> populatedList = new ArrayList<>();

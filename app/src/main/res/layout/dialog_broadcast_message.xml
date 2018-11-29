@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dialog_semi_round_white__solid">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_dialog_semi_round_white__solid">
+
+        <View
+            android:id="@+id/view_bg_dialog_heading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_dialog_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_dialog_heading"/>
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/dimens_24"
+            android:layout_height="@dimen/dimens_24"
+            android:layout_marginStart="@dimen/dimens_16"
+            android:padding="@dimen/dimens_3"
+            android:src="@drawable/ic_close_white"
+            app:layout_constraintBottom_toBottomOf="@+id/view_bg_dialog_heading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_bg_dialog_heading" />
+
+        <TextView
+            android:id="@+id/tv_dialog_heading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens_32"
+            android:fontFamily="sans-serif-medium"
+            android:paddingBottom="@dimen/dimens_16"
+            android:paddingTop="@dimen/dimens_16"
+            android:text="@string/dialog_broadcast_heading"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_20"
+            app:layout_constraintEnd_toStartOf="@+id/tv_add"
+            app:layout_constraintStart_toEndOf="@+id/iv_close"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ib_send"
+            android:layout_width="@dimen/dimens_24"
+            android:layout_height="@dimen/dimens_24"
+            android:layout_marginEnd="@dimen/dimens_16"
+            android:alpha="0.5"
+            android:background="@null"
+            android:padding="@dimen/dimens_3"
+            android:src="@drawable/ic_send"
+            app:layout_constraintBottom_toBottomOf="@id/tv_dialog_heading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_dialog_heading" />
+
+        <TextView
+            android:id="@+id/tv_broadcast_reciepents_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens_24"
+            android:layout_marginTop="@dimen/dimens_24"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/dialog_broadcast_label_reciepent"
+            android:textColor="@color/textPrimary"
+            android:textSize="@dimen/dimens_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_bg_dialog_heading" />
+
+        <Button
+            android:id="@+id/btn_filter_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_16"
+            android:background="@drawable/selector_calender_filter_chips"
+            android:focusableInTouchMode="true"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingBottom="@dimen/dimens_8"
+            android:paddingEnd="@dimen/dimens_20"
+            android:paddingStart="@dimen/dimens_20"
+            android:paddingTop="@dimen/dimens_8"
+            android:text="@string/dialog_broadcast_filter1"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeNormal"
+            app:layout_constraintStart_toStartOf="@id/tv_broadcast_reciepents_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_broadcast_reciepents_label" />
+
+        <Button
+            android:id="@+id/btn_filter_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens_8"
+            android:background="@drawable/selector_calender_filter_chips"
+            android:focusableInTouchMode="true"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingBottom="@dimen/dimens_8"
+            android:paddingEnd="@dimen/dimens_20"
+            android:paddingStart="@dimen/dimens_20"
+            android:paddingTop="@dimen/dimens_8"
+            android:text="@string/dialog_broadcast_filter2"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeNormal"
+            app:layout_constraintStart_toEndOf="@+id/btn_filter_1"
+            app:layout_constraintTop_toTopOf="@+id/btn_filter_1" />
+
+        <Button
+            android:id="@+id/btn_filter_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens_8"
+            android:background="@drawable/selector_calender_filter_chips"
+            android:focusableInTouchMode="true"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingBottom="@dimen/dimens_8"
+            android:paddingEnd="@dimen/dimens_20"
+            android:paddingStart="@dimen/dimens_20"
+            android:paddingTop="@dimen/dimens_8"
+            android:text="@string/dialog_broadcast_filter3"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeNormal"
+            app:layout_constraintStart_toEndOf="@+id/btn_filter_2"
+            app:layout_constraintTop_toTopOf="@+id/btn_filter_2" />
+
+        <View
+            android:id="@+id/view_seperator"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dimens_24"
+            android:background="@color/greyDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_filter_1" />
+
+        <TextView
+            android:id="@+id/tv_broadcast_content_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimens_60dp"
+            android:layout_marginStart="@dimen/dimens_24"
+            android:layout_marginTop="@dimen/dimens_24"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/dialog_broadcast_label_content"
+            android:textColor="@color/textPrimary"
+            android:textSize="@dimen/dimens_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_seperator" />
+
+        <EditText
+            android:id="@+id/et_input_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimens_24"
+            android:layout_marginTop="@dimen/dimens_24"
+            android:background="@null"
+            android:hint="@string/hint_enter_message"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textSecondary"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/textSizeMedium2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_broadcast_content_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_broadcast_content_label" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

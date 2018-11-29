@@ -9,12 +9,11 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.certis_base_app.R;
-import com.certis_base_app.ui.custom_views.ClearableEditText;
-import com.certis_base_app.ui.menuOfficerDashboard.OfficerMonitoringActivity_;
+import com.certis_base_app.ui.custom.ClearableEditText;
+import com.certis_base_app.ui.officerDashboard.OfficerMonitoringActivity_;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;

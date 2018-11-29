@@ -11,7 +11,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.certis_base_app.R;
-import com.certis_base_app.ui.custom_views.TriStateCheckBox;
+import com.certis_base_app.ui.custom.TriStateCheckBox;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -39,8 +39,6 @@
         android:textSize="@dimen/textSizeNormal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-
     <Button
         android:id="@+id/btn_3_active"
         android:layout_width="wrap_content"
@@ -61,7 +59,6 @@
         android:textSize="@dimen/textSizeNormal"
         app:layout_constraintStart_toEndOf="@+id/btn_select_all"
         app:layout_constraintTop_toTopOf="@+id/btn_select_all" />
-
     <Button
         android:id="@+id/btn_with_comflict_tasks"
         android:layout_width="wrap_content"

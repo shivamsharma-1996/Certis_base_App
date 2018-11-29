@@ -48,5 +48,6 @@
     <dimen name="dimens_60dp">60dp</dimen>
     <dimen name="dimens_3">3dp</dimen>
     <dimen name="dimnes_45">45dp</dimen>
+    <dimen name="height_dialog_broadcast">496dp</dimen>
 
 </resources>

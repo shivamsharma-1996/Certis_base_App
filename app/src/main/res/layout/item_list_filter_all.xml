@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:button="@drawable/selector_dialog_filter_checkbox"/>-->
 
-    <com.certis_base_app.ui.custom_views.TriStateCheckBox
+    <com.certis_base_app.ui.custom.TriStateCheckBox
         android:id="@+id/tsc_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

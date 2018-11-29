@@ -19,7 +19,7 @@ import android.widget.TimePicker;
 import com.certis_base_app.R;
 import com.certis_base_app.model.Subtask;
 import com.certis_base_app.ui.BaseActivity;
-import com.certis_base_app.ui.custom_views.RecyclerItemTouchHelper;
+import com.certis_base_app.ui.custom.RecyclerItemTouchHelper;
 import com.certis_base_app.ui.dialog.general.CreateTaskListDialog;
 import com.certis_base_app.ui.dialog.location.LocationDialog;
 import com.certis_base_app.ui.dialog.subtask.EditSubtaskDialog;

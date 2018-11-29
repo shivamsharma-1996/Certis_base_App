@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:id="@+id/cl_officer_dashboard"
-    tools:context=".ui.menuOfficerDashboard.OfficerDashboardFragment">
+    tools:context=".ui.officerDashboard.OfficerDashboardFragment">
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"

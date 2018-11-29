@@ -19,7 +19,7 @@
         android:id="@+id/fragment_sidebar"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:name="com.certis_base_app.ui.router.SidebarMenuFragment_"
+        android:name="com.certis_base_app.ui.navigation.SidebarMenuFragment_"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

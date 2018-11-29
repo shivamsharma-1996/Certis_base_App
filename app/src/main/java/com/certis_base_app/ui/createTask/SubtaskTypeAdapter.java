@@ -11,8 +11,7 @@ import android.widget.TextView;
 
 import com.certis_base_app.R;
 import com.certis_base_app.model.Subtask;
-import com.certis_base_app.ui.custom_views.RecyclerItemTouchHelper;
-import com.certis_base_app.ui.custom_views.SwipeViewHolder;
+import com.certis_base_app.ui.custom.SwipeViewHolder;
 
 import java.util.List;
 
@@ -107,7 +106,7 @@ public class SubtaskTypeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         return subtaskList != null ? subtaskList.size() : 0;
     }
 
-    public static class SubtaskListItemHolder extends RecyclerView.ViewHolder {
+    public static class SubtaskListItemHolder extends SwipeViewHolder {
         public View viewBackground;
         public View viewForeground;
         ImageView subtaskImage;
@@ -117,12 +116,12 @@ public class SubtaskTypeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         public SubtaskListItemHolder(View itemView) {
             super(itemView);
+            this.viewForeground = itemView.findViewById(R.id.view_foreground);
+            this.viewBackground = itemView.findViewById(R.id.view_background);
             subtaskImage = itemView.findViewById(R.id.iv_subtask);
             subtaskTitle = itemView.findViewById(R.id.tv_subtask_title);
             subtaskType = itemView.findViewById(R.id.tv_subtask_type);
             subtaskEndTime = itemView.findViewById(R.id.tv_subtask_end_time);
-            this.viewForeground = itemView.findViewById(R.id.view_foreground);
-            this.viewBackground = itemView.findViewById(R.id.view_background);
         }
     }
 }
