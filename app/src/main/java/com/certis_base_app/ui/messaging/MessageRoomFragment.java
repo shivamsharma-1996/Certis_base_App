@@ -49,7 +49,6 @@ public class MessageRoomFragment extends BaseFragment implements View.OnClickLis
         messageRoomAdapter = new MessageRoomAdapter(this.getPopulatedList(), this);
         rvMessageRoomList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvMessageRoomList.setAdapter(messageRoomAdapter);
-
         this.setupToolbar();
     }
 
@@ -80,7 +79,6 @@ public class MessageRoomFragment extends BaseFragment implements View.OnClickLis
             public void onClose() {
                 broadcastDialog.dismiss();
             }
-
             @Override
             public void onSend(String broadcastMsg) {
 

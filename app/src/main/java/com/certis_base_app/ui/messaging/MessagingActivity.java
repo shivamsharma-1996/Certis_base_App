@@ -22,7 +22,6 @@ public class MessagingActivity extends BaseActivity implements MessageRoomFragme
 
     @Override
     public void onSendBroadcast(String broadcastMsg) {
-
     }
 
     @Override

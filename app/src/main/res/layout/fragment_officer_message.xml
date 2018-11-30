@@ -41,6 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@null"
+        android:textCursorDrawable="@null"
         android:fontFamily="sans-serif-medium"
         android:hint="@string/hint_message_to_officer"
         android:padding="@dimen/dimens_24"

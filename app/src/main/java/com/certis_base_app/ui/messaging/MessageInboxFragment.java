@@ -92,6 +92,7 @@ public class MessageInboxFragment extends Fragment {
             messageInboxAdapter.setMessages(new MessageCard(message, this.getMessageSentTime()));
 
         rvMessageList.scrollToPosition(messageInboxAdapter.getItemCount() - 1 );
+        mMessageInput.setText("");
     }
 
     public String getMessageSentTime(){

@@ -2,6 +2,7 @@ package com.certis_base_app.ui.messaging;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,6 @@ import com.certis_base_app.R;
 import java.util.List;
 
 public class MessageRoomAdapter extends RecyclerView.Adapter {
-
     private List<String> messageRoomList;
     private View.OnClickListener onClickListener;
 
@@ -43,9 +43,10 @@ public class MessageRoomAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
-    public class MessageRoomHolder extends RecyclerView.ViewHolder{
+    public class MessageRoomHolder extends RecyclerView.ViewHolder {
         public MessageRoomHolder(View itemView) {
             super(itemView);
         }
+
     }
 }

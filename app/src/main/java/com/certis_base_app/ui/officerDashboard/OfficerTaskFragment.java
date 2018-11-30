@@ -142,7 +142,9 @@ public class OfficerTaskFragment extends BaseFragment implements View.OnClickLis
                 this.getChildFragmentManager().beginTransaction().
                         replace(R.id.frame_side_panel_right, officerTaskDetailFragment, officerTaskDetailFragment.getClass().getSimpleName()).
                         commit();
+
                 mDrawerLayout.openDrawer(mSidePanelView);
+                mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN);
                 break;
             default:
                 break;
@@ -187,6 +189,8 @@ public class OfficerTaskFragment extends BaseFragment implements View.OnClickLis
                 replace(R.id.frame_side_panel_right, officerChatFragment, officerChatFragment.getClass().getSimpleName()).
                 commit();
         mDrawerLayout.openDrawer(mSidePanelView);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN);
+
     }
 
     @Override

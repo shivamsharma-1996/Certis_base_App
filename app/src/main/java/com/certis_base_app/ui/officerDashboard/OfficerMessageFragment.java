@@ -37,7 +37,7 @@ public class OfficerMessageFragment extends BaseFragment {
     EditText mMessageInput;
     @ViewById(R.id.iv_send)
     ImageView mSendImage;
-    
+
 
     private OfficerMessageAdapter messageAdapter;
     List<MessageCard> messageList = new ArrayList<>();
@@ -97,6 +97,8 @@ public class OfficerMessageFragment extends BaseFragment {
         messageAdapter.setMessages(new MessageCard(message, this.getMessageSentTime()));
 
         rvMessageView.scrollToPosition(messageAdapter.getItemCount() - 1 );
+
+        mMessageInput.setText("");
     }
 
     public String getMessageSentTime(){

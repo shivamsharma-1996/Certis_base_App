@@ -3,6 +3,6 @@
 
     <item android:drawable="@drawable/bg_round_solid_color_primary"
         android:state_focused="true"/>
-    <item android:drawable="@drawable/bg_round_solid_color_gray"
+    <item android:drawable="@drawable/bg_round_solid_gray"
         android:state_focused="false"/>
 </selector>

@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:hint="@string/hint_message_to_officer"
+        android:textCursorDrawable="@null"
         android:inputType="text"
         android:padding="@dimen/dimens_24"
         android:textColor="@color/textPrimary"
