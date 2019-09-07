@@ -1,6 +1,8 @@
 # Certis_base_App
 Officer Monitoring system. 
-My Contribution : developed multipane UI for tablets 
+
+
+developed multipane UI for tablets 
 
 CHECK ALL WIREFRAMES HERE - https://drive.google.com/open?id=1KPUTfSN_WGQfle6dzoKVpaeeXsF2zcMT
 
